@@ -26,7 +26,7 @@
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-/* @(#) $Header: /a/cvs/386BSD/src/usr.bin/lex/flexdef.h,v 1.2 1993/06/29 03:27:08 nate Exp $ (LBL) */
+/* @(#) $Header: /a/cvs/386BSD/src/usr.bin/lex/flexdef.h,v 1.3 1993/07/06 18:06:49 nate Exp $ (LBL) */
 
 #ifndef FILE
 #include <stdio.h>
@@ -72,7 +72,9 @@ char *sprintf(); /* keep lint happy */
 #ifdef SCO_UNIX
 void *memset();
 #else
+#ifndef __386BSD__
 char *memset();
+#endif
 #endif
 #endif
 
