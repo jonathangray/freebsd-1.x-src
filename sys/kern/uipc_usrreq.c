@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)uipc_usrreq.c	7.26 (Berkeley) 6/3/91
+ *	from:	@(#)uipc_usrreq.c	7.26 (Berkeley) 6/3/91
+ *	$Id: uipc_usrreq.c,v 1.3 1993/09/14 04:26:40 rgrimes Exp $
  */
 
 #include "param.h"
@@ -591,7 +592,7 @@ unp_externalize(rights)
 	int newfds = (cm->cmsg_len - sizeof(*cm)) / sizeof (int);
 	int f;
 
-	if (fdavail(p, newfds)) {
+	if (!fdavail(p, newfds)) {
 		for (i = 0; i < newfds; i++) {
 			fp = *rp;
 			unp_discard(fp);
