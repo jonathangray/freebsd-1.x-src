@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)init_main.c	7.41 (Berkeley) 5/15/91
- *	$Id: init_main.c,v 1.8 1993/10/26 21:59:44 nate Exp $
+ *	$Id: init_main.c,v 1.9 1993/11/25 01:32:46 wollman Exp $
  */
 
 #include "param.h"
@@ -87,7 +87,7 @@ struct	vnode *rootvp, *swapdev_vp;
 int	boothowto;
 
 #if __GNUC__ >= 2
-__main() {}
+void __main() {}
 #endif
 
 /*
@@ -97,6 +97,7 @@ __main() {}
  * routines including startup(), which does memory initialization
  * and autoconfiguration.
  */
+void
 main()
 {
 	register int i;

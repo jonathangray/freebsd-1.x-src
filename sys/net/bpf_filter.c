@@ -36,7 +36,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)bpf.c	7.5 (Berkeley) 7/15/91
- *	$Id: bpf_filter.c,v 1.2 1993/10/16 17:43:07 rgrimes Exp $
+ *	$Id: bpf_filter.c,v 1.3 1993/11/25 01:33:48 wollman Exp $
  */
 
 #include <sys/param.h>
@@ -172,7 +172,7 @@ bpf_filter(pc, p, wirelen, buflen)
 	u_int wirelen;
 	register u_int buflen;
 {
-	register u_long A, X;
+	register u_long A = 0, X = 0;
 	register int k;
 	long mem[BPF_MEMWORDS];
 

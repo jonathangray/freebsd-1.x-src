@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)fs.h	7.12 (Berkeley) 5/8/91
- *	$Id: fs.h,v 1.3 1993/11/07 17:53:36 wollman Exp $
+ *	$Id: fs.h,v 1.4 1993/11/25 01:38:17 wollman Exp $
  */
 
 #ifndef _UFS_FS_H_
@@ -442,4 +442,10 @@ struct	ocg {
  * NINDIR is the number of indirects in a file system block.
  */
 #define	NINDIR(fs)	((fs)->fs_nindir)
+
+#ifdef KERNEL
+
+extern void fserr(struct fs *, int /*uid_t*/, const char *);
+
+#endif /* KERNEL */
 #endif /* _UFS_FS_H_ */

@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)route.h	7.13 (Berkeley) 4/25/91
- *	$Id: route.h,v 1.3 1993/11/07 17:47:08 wollman Exp $
+ *	$Id: route.h,v 1.4 1993/11/25 01:34:11 wollman Exp $
  */
 
 #ifndef _NET_ROUTE_H_
@@ -224,5 +224,8 @@ extern struct	mbuf *rthost[RTHASHSIZ];
 extern struct	mbuf *rtnet[RTHASHSIZ];
 extern struct	rtstat	rtstat;
 struct	rtentry *rtalloc1();
+
+extern void rt_maskedcopy(struct sockaddr *, struct sockaddr *, struct sockaddr *);
+
 #endif
 #endif /* _NET_ROUTE_H_ */

@@ -45,7 +45,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id: kern__physio.c,v 1.3 1993/11/18 05:02:33 rgrimes Exp $
+ *	$Id: kern__physio.c,v 1.4 1993/11/25 01:32:47 wollman Exp $
  */
 
 #include "param.h"
@@ -65,12 +65,14 @@ int physio(int (*)(), int, struct buf *, int, int, caddr_t, int *, struct proc *
  * user process directly for read and write operations..
  */
 
+int
 rawread(dev, uio)
 	dev_t dev; struct uio *uio;
 {
 	return (uioapply(physio, cdevsw[major(dev)].d_strategy, dev, uio));
 }
 
+int
 rawwrite(dev, uio)
 	dev_t dev; struct uio *uio;
 {

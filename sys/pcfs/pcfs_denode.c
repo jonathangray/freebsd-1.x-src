@@ -15,7 +15,7 @@
  *
  *  October 1992
  *
- *	$Id: pcfs_denode.c,v 1.3 1993/11/07 21:48:09 wollman Exp $
+ *	$Id: pcfs_denode.c,v 1.4 1993/11/25 01:37:09 wollman Exp $
  */
 
 #include "param.h"
@@ -44,7 +44,8 @@ union dehead {
 	struct denode *deh_chain[2];
 } dehead[DEHSZ];
 
-pcfs_init()
+void
+pcfs_init(void)
 {
 	int i;
 	union dehead *deh;
@@ -468,6 +469,7 @@ printf("detrunc(): fatentry errors %d\n", error);
  *  the file it represents has been moved to a new
  *  directory.
  */
+void
 reinsert(dep)
 	struct denode *dep;
 {

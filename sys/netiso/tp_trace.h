@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)tp_trace.h	7.5 (Berkeley) 6/27/91
- *	$Id: tp_trace.h,v 1.3 1993/11/07 17:50:06 wollman Exp $
+ *	$Id: tp_trace.h,v 1.4 1993/11/25 01:36:14 wollman Exp $
  */
 
 /***********************************************************
@@ -183,8 +183,8 @@ extern int tp_Tracen;
  **********************************************/
 #define TPTRACEN 1
 
-#define tptrace(A,B,C,D,E,F) 0
-#define tptraceTPCB(A,B,C,D,E,F) 0
+#define tptrace(A,B,C,D,E,F) 
+#define tptraceTPCB(A,B,C,D,E,F) 
 
 #define IFTRACE(ascii)	 if (0) {
 #define ENDTRACE	 }

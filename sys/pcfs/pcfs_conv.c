@@ -15,7 +15,7 @@
  *
  *  October 1992
  *
- *	$Id: pcfs_conv.c,v 1.2 1993/10/16 19:29:31 rgrimes Exp $
+ *	$Id: pcfs_conv.c,v 1.3 1993/11/25 01:37:08 wollman Exp $
  */
 
 /*
@@ -283,7 +283,7 @@ unix2dosfn(un, dn, unlen)
 	int unlen;
 {
 	int i;
-	u_char c;
+	u_char c = 0;
 
 /*
  *  Fill the dos filename string with blanks.
