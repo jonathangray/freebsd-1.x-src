@@ -4,7 +4,8 @@
  */
 
 #ifndef lint
-static char sccsid[] = "@(#)cplus-dem.c	5.4 (Berkeley) 4/30/91";
+/*static char sccsid[] = "from: @(#)cplus-dem.c	5.4 (Berkeley) 4/30/91";*/
+static char rcsid[] = "$Id: cplus-dem.c,v 1.2 1993/11/03 23:40:53 paul Exp $";
 #endif /* not lint */
 
 /* Demangler for GNU C++ 
