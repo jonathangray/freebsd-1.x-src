@@ -1,5 +1,5 @@
 #	from: @(#)bsd.prog.mk	5.26 (Berkeley) 6/25/91
-#	$Id: bsd.prog.mk,v 1.18 1994/01/31 06:10:37 rgrimes Exp $
+#	$Id: bsd.prog.mk,v 1.19 1994/02/25 21:50:29 phk Exp $
 
 .if exists(${.CURDIR}/../Makefile.inc)
 .include "${.CURDIR}/../Makefile.inc"
@@ -69,7 +69,7 @@ ${PROG}: ${LIBCRT0} ${LIBC} ${DPSRCS} ${OBJS} ${DPADD}
 .else defined(LDONLY)
 
 ${PROG}: ${DPSRCS} ${OBJS} ${LIBC} ${DPADD}
-	${CC} ${LDFLAGS} -o ${.TARGET} ${OBJS} ${LDADD}
+	${CC} ${CFLAGS} ${LDFLAGS} -o ${.TARGET} ${OBJS} ${LDADD}
 
 .endif
 
