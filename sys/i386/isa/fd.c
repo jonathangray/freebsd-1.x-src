@@ -46,14 +46,21 @@
  * Largely rewritten to handle multiple controllers and drives
  * By Julian Elischer, Sun Apr  4 16:34:33 WST 1993
  */
-char	rev[] = "$Revision: 1.1 $";
+char	rev[] = "$Revision: 1.2 $";
 /*
- * $Header: /a/cvs/386BSD/src/sys/i386/isa/fd.c,v 1.1 1993/06/12 14:58:01 rgrimes Exp $
+ * $Header: /a/cvs/386BSD/src/sys/i386/isa/fd.c,v 1.2 1993/07/15 17:53:04 davidg Exp $
  */
 /*
  * $Log: fd.c,v $
- * Revision 1.1  1993/06/12 14:58:01  rgrimes
- * Initial revision
+ * Revision 1.2  1993/07/15 17:53:04  davidg
+ * Modified attach printf's so that the output is compatible with the "new"
+ * way of doing things. There still remain several drivers that need to
+ * be updated.  Also added a compile-time option to pccons to switch the
+ * control and caps-lock keys (REVERSE_CAPS_CTRL) - added for my personal
+ * sanity.
+ *
+ * Revision 1.1.1.1  1993/06/12  14:58:02  rgrimes
+ * Initial import, 0.1 + pk 0.2.4-B1
  *
  * Revision 1.10  93/04/13  16:53:29  root
  * make sure turning off a drive motor doesn't deselect another
@@ -307,22 +314,16 @@ struct isa_device *dev;
 		fd_data[fdu].track = -2;
 		fd_data[fdu].fdc = fdc;
 		fd_data[fdu].fdsu = fdsu;
-		/* yes, announce it */
-		if (!hdr)
-			printf(" drives ");
-		else
-			printf(", ");
-		printf("%d: ", fdu);
-
+		printf("fd%d: unit %d type ", fdcu, fdu);
 		
 		if ((fdt & 0xf0) == RTCFDT_12M) {
-			printf("1.2M");
+			printf("1.2MB 5.25in\n");
 			fd_data[fdu].type = 1;
 			fd_data[fdu].ft = fd_types + 1;
 			
 		}
 		if ((fdt & 0xf0) == RTCFDT_144M) {
-			printf("1.44M");
+			printf("1.44MB 3.5in\n");
 			fd_data[fdu].type = 0;
 			fd_data[fdu].ft = fd_types + 0;
 		}
@@ -332,7 +333,6 @@ struct isa_device *dev;
 		hdr = 1;
 	}
 
-	printf(" %s ",rev);
 	/* Set transfer to 500kbps */
 	outb(fdc->baseport+fdctl,0); /*XXX*/
 }

@@ -28,8 +28,15 @@
 /*
  * HISTORY
  * $Log: aha1542.c,v $
- * Revision 1.1  1993/06/12 14:57:58  rgrimes
- * Initial revision
+ * Revision 1.2  1993/07/15 17:52:58  davidg
+ * Modified attach printf's so that the output is compatible with the "new"
+ * way of doing things. There still remain several drivers that need to
+ * be updated.  Also added a compile-time option to pccons to switch the
+ * control and caps-lock keys (REVERSE_CAPS_CTRL) - added for my personal
+ * sanity.
+ *
+ * Revision 1.1.1.1  1993/06/12  14:57:59  rgrimes
+ * Initial import, 0.1 + pk 0.2.4-B1
  *
  * Revision 1.6  1992/08/24  21:01:58  jason
  * many changes and bugfixes for osf1
@@ -623,7 +630,6 @@ struct isa_dev *dev;
  		panic("Unable to add aha interrupt handler");
 #endif /* !defined(OSF) */
 #ifdef	__386BSD__
-	printf("\n  **");
 #else	__386BSD__
 	printf("port=%x spl=%d\n",
 	   dev->dev_addr, dev->dev_spl);
@@ -641,7 +647,7 @@ struct	isa_dev	*dev;
 	int	unit = dev->dev_unit;
 
 #ifdef	__386BSD__
-	printf(" probing for scsi devices**\n");
+	printf("**probing for scsi devices**\n");
 #endif	__386BSD__
 	/***********************************************\
 	* ask the adapter what subunits are present	*
@@ -654,9 +660,6 @@ struct	isa_dev	*dev;
 	{
 		aha_timeout(0);
 	}
-#ifdef	__386BSD__
-	printf("aha%d",unit);
-#endif	__386BSD__
 	return;
 
 }
@@ -941,7 +944,6 @@ int	unit;
 	* level						*
 	\***********************************************/
 #ifdef	__386BSD__
-	printf("aha%d reading board settings, ",unit);
 #define	PRNT(x)
 #else	__386BSD__
 	printf("aha%d:",unit);
@@ -1390,21 +1392,21 @@ int	unit;
 			{
 				speed++;
 			}
-			printf("%d nSEC ok, use ",retval);
+/* XXX			printf("%d nSEC ok, use ",retval); */
 			retval2 = aha_bus_speed_check(unit,speed);
 			if(retval2 == HAD_ERROR) /* retval is slowest already */
 			{
-				printf("marginal ");
+/* XXX				printf("marginal "); */
 				retval2 = retval;
 			}
 			if(retval2)
 			{
-				printf("%d nSEC ",retval2);
+/* XXX				printf("%d nSEC ",retval2); */
 				return(retval2);
 			}
 			else
 			{
-				printf(".. slower failed, abort.\n",retval);
+/* XXX				printf(".. slower failed, abort.\n",retval); */
 				return(0);
 			}
 
