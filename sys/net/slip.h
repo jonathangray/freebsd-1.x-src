@@ -1,9 +1,4 @@
 /*
- * Definitions that user level programs might need to know to interact
- * with serial line IP (slip) lines.
-
- * @(#) $Header: /a/cvs/386BSD/src/sys/net/slip.h,v 1.1 1993/06/12 14:57:50 rgrimes Exp $ (LBL)
- *
  * Copyright (c) 1990 Regents of the University of California.
  * All rights reserved.
  *
@@ -18,6 +13,14 @@
  * THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
  * WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * 	from: unknown
+ *	$Id: slip.h,v 1.2 1993/10/16 17:43:44 rgrimes Exp $
+ */
+
+/*
+ * Definitions that user level programs might need to know to interact
+ * with serial line IP (slip) lines.
  */
 
 /*

@@ -35,22 +35,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)bpf.c	7.5 (Berkeley) 7/15/91
- *
- * static char rcsid[] =
- * "$Header: /a/cvs/386BSD/src/sys/net/bpf_filter.c,v 1.1 1993/06/12 14:57:51 rgrimes Exp $";
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00112
- * --------------------         -----   ----------------------
- *
- * 14 Mar 93    David Greenman		Upgrade bpf to match tcpdump 2.2.1
+ *	from: @(#)bpf.c	7.5 (Berkeley) 7/15/91
+ *	$Id: bpf_filter.c,v 1.2 1993/10/16 17:43:07 rgrimes Exp $
  */
-#if !(defined(lint) || defined(KERNEL))
-static char rcsid[] =
-    "@(#) $Header: /a/cvs/386BSD/src/sys/net/bpf_filter.c,v 1.1 1993/06/12 14:57:51 rgrimes Exp $ (LBL)";
-#endif
 
 #include <sys/param.h>
 #include <sys/types.h>

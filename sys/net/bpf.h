@@ -35,16 +35,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *      @(#)bpf.h       7.1 (Berkeley) 5/7/91
- *
- * @(#) $Header: /a/cvs/386BSD/src/sys/net/bpf.h,v 1.1 1993/06/12 14:57:52 rgrimes Exp $ (LBL)
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00112
- * --------------------         -----   ----------------------
- *
- * 14 Mar 93    David Greenman		Upgrade bpf to match tcpdump 2.2.1
+ *      from: @(#)bpf.h       7.1 (Berkeley) 5/7/91
+ *	$Id: bpf.h,v 1.2 1993/10/16 17:43:05 rgrimes Exp $
  */
 
 /*

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)if_dl.h	7.2 (Berkeley) 2/22/91
+ *	from: @(#)if_dl.h	7.2 (Berkeley) 2/22/91
+ *	$Id: if_dl.h,v 1.2 1993/10/16 17:43:15 rgrimes Exp $
  */
 
 /* 

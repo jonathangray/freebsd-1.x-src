@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)if.h	7.11 (Berkeley) 3/19/91
+ *	from: @(#)if.h	7.11 (Berkeley) 3/19/91
+ *	$Id: if.h,v 1.5 1993/10/16 17:43:12 rgrimes Exp $
  */
 
 /*
