@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) UNIX System Laboratories, Inc.  All or some portions
+ * of this file are derived from material licensed to the
+ * University of California by American Telephone and Telegraph Co.
+ * or UNIX System Laboratories, Inc. and are reproduced herein with
+ * the permission of UNIX System Laboratories, Inc.
+ */
 /*-
  * Copyright (c) 1990 The Regents of the University of California.
  * All rights reserved.
@@ -31,7 +38,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)times.h	7.6 (Berkeley) 3/9/91
- *	$Id: times.h,v 1.3 1993/11/07 17:53:09 wollman Exp $
+ *	$Id: times.h,v 1.4 1994/05/04 08:31:16 rgrimes Exp $
  */
 
 #ifndef _SYS_TIMES_H_
