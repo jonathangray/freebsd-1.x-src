@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ttychars.h	7.6 (Berkeley) 5/9/91
+ *	from: @(#)ttychars.h	7.6 (Berkeley) 5/9/91
+ *	$Id: ttychars.h,v 1.2 1993/10/16 17:18:07 rgrimes Exp $
  */
 
 /*

@@ -1,5 +1,7 @@
 /*
  * 16 Feb 93	Julian Elischer		ADDED for SCSI system
+ *
+ *	$Id: chio.h,v 1.3 1993/10/16 17:16:27 rgrimes Exp $
  */
 
 /* This is a "convertet" mtio.h from 386BSD 

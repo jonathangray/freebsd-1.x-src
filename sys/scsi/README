@@ -205,3 +205,5 @@ Addition of code in the tape driver to recognise models of drive that
 have particular problems so they can be handled specially.
 
 many bug-fixes and cleanups.
+
+$Id: README,v 1.7 1993/10/16 17:21:04 rgrimes Exp $

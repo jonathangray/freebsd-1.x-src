@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ttydefaults.h	7.9 (Berkeley) 5/9/91
+ *	from: @(#)ttydefaults.h	7.9 (Berkeley) 5/9/91
+ *	$Id: ttydefaults.h,v 1.2 1993/10/16 17:18:10 rgrimes Exp $
  */
 
 /*

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)cdefs.h	8.1 (Berkeley) 6/2/93
+ *	from: @(#)cdefs.h	8.1 (Berkeley) 6/2/93
+ *	$Id: cdefs.h,v 1.6 1993/10/16 17:16:24 rgrimes Exp $
  */
 
 #ifndef	_CDEFS_H_

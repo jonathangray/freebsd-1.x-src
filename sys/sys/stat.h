@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)stat.h	7.11 (Berkeley) 3/3/91
+ *	from: @(#)stat.h	7.11 (Berkeley) 3/3/91
+ *	$Id: stat.h,v 1.4 1993/10/16 17:17:50 rgrimes Exp $
  */
 
 #ifndef _SYS_STAT_H_

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vcmd.h	7.4 (Berkeley) 5/5/91
+ *	from: @(#)vcmd.h	7.4 (Berkeley) 5/5/91
+ *	$Id: vcmd.h,v 1.2 1993/10/16 17:18:23 rgrimes Exp $
  */
 
 #include <sys/ioctl.h>

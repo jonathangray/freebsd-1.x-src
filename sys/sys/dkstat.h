@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)dkstat.h	7.5 (Berkeley) 2/15/91
+ *	from: @(#)dkstat.h	7.5 (Berkeley) 2/15/91
+ *	$Id: dkstat.h,v 1.2 1993/10/16 17:16:36 rgrimes Exp $
  */
 
 #define	CP_USER		0

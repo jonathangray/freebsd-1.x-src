@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ptrace.h	7.4 (Berkeley) 2/22/91
+ *	from: @(#)ptrace.h	7.4 (Berkeley) 2/22/91
+ *	$Id: ptrace.h,v 1.2 1993/10/16 17:17:24 rgrimes Exp $
  */
 
 #ifndef	_PTRACE_H_

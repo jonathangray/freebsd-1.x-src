@@ -1,5 +1,7 @@
 /*
  * 16 Feb 93	Julian Elischer	(julian@dialix.oz.au)
+ *
+ *	$Id: cdio.h,v 1.3 1993/10/16 17:16:25 rgrimes Exp $
  */
 /* Shared between kernel & process */
 #ifndef SYS_CDIO_H

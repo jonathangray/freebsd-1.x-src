@@ -30,15 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)mount.h	7.22 (Berkeley) 6/3/91
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00129
- * --------------------         -----   ----------------------
- *
- * 02 Apr 93	Paul Popelka		Added support for PCFS
- *
+ *	from: @(#)mount.h	7.22 (Berkeley) 6/3/91
+ *	$Id: mount.h,v 1.4 1993/10/16 17:17:14 rgrimes Exp $
  */
 
 typedef quad fsid_t;			/* file system id type */

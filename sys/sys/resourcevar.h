@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)resourcevar.h	7.1 (Berkeley) 5/9/91
+ *	from: @(#)resourcevar.h	7.1 (Berkeley) 5/9/91
+ *	$Id: resourcevar.h,v 1.2 1993/10/16 17:17:30 rgrimes Exp $
  */
 
 #ifndef	_RESOURCEVAR_H_		/* tmp for user.h */

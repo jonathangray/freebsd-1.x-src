@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)acct.h	7.3 (Berkeley) 2/15/91
+ *	from: @(#)acct.h	7.3 (Berkeley) 2/15/91
+ *	$Id: acct.h,v 1.2 1993/10/16 17:16:18 rgrimes Exp $
  */
 
 /*

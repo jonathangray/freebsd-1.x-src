@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vadvise.h	7.2 (Berkeley) 5/5/91
+ *	from: @(#)vadvise.h	7.2 (Berkeley) 5/5/91
+ *	$Id: vadvise.h,v 1.2 1993/10/16 17:18:22 rgrimes Exp $
  */
 
 /*

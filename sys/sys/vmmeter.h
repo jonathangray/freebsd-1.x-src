@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vmmeter.h	7.3 (Berkeley) 5/5/91
+ *	from: @(#)vmmeter.h	7.3 (Berkeley) 5/5/91
+ *	$Id: vmmeter.h,v 1.2 1993/10/16 17:18:26 rgrimes Exp $
  */
 
 /*

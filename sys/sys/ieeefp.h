@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * 	@(#) ieeefp.h 	1.0 (Berkeley) 9/23/93
+ * 	from: @(#) ieeefp.h 	1.0 (Berkeley) 9/23/93
+ *	$Id: ieeefp.h,v 1.2 1993/10/16 17:16:52 rgrimes Exp $
  */
 
 /*

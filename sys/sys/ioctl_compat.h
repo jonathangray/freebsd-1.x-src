@@ -30,16 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ioctl_compat.h	7.4 (Berkeley) 2/5/91
- *
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00059
- * --------------------         -----   ----------------------
- *
- * 27 Nov 1992	Scott Reynolds		Completed V7 ioctl compatablity
- *					by adding gtty and stty macros
+ *	from: @(#)ioctl_compat.h	7.4 (Berkeley) 2/5/91
+ *	$Id: ioctl_compat.h,v 1.2 1993/10/16 17:16:53 rgrimes Exp $
  */
 
 #ifndef _IOCTL_COMPAT_H_

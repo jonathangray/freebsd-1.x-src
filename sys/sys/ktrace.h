@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ktrace.h	7.4 (Berkeley) 5/7/91
+ *	from: @(#)ktrace.h	7.4 (Berkeley) 5/7/91
+ *	$Id: ktrace.h,v 1.2 1993/10/16 17:17:01 rgrimes Exp $
  */
 
 /*

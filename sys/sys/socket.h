@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)socket.h	7.13 (Berkeley) 4/20/91
+ *	from: @(#)socket.h	7.13 (Berkeley) 4/20/91
+ *	$Id: socket.h,v 1.2 1993/10/16 17:17:43 rgrimes Exp $
  */
 
 /*

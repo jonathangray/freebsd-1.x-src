@@ -32,6 +32,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
+ *	from: @(#)stdio.h	5.17 (Berkeley) 6/3/91
+ *	$Id: sg.c,v 1.2 1993/10/16 17:21:06 rgrimes Exp $
  */
 #include <sys/types.h>
 #include <sys/errno.h>

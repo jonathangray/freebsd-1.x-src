@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)errno.h	7.13 (Berkeley) 2/19/91
+ *	from: @(#)errno.h	7.13 (Berkeley) 2/19/91
+ *	$Id: errno.h,v 1.2 1993/10/16 17:16:41 rgrimes Exp $
  */
 
 #ifndef KERNEL

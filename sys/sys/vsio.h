@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vsio.h	7.4 (Berkeley) 5/9/91
+ *	from: @(#)vsio.h	7.4 (Berkeley) 5/9/91
+ *	$Id: vsio.h,v 1.2 1993/10/16 17:18:29 rgrimes Exp $
  */
 
  /****************************************************************************

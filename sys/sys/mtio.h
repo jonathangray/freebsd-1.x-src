@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)mtio.h	7.6 (Berkeley) 2/5/91
+ *	from: @(#)mtio.h	7.6 (Berkeley) 2/5/91
+ *	$Id: mtio.h,v 1.4 1993/10/16 17:17:16 rgrimes Exp $
  */
 
 /*
