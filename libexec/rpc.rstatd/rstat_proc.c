@@ -29,7 +29,7 @@
 #ifndef lint
 /*static char sccsid[] = "from: @(#)rpc.rstatd.c 1.1 86/09/25 Copyr 1984 Sun Micro";*/
 /*static char sccsid[] = "from: @(#)rstat_proc.c	2.2 88/08/01 4.0 RPCSRC";*/
-static char rcsid[] = "$Id: rstat_proc.c,v 1.1 1993/09/16 00:27:47 jtc Exp $";
+static char rcsid[] = "$Id: rstat_proc.c,v 1.2 1993/09/23 18:48:55 jtc Exp $";
 #endif
 
 /*
@@ -38,8 +38,10 @@ static char rcsid[] = "$Id: rstat_proc.c,v 1.1 1993/09/16 00:27:47 jtc Exp $";
  * Copyright (c) 1984 by Sun Microsystems, Inc.
  */
 
-#include <signal.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <signal.h>
 #include <rpc/rpc.h>
 #include <sys/socket.h>
 #include <nlist.h>
@@ -53,6 +55,9 @@ static char rcsid[] = "$Id: rstat_proc.c,v 1.1 1993/09/16 00:27:47 jtc Exp $";
 #include <sys/dk.h>
 #endif
 #include <net/if.h>
+
+#undef FSHIFT			 /* Use protocol's shift and scale values */
+#undef FSCALE
 #include <rpcsvc/rstat.h>
 
 struct nlist nl[] = {
