@@ -1,9 +1,9 @@
 #	from: @(#)Makefile	5.8 (Berkeley) 7/28/90
-#	Makefile,v 1.3 1993/07/30 11:11:06 mycroft Exp
+#	$Id: Makefile,v 1.2 1994/02/17 07:06:06 rgrimes Exp $
 
 PROG=	ypbind
 NOMAN=
 CFLAGS+=-DDAEMON
-BINDIR=/usr/sbin
 
 .include <bsd.prog.mk>
+.include "../../Makefile.inc"
