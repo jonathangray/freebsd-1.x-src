@@ -1,15 +1,35 @@
 /*
  * National Semiconductor DS8390 NIC register definitions 
  *
- * $Id: if_edreg.h,v 1.6 1993/09/22 17:47:43 davidg Exp $
+ * $Id: if_edreg.h,v 1.7 1993/09/29 20:30:26 davidg Exp $
  *
  * Modification history
  *
  * $Log: if_edreg.h,v $
- * Revision 1.6  1993/09/22 17:47:43  davidg
- * rewrote interrupt code to be cleaner, fixed up some other parts
- * to make it easier to add future board types.
+ * Revision 1.7  1993/09/29 20:30:26  davidg
+ * * Revision 2.2  93/09/29  13:23:25  davidg
+ * * added no multi-buffer override for 3c503
+ * *
+ * * Revision 2.1  93/09/29  12:32:12  davidg
+ * * changed multi-buffer count for 16bit 3c503's from 5 to 2 after
+ * * noticing that the transmitter becomes idle because of so many
+ * * packets to load.
+ * *
+ * * Revision 2.0  93/09/29  00:00:19  davidg
+ * * many changes, rewrites, additions, etc. Now supports the
+ * * NE1000, NE2000, WD8003, WD8013, 3C503, 16bit 3C503, and
+ * * a variety of similar clones. 16bit 3c503 now does multi
+ * * transmit buffers. Nearly every part of the driver has
+ * * changed in some way since rev 1.30.
  *
+ * Revision 2.0  93/09/29  00:37:15  davidg
+ * changed double buffering flag to multi buffering
+ * made changes/additions for 3c503 multi-buffering
+ * ...companion to Rev. 2.0 of 'ed' driver.
+ * 
+ * Revision 1.6  93/09/28  17:20:03  davidg
+ * first cut at PIO (e.g. NE1000/2000) support
+ * 
  * Revision 1.5  93/08/25  20:38:34  davidg
  * added define for card type WD8013WC (10BaseT)
  * 
@@ -572,6 +592,7 @@ struct ed_ring	{
  */
 #define ED_VENDOR_WD_SMC	0x00		/* Western Digital/SMC */
 #define ED_VENDOR_3COM		0x01		/* 3Com */
+#define ED_VENDOR_NOVELL	0x02		/* Novell */
 
 /*
  * Compile-time config flags
@@ -579,19 +600,25 @@ struct ed_ring	{
 /*
  * this sets the default for enabling/disablng the tranceiver
  */
-#define ED_FLAGS_DISABLE_TRANCEIVER	0x01
+#define ED_FLAGS_DISABLE_TRANCEIVER	0x0001
 
 /*
  * This forces the board to be used in 8/16bit mode even if it
  *	autoconfigs differently
  */
-#define ED_FLAGS_FORCE_8BIT_MODE	0x02
-#define ED_FLAGS_FORCE_16BIT_MODE	0x04
+#define ED_FLAGS_FORCE_8BIT_MODE	0x0002
+#define ED_FLAGS_FORCE_16BIT_MODE	0x0004
 
 /*
  * This disables the use of double transmit buffers.
  */
-#define ED_FLAGS_NO_DOUBLE_BUFFERING	0x08
+#define ED_FLAGS_NO_MULTI_BUFFERING	0x0008
+
+/*
+ * This forces all operations with the NIC memory to use Programmed
+ *	I/O (i.e. not via shared memory)
+ */
+#define ED_FLAGS_FORCE_PIO		0x0010
 
 /*
  *		Definitions for Western digital/SMC WD80x3 series ASIC
@@ -673,6 +700,7 @@ struct ed_ring	{
 /* i/o base offset to CARD ID */
 #define ED_WD_CARD_ID	ED_WD_PROM+6
 
+/* Board type codes in card ID */
 #define ED_TYPE_WD8003S		0x02
 #define ED_TYPE_WD8003E		0x03
 #define ED_TYPE_WD8013EBT	0x05
@@ -710,7 +738,15 @@ struct ed_ring	{
  */
 #define ED_3COM_IO_PORTS	16		/* # of i/o addresses used */
 
-#define ED_3COM_PAGE_OFFSET	0x20		/* memory starts in second bank */
+/* tx memory starts in second bank on 8bit cards */
+#define ED_3COM_TX_PAGE_OFFSET_8BIT	0x20
+
+/* tx memory starts in first bank on 16bit cards */
+#define ED_3COM_TX_PAGE_OFFSET_16BIT	0x0
+
+/* ...and rx memory starts in second bank */
+#define ED_3COM_RX_PAGE_OFFSET_16BIT	0x20
+
 
 /*
  *	Page Start Register. Must match PSTART in NIC
@@ -853,3 +889,31 @@ struct ed_ring	{
  *	Register File Access LSB
  */
 #define ED_3COM_RFLSB		0x0f
+
+/*
+ *		 Definitions for Novell NE1000/2000 boards
+ */
+
+/*
+ * Board type codes
+ */
+#define ED_TYPE_NE1000		0x01
+#define ED_TYPE_NE2000		0x02
+
+/*
+ * Register offsets/total
+ */
+#define ED_NOVELL_NIC_OFFSET	0x00
+#define ED_NOVELL_ASIC_OFFSET	0x10
+#define ED_NOVELL_IO_PORTS	32
+
+/*
+ * Remote DMA data register; for reading or writing to the NIC mem
+ *	via programmed I/O (offset from ASIC base)
+ */
+#define ED_NOVELL_DATA		0x00
+
+/*
+ * Reset register; reading from this register causes a board reset
+ */
+#define ED_NOVELL_RESET		0x0f
