@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)tp_output.c	7.10 (Berkeley) 6/27/91
+ *	From:	@(#)tp_output.c	7.10 (Berkeley) 6/27/91
+ *	$Id: tp_output.c,v 1.2 1993/09/09 23:35:48 rgrimes Exp $
  */
 
 /***********************************************************
@@ -62,7 +63,7 @@ SOFTWARE.
 /* 
  * ARGO TP
  *
- * $Header: /a/cvs/386BSD/src/sys/netiso/tp_output.c,v 1.1 1993/06/12 14:57:17 rgrimes Exp $
+ * $Header: /a/cvs/386BSD/src/sys/netiso/tp_output.c,v 1.2 1993/09/09 23:35:48 rgrimes Exp $
  * $Source: /a/cvs/386BSD/src/sys/netiso/tp_output.c,v $
  *
  * In here is tp_ctloutput(), the guy called by [sg]etsockopt(),
@@ -163,7 +164,13 @@ tp_consistency( tpcb, cmd, param )
 		printf("p_class 0x%x, class_to_use 0x%x\n",  param->p_class,
 			class_to_use);
 	ENDDEBUG
+#ifdef XXXRWGXXX
+	/* this next line is questionable p_netservice is u_char, how can it
+	 * ever be less than 0 ??
+	 */
 	if((param->p_netservice < 0) || (param->p_netservice > TP_MAX_NETSERVICES)){
+#endif
+	if(/*(param->p_netservice < 0) ||*/ (param->p_netservice > TP_MAX_NETSERVICES)){
 		error = EINVAL; goto done;
 	}
 	if( (param->p_class & TP_CLASSES_IMPLEMENTED) == 0 ) {
