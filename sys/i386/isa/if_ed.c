@@ -17,7 +17,10 @@
  * Modification history
  *
  * $Log: if_ed.c,v $
- * Revision 1.6  1993/07/20 01:39:24  jkh
+ * Revision 1.7  1993/07/20 02:02:12  jkh
+ * Changed comment relating to memsize to be a little less misleading.
+ *
+ * Revision 1.6  1993/07/20  01:39:24  jkh
  * Fixed to allow iosiz config parameter to override what was (for me,
  * incorrectly) probed.  This allows you more flexibility in getting weird
  * WD 80x3 clones to work.
@@ -309,7 +312,7 @@ type_WD80x3:
 	for (i=0; i<8; i++)
 		printf("%x -> %x\n", i, inb(sc->asic_addr + i));
 #endif
-	/* Allow memsize to override */
+	/* Allow id_msize to override */
         if (isa_dev->id_msize)
 		memsize = isa_dev->id_msize;
 
