@@ -45,6 +45,9 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
+ *
+ *    $Id: fpu_etc.c,v 1.2 1994/04/29 21:16:22 gclarkii Exp $
+ *
  */
 
 #include "param.h"

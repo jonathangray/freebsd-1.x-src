@@ -73,6 +73,9 @@
  * available under the terms of the GNU copyleft.
  *
  * W. Metzenthen   June 1993.
+ *
+ *  $Id: fpu_entry.c,v 1.2 1994/04/29 21:16:21 gclarkii Exp $
+ * 
  */
 
 /*---------------------------------------------------------------------------+

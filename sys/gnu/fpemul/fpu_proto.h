@@ -1,3 +1,10 @@
+/*
+ *
+ *    $Id: fpu_proto.h,v 1.2 1994/04/29 21:16:23 gclarkii Exp $
+ *
+ */
+
+
 /* errors.c */
 extern void Un_impl(void);
 extern void emu_printall(void);
