@@ -21,7 +21,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *	$Id: if_epreg.h,v 1.1 1994/01/10 18:56:26 ats Exp $
+ *	$Id: if_epreg.h,v 1.2 1994/01/10 19:13:50 ats Exp $
  */
 /**************************************************************************
  *										  *
