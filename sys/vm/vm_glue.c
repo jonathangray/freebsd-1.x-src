@@ -59,15 +59,11 @@
  * any improvements or extensions that they make and grant Carnegie the
  * rights to redistribute these changes.
  *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00137
- * --------------------         -----   ----------------------
- *
- * 08 Apr 93	Bruce Evans		Several VM system fixes
+ *	$Id: vm_glue.c,v 1.7 1993/09/06 14:19:11 rgrimes Exp $
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/vm/vm_glue.c,v 1.6 1993/09/05 09:21:15 rgrimes Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/vm/vm_glue.c,v 1.7 1993/09/06 14:19:11 rgrimes Exp $";
 
+#include "ddb.h"
 #include "param.h"
 #include "systm.h"
 #include "proc.h"
@@ -543,7 +539,7 @@ thread_wakeup(event)
  * DEBUG stuff
  */
 
-#ifdef	DEBUG
+#if defined(DEBUG) || (NDDB > 0)
 int indent = 0;
 
 /*ARGSUSED2*/
@@ -561,4 +557,4 @@ iprintf(a, b, c, d, e, f, g, h)
 		printf(" ");
 	printf(a, b, c, d, e, f, g, h);
 }
-#endif	DEBUG
+#endif	/* defined(DEBUG) || (NDDB > 0) */
