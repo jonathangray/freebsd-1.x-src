@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)if_x25subr.c	7.14 (Berkeley) 6/26/91
- *	$Id: if_x25subr.c,v 1.4 1993/12/19 00:52:16 wollman Exp $
+ *	$Id: if_x25subr.c,v 1.5 1993/12/20 14:58:35 wollman Exp $
  */
 
 #include "param.h"
@@ -693,7 +693,7 @@ struct x25_dgproto {
 	void (*f)(struct pklcd *, struct mbuf *);
 } x25_dgprototab[] = {
 #if defined(ISO) && defined(TPCONS)
-{ 0x0, 0, tp_incoming},
+{ 0x0, 0, (void (*)(struct pklcd *, struct mbuf *))tp_incoming},
 #endif
 { 0xcc, 1, x25_dgram_incoming},
 { 0xcd, 1, x25_dgram_incoming},
