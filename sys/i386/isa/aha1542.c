@@ -12,7 +12,7 @@
  * on the understanding that TFS is not responsible for the correct
  * functioning of this software in any circumstances.
  *
- *      $Id: aha1542.c,v 1.26 1994/05/14 13:12:14 ats Exp $
+ *      $Id: aha1542.c,v 1.27 1994/06/05 19:18:10 ats Exp $
  */
 
 /*
@@ -299,8 +299,8 @@ struct aha_data {
 	struct aha_ccb *aha_ccb_free;	/* the next free ccb */
 	struct aha_ccb aha_ccb[AHA_MBX_SIZE];	/* all the CCBs      */
 	int     aha_int;	/* our irq level        */
-	int     aha_dma;	/* out DMA req channel  */
-	int     aha_scsi_dev;	/* ourscsi bus address  */
+	int     aha_dma;	/* our DMA req channel  */
+	int     aha_scsi_dev;	/* our scsi bus address  */
 	struct scsi_link sc_link;	/* prototype for subdevs */
 } *ahadata[NAHA];
 
