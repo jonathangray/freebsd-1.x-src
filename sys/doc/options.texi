@@ -1,4 +1,10 @@
 \input texinfo  @c -*- texinfo -*-
+@c -----------------------------------------------------------------------
+@c Thus spoke the elders in days long gone by:
+@c  How to edit:  use an existing entry as template, keep the file sorted
+@c  using the most keyword-ish thing.  When done, make sure /usr/gnu/bin
+@c  is in your path, run "make" and THEN "cvs commit".
+@c -----------------------------------------------------------------------
 @c %**start of header
 @setfilename options.info
 @settitle Configuration Options for FreeBSD
@@ -10,7 +16,7 @@
 @c %**end of header
 
 @ifinfo
-$Id: options.texi,v 1.8 1994/06/08 01:38:31 phk Exp $
+$Id: options.texi,v 1.9 1994/06/08 23:42:06 phk Exp $
 
 This file documents the configuration options available in the FreeBSD
 operating system.
