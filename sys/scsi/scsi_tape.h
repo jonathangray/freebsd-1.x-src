@@ -1,18 +1,51 @@
 /*
  * HISTORY
  * $Log: scsi_tape.h,v $
- * Revision 1.2  1993/07/29 11:49:08  nate
- * Removed PATCHKIT headers and updated our sources to Julian's with
- * our patches back in.  Major changes to the Bustek driver and the
- * Tape driver, the rest are minor.
+ * Revision 1.3  1993/08/20 09:23:25  rgrimes
+ * Update scsi code to the latest from Julian.  This code is now identical
+ * to the last copy from Julian.  After this commit I will be commiting the
+ * local fixes and makeing diffs to send back to Julian so he can update his
+ * code.
  *
+ * ----
+ * From julian@jules.DIALix.oz.au  Thu Aug  5 09:25:23 1993
+ * To: hd@world.std.com, julian@jules.DIALix.oz.au
+ * Cc: nate@bsd.coe.montana.edu
+ * Subject: Re: new scsi
+ *
+ * ----
+ * From julian@jules.DIALix.oz.au  Sat Aug  7 04:13:17 1993
+ * To: hd@world.std.com (HD Associates)
+ * Cc: nate@bsd.coe.montana.edu
+ * Subject: Re: timeout diffs
+ *
+ * Here are the diffs to take the scsi stuff to my latest tree from what
+ * Nate and you received..
+ *
+ * the changes remove all the local timeout stuff and use (un)timeout(),
+ *
+ * ----
+ * From julian@jules.DIALix.oz.au  Sat Aug  7 04:13:45 1993
+ * To: hd@world.std.com (HD Associates)
+ * Cc: nate@bsd.coe.montana.edu, briggs@csugrad.cs.vt.edu
+ *
+ * here is a fix for a silly bug in the scsiconf I just sent out
+ * and a similar fix for st.c
+ *
+ * Revision 1.5  93/08/05  21:38:14  julian
+ * fix the definitionof the last byte of each scsi command.
  * 
- * julian - added some special stuff for some OLD scsi tapes (CIPHER
- *          ST150S)
- *
- * Revision 1.1.1.1  1993/06/12  14:57:27  rgrimes
- * Initial import, 0.1 + pk 0.2.4-B1
- *
+ * Revision 1.4  93/08/01  02:39:40  julian
+ * compiles.. no mode bitfields
+ * 
+ * Revision 1.3  93/07/31  23:05:40  root
+ * removed all bitfields
+ * 
+ * Revision 1.2  93/05/10  23:57:23  root
+ * added some special stuff for some OLD scsi tapes (CIPHER ST150S)
+ * 
+ * Revision 1.1  93/04/12  21:51:06  root
+ * checkin for 'jules'
  * 
  * Revision 1.2  1993/01/26  18:39:08  julian
  * add the 'write protected' bit in the device status struct.
@@ -20,6 +53,14 @@
  * Revision 1.1  1992/09/26  22:10:21  julian
  * Initial revision
  *
+ *
+ * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
+ * --------------------         -----   ----------------------
+ * CURRENT PATCH LEVEL:         1       00098
+ * --------------------         -----   ----------------------
+ *
+ * 16 Feb 93	Julian Elischer		ADDED for SCSI system
+ * 
  */
 
 /*
@@ -46,6 +87,10 @@
  * Ported to run under 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
  */
 
+
+
+
+
 /*
  * SCSI command format
  */
@@ -54,25 +99,19 @@
 struct scsi_rw_tape
 {
 	u_char	op_code;
-	u_char	fixed:1;
-	u_char	:4;	
-	u_char	lun:3;
+	u_char	byte2;
+#define	SRWT_FIXED	0x01
 	u_char	len[3];
-	u_char	link:1;
-	u_char	flag:1;
-	u_char	:6;
+	u_char	control;
 } rw_tape;
 
 struct scsi_space
 {
 	u_char	op_code;
-	u_char	code:2;
-	u_char	:3;
-	u_char	lun:3;
+	u_char	byte2;
+#define	SS_CODE	0x03
 	u_char	number[3];
-	u_char	link:1;
-	u_char	flag:1;
-	u_char	:6;
+	u_char	control;
 } space;
 #define SP_BLKS	0
 #define SP_FILEMARKS 1
@@ -82,52 +121,40 @@ struct scsi_space
 struct scsi_write_filemarks
 {
 	u_char	op_code;
-	u_char	:5;
-	u_char	lun:3;
+	u_char	byte2;
 	u_char	number[3];
-	u_char	link:1;
-	u_char	flag:1;
-	u_char	:6;
+	u_char	control;
 } write_filemarks;
 
 struct scsi_rewind
 {
 	u_char	op_code;
-	u_char	immed:1;
-	u_char	:4;
-	u_char	lun:3;
+	u_char	byte2;
+#define	SR_IMMED	0x01
 	u_char	unused[3];
-	u_char	link:1;
-	u_char	flag:1;
-	u_char	:6;
+	u_char	control;
 } rewind;
 
 struct scsi_load
 {
 	u_char	op_code;
-	u_char	immed:1;
-	u_char	:4;
-	u_char	lun:3;
+	u_char	byte2;
+#define	SL_IMMED	0x01
 	u_char	unused[2];
-	u_char	load:1;
-	u_char	reten:1;
-	u_char	:6;
-	u_char	link:1;
-	u_char	flag:1;
-	u_char	:6;
+	u_char	how;
+	u_char	control;
 } load;
 #define LD_UNLOAD 0
 #define LD_LOAD 1
+#define LD_RETEN 2
+
 
 struct scsi_blk_limits
 {
 	u_char	op_code;
-	u_char	:5;
-	u_char	lun:3;
+	u_char	byte2;
 	u_char	unused[3];
-	u_char	link:1;
-	u_char	flag:1;
-	u_char	:6;
+	u_char	control;
 } blk_limits;
 
 /*
@@ -154,15 +181,13 @@ struct scsi_blk_limits_data
 	u_char	min_length_0;	/* Least significant */
 };
 
-struct	scsi_mode_header_tape
-{
-	u_char  data_length;    /* Sense data length */
-	u_char  medium_type;
-	u_char	speed:4;
-	u_char	buf_mode:3;
-	u_char	write_protected:1;
-	u_char  blk_desc_len;
-};
+/* defines for the device specific byte in the mode select/sense header */
+#define	SMH_DSP_SPEED		0x0F
+#define	SMH_DSP_BUFF_MODE	0x70
+#define	SMH_DSP_BUFF_MODE_OFF	0x00
+#define	SMH_DSP_BUFF_MODE_ON	0x10
+#define	SMH_DSP_BUFF_MODE_MLTI	0x20
+#define	SMH_DSP_WRITE_PROT	0x80
 
 /* A special for the CIPHER ST150S(old drive) */
 struct	blk_desc_cipher
@@ -171,9 +196,9 @@ struct	blk_desc_cipher
 	u_char	nblocks[3];
 	u_char	reserved;
 	u_char	blklen[3];
-	u_char  sec:1;		/* soft error count */
-	u_char	aui:1;		/* autoload inhibit */
-	u_char  :6;
+	u_char  other;
+#define ST150_SEC	0x01	/* soft error count */
+#define	SR150_AUI	0x02	/* autoload inhibit */
 };
 
 
