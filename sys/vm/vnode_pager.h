@@ -35,7 +35,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vnode_pager.h	7.1 (Berkeley) 12/5/90
+ *	from: @(#)vnode_pager.h	7.1 (Berkeley) 12/5/90
+ *	$Id: vnode_pager.h,v 1.2 1993/10/16 16:21:03 rgrimes Exp $
  */
 
 #ifndef	_VNODE_PAGER_

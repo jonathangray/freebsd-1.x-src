@@ -33,9 +33,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vm_pager.c	7.4 (Berkeley) 5/7/91
- *
- *
+ *	from: @(#)vm_pager.c	7.4 (Berkeley) 5/7/91
+ *	$Id: vm_pager.c,v 1.3 1993/10/16 16:20:50 rgrimes Exp $
+ */
+
+/*
  * Copyright (c) 1987, 1990 Carnegie-Mellon University.
  * All rights reserved.
  *
@@ -60,13 +62,6 @@
  *
  * any improvements or extensions that they make and grant Carnegie the
  * rights to redistribute these changes.
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00063
- * --------------------         -----   ----------------------
- *
- * 28 Nov 1991	Poul-Henning Kamp	Speedup processing
  */
 
 /*

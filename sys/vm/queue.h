@@ -34,8 +34,10 @@
  * SUCH DAMAGE.
  *
  *	@(#)queue.h	7.3 (Berkeley) 4/21/91
- *
- *
+ *	$Id: queue.h,v 1.2 1993/10/16 16:20:18 rgrimes Exp $
+ */
+
+/*
  * Copyright (c) 1987, 1990 Carnegie-Mellon University.
  * All rights reserved.
  *

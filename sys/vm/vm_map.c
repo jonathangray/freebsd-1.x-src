@@ -33,9 +33,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vm_map.c	7.3 (Berkeley) 4/21/91
- *
- *
+ *	from: @(#)vm_map.c	7.3 (Berkeley) 4/21/91
+ *	$Id: vm_map.c,v 1.7 1993/10/16 16:20:33 rgrimes Exp $
+ */
+
+/*
  * Copyright (c) 1987, 1990 Carnegie-Mellon University.
  * All rights reserved.
  *
@@ -60,8 +62,6 @@
  *
  * any improvements or extensions that they make and grant Carnegie the
  * rights to redistribute these changes.
- *
- *	$Id: vm_map.c,v 1.6 1993/09/06 14:19:13 rgrimes Exp $
  */
 
 /*

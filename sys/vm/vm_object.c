@@ -33,9 +33,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vm_object.c	7.4 (Berkeley) 5/7/91
- *
- *
+ *	from: @(#)vm_object.c	7.4 (Berkeley) 5/7/91
+ *	$Id: vm_object.c,v 1.6 1993/10/16 16:20:40 rgrimes Exp $
+ */
+
+/*
  * Copyright (c) 1987, 1990 Carnegie-Mellon University.
  * All rights reserved.
  *
@@ -60,8 +62,6 @@
  *
  * any improvements or extensions that they make and grant Carnegie the
  * rights to redistribute these changes.
- *
- *	$Id: vm_object.c,v 1.5 1993/09/06 14:19:15 rgrimes Exp $
  */
 
 /*

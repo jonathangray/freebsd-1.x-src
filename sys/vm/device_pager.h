@@ -35,7 +35,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)device_pager.h	7.1 (Berkeley) 12/5/90
+ *	from: @(#)device_pager.h	7.1 (Berkeley) 12/5/90
+ *	$Id: device_pager.h,v 1.2 1993/10/16 16:20:12 rgrimes Exp $
  */
 
 #ifndef	_DEVICE_PAGER_

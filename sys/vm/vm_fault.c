@@ -33,9 +33,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vm_fault.c	7.6 (Berkeley) 5/7/91
- *
- *
+ *	from: @(#)vm_fault.c	7.6 (Berkeley) 5/7/91
+ *	$Id: vm_fault.c,v 1.5 1993/10/16 16:20:24 rgrimes Exp $
+ */
+
+/*
  * Copyright (c) 1987, 1990 Carnegie-Mellon University.
  * All rights reserved.
  *
@@ -61,8 +63,6 @@
  * any improvements or extensions that they make and grant Carnegie the
  * rights to redistribute these changes.
  */
-
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/vm/vm_fault.c,v 1.4 1993/07/25 09:57:43 davidg Exp $";
 
 /*
  *	Page fault handling module.

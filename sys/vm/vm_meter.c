@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)vm_meter.c	7.11 (Berkeley) 4/20/91
+ *	from: @(#)vm_meter.c	7.11 (Berkeley) 4/20/91
+ *	$Id: vm_meter.c,v 1.2 1993/10/16 16:20:37 rgrimes Exp $
  */
 
 #include "param.h"
