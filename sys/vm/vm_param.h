@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)vm_param.h	7.2 (Berkeley) 4/21/91
- *	$Id: vm_param.h,v 1.3 1993/11/07 17:54:25 wollman Exp $
+ *	$Id: vm_param.h,v 1.4 1994/01/28 03:28:18 jkh Exp $
  */
 
 /*
@@ -95,8 +95,10 @@ typedef int	boolean_t;
  *	we can easily make them constant if we so desire.
  */
 
+#ifdef KERNEL
 #define	PAGE_SIZE	page_size	/* size of page in addressible units */
 #define PAGE_SHIFT	page_shift	/* number of bits to shift for pages */
+#endif
 
 /* 
  *	Return values from the VM routines.
