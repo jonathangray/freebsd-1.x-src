@@ -20,7 +20,7 @@
 # the rights to redistribute these changes.
 #
 #	from: Mach, Revision 2.2	92/04/04  11:33:46  rpd
-#	$Id: Makefile,v 1.4 1993/11/16 02:02:05 ache Exp $
+#	$Id: Makefile,v 1.5 1993/12/11 20:35:15 ats Exp $
 #
 
 wd0:
@@ -97,7 +97,7 @@ fd0:
 
 install: wd sd fd
 
-clean cleandir:
+clean:
 	/bin/rm -f *.o *.d boot bootbios biosboot boot.sym
 
 .include <bsd.prog.mk>
