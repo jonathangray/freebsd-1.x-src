@@ -35,13 +35,13 @@
  * SUCH DAMAGE.
  *
  *	from:@(#)syscons.c	1.3 940129
- *	$Id: syscons.c,v 1.27 1994/02/01 06:17:36 nate Exp $
+ *	$Id: syscons.c,v 1.28 1994/02/01 08:30:45 ache Exp $
  *
  */
 
 /* #define FADE_SAVER */
 /* #define BLANK_SAVER */
-#define STAR_SAVER
+/* #define STAR_SAVER */
 
 #if !defined(__FreeBSD__)
 #define FAT_CURSOR
