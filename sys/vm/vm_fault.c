@@ -62,7 +62,7 @@
  * rights to redistribute these changes.
  */
 
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/vm/vm_fault.c,v 1.3 1993/07/12 16:13:57 davidg Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/vm/vm_fault.c,v 1.4 1993/07/25 09:57:43 davidg Exp $";
 
 /*
  *	Page fault handling module.
@@ -528,6 +528,7 @@ thread_wakeup(&vm_pages_needed); /* XXX */
 			 */
 
 			vm_page_lock_queues();
+			vm_page_activate(m);
 			vm_page_deactivate(m);
 			pmap_page_protect(VM_PAGE_TO_PHYS(m), VM_PROT_NONE);
 			vm_page_unlock_queues();
