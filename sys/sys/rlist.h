@@ -14,7 +14,7 @@
  *	Usage:
  *		rlist_free(&swapmap, 100, 200);	add space to swapmap
  *		rlist_alloc(&swapmap, 100, &loc); obtain 100 sectors from swap
- * $Header: /a/cvs/386BSD/src/sys/sys/rlist.h,v 1.1 1993/06/12 14:58:16 rgrimes Exp $
+ * $Header: /a/cvs/386BSD/src/sys/sys/rlist.h,v 1.2 1993/07/30 10:51:58 jkh Exp $
  */
 
 /* A resource list element. */
