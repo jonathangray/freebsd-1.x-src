@@ -35,7 +35,7 @@
  *
  *	from: @(#)pccons.c	5.11 (Berkeley) 5/21/91
  *	from: @(#)syscons.c	1.1 931021
- *	$Id: syscons.c,v 1.20 1993/11/27 06:32:41 rich Exp $
+ *	$Id: syscons.c,v 1.21 1993/12/18 22:50:51 ache Exp $
  *
  * Heavily modified by Søren Schmidt (sos@login.dkuug.dk) to provide:
  *
@@ -686,7 +686,7 @@ pcioctl(dev_t dev, int cmd, caddr_t data, int flag, struct proc *p)
 		}
 		else 
 			while ((error=tsleep(
-      				(caddr_t)&console[*data].smode, 
+				(caddr_t)&console[*data-1].smode,
 			    	PZERO|PCATCH, "waitvt", 0)) == ERESTART) ;
 		return error;
 
