@@ -1,3 +1,5 @@
+#	$Id: dot.cshrc,v 1.9 1994/02/21 20:35:58 rgrimes Exp $
+#
 alias mail Mail
 set history=1000
 set savehist=1000
