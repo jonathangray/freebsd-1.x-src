@@ -47,7 +47,7 @@ Foundation, 675 Mass Ave, Cambridge, MA 02139, USA. */
 #endif
 
 #ifndef lint
-static char *rcsid = "$Id: test.c,v 1.1 1993/06/12 14:56:49 rgrimes Exp $";
+static char *rcsid = "$Id: test.c,v 1.2 1993/06/18 08:30:33 root Exp $";
 #endif
 
 /* The following few defines control the truth and false output of each stage.
