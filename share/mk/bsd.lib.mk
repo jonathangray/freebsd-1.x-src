@@ -7,6 +7,13 @@
 #
 # 27 Apr 93	Rodney W. Grimes	Break up cleandir so that we do not
 #					overflow shell args
+# $History$
+# $Log: bsd.lib.mk,v $
+# Revision 1.2  1993/06/17 02:01:11  rgrimes
+# Make clean in src/lib/libc failed due to too many arguments to /bin/sh,
+# this was fixed for make cleandir in the patchkit, this fixes it for
+# make clean.
+#
 
 .if exists(${.CURDIR}/../Makefile.inc)
 .include "${.CURDIR}/../Makefile.inc"
@@ -85,8 +92,9 @@ llib-l${LIB}.ln: ${SRCS}
 
 .if !target(clean)
 clean:
-	rm -f a.out Errs errs mklog core ${CLEANFILES} ${OBJS} ${POBJS} \
-	    ${MANALL} profiled/*.o lib${LIB}.a lib${LIB}_p.a llib-l${LIB}.ln
+	rm -f a.out Errs errs mklog core ${CLEANFILES} ${OBJS} \
+	    lib${LIB}.a llib-l${LIB}.ln ${MANALL}
+	rm -f ${POBJS} profiled/*.o lib${LIB}_p.a
 .endif
 
 .if !target(cleandir)
