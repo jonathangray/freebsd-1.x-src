@@ -1,48 +1,18 @@
 /*
  * National Semiconductor DS8390 NIC register definitions 
  *
- * $Id: if_edreg.h,v 1.7 1993/09/29 20:30:26 davidg Exp $
+ * $Id: if_edreg.h,v 1.8 1993/11/22 11:08:16 davidg Exp $
  *
  * Modification history
  *
- * $Log: if_edreg.h,v $
- * Revision 1.7  1993/09/29 20:30:26  davidg
- * * Revision 2.2  93/09/29  13:23:25  davidg
- * * added no multi-buffer override for 3c503
- * *
- * * Revision 2.1  93/09/29  12:32:12  davidg
- * * changed multi-buffer count for 16bit 3c503's from 5 to 2 after
- * * noticing that the transmitter becomes idle because of so many
- * * packets to load.
- * *
- * * Revision 2.0  93/09/29  00:00:19  davidg
- * * many changes, rewrites, additions, etc. Now supports the
- * * NE1000, NE2000, WD8003, WD8013, 3C503, 16bit 3C503, and
- * * a variety of similar clones. 16bit 3c503 now does multi
- * * transmit buffers. Nearly every part of the driver has
- * * changed in some way since rev 1.30.
+ * Revision 2.1  1993/11/22  10:52:33  davidg
+ * patch to add support for SMC8216 (Elite-Ultra) boards
+ * from Glen H. Lowe
  *
  * Revision 2.0  93/09/29  00:37:15  davidg
  * changed double buffering flag to multi buffering
  * made changes/additions for 3c503 multi-buffering
  * ...companion to Rev. 2.0 of 'ed' driver.
- * 
- * Revision 1.6  93/09/28  17:20:03  davidg
- * first cut at PIO (e.g. NE1000/2000) support
- * 
- * Revision 1.5  93/08/25  20:38:34  davidg
- * added define for card type WD8013WC (10BaseT)
- * 
- * Revision 1.4  93/08/14  20:07:55  davidg
- * fix board type definition for 8013EP
- * 
- * Revision 1.3  93/07/20  15:25:25  davidg
- * added config flags for forcing 8/16bit mode and disabling double
- * xmit buffers.
- * 
- * Revision 1.2  93/06/23  03:03:05  davidg
- * added some additional definitions for the 83C584 bus interface
- * chip (SMC/WD boards)
  * 
  * Revision 1.1  93/06/23  03:01:07  davidg
  * Initial revision
@@ -708,6 +678,8 @@ struct ed_ring	{
 #define ED_TYPE_WD8013WC	0x28
 #define ED_TYPE_WD8013EBP	0x2c
 #define ED_TYPE_WD8013EPC	0x29
+#define ED_TYPE_SMC8216T	0x2a
+#define ED_TYPE_SMC8216C	0x2b
 
 /* Bit definitions in card ID */
 #define	ED_WD_REV_MASK		0x1f		/* Revision mask */
