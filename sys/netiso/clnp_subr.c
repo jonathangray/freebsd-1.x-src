@@ -59,13 +59,14 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
-/* $Header: /a/cvs/386BSD/src/sys/netiso/clnp_subr.c,v 1.1 1993/06/12 14:57:20 rgrimes Exp $ */
+/* $Header: /a/cvs/386BSD/src/sys/netiso/clnp_subr.c,v 1.2 1993/07/27 10:53:01 davidg Exp $ */
 /* $Source: /a/cvs/386BSD/src/sys/netiso/clnp_subr.c,v $ */
 
 #ifdef ISO
 
 #include "types.h"
 #include "param.h"
+#include "systm.h"
 #include "mbuf.h"
 #include "domain.h"
 #include "protosw.h"

@@ -15,11 +15,12 @@
  *
  *  October 1992
  *
- *	$Header: /a/cvs/386BSD/src/sys/pcfs/pcfs_lookup.c,v 1.1 1993/06/12 14:57:12 rgrimes Exp $
+ *	$Header: /a/cvs/386BSD/src/sys/pcfs/pcfs_lookup.c,v 1.2 1993/07/27 10:53:17 davidg Exp $
  *
  */
 
 #include "param.h"
+#include "systm.h"
 #include "namei.h"
 #include "buf.h"
 #include "vnode.h"

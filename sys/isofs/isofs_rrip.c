@@ -28,10 +28,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id: isofs_rrip.c,v 1.1 1993/07/20 03:36:48 jkh Exp $
+ *	$Id: isofs_rrip.c,v 1.2 1993/07/27 10:52:36 davidg Exp $
  */
 
 #include "param.h"
+#include "systm.h"
 #include "namei.h"
 #include "buf.h"
 #include "file.h"

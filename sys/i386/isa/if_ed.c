@@ -17,12 +17,22 @@
  * Modification history
  *
  * $Log: if_ed.c,v $
- * Revision 1.10  1993/07/27 03:13:50  davidg
- * * Added include of systm.h to pick up inlined min/max/bcmp if you have
- * * them in cpufunc.h. Modified wait loop in reset to look a little better.
- * * Added read for talley counters to prevent an infinite loop on old
- * * 8003E's if they (the counters) overflow.
+ * Revision 1.11  1993/07/27 10:52:29  davidg
+ * * Applied fixes from Bruce Evans to fix COW bugs, >1MB kernel loading,
+ * profiling, and various protection checks that cause security holes
+ * and system crashes.
+ * * Changed min/max/bcmp/ffs/strlen to be static inline functions
+ * - included from cpufunc.h in via systm.h. This change
+ * improves performance in many parts of the kernel - up to 5% in the
+ * networking layer alone. Note that this requires systm.h to be included
+ * in any file that uses these functions otherwise it won't be able to
+ * find them during the load.
+ * * Fixed incorrect call to splx() in if_is.c
+ * * Fixed bogus variable assignment to splx() in if_ed.c
  *
+ * Revision 1.18  93/07/27  03:41:36  davidg
+ * removed unnecessary variable assignment in ed_reset()
+ * 
  * Revision 1.17  93/07/26  18:40:57  davidg
  * Added include of systm.h to pick up inlined min/max/bcmp if you have
  * them in cpufunc.h. Modified wait loop in reset to look a little better.
@@ -804,7 +814,7 @@ ed_reset(unit)
 	ed_stop(unit);
 	ed_init(unit);
 
-	s = splx(s);
+	(void) splx(s);
 }
  
 /*

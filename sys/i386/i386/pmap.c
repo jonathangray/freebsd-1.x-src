@@ -43,7 +43,7 @@
  *
  * 28 Nov 1991	Poul-Henning Kamp	Speedup processing.
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/i386/pmap.c,v 1.1 1993/06/12 14:58:05 rgrimes Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/i386/pmap.c,v 1.2 1993/07/27 10:52:19 davidg Exp $";
 
 /*
  * Derived from hp300 version by Mike Hibler, this version by William
@@ -461,7 +461,7 @@ pmap_pinit(pmap)
 
 	/* install self-referential address mapping entry */
 	*(int *)(pmap->pm_pdir+PTDPTDI) =
-		(int)pmap_extract(kernel_pmap, pmap->pm_pdir) | PG_V | PG_URKW;
+		(int)pmap_extract(kernel_pmap, pmap->pm_pdir) | PG_V | PG_KW;
 
 	pmap->pm_count = 1;
 	simple_lock_init(&pmap->pm_lock);

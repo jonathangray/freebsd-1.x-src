@@ -34,8 +34,21 @@
 /*
  * HISTORY
  * $Log: db_output.c,v $
- * Revision 1.1  1993/06/12 14:57:36  rgrimes
- * Initial revision
+ * Revision 1.2  1993/07/27 10:52:00  davidg
+ * * Applied fixes from Bruce Evans to fix COW bugs, >1MB kernel loading,
+ * profiling, and various protection checks that cause security holes
+ * and system crashes.
+ * * Changed min/max/bcmp/ffs/strlen to be static inline functions
+ * - included from cpufunc.h in via systm.h. This change
+ * improves performance in many parts of the kernel - up to 5% in the
+ * networking layer alone. Note that this requires systm.h to be included
+ * in any file that uses these functions otherwise it won't be able to
+ * find them during the load.
+ * * Fixed incorrect call to splx() in if_is.c
+ * * Fixed bogus variable assignment to splx() in if_ed.c
+ *
+ * Revision 1.1.1.1  1993/06/12  14:57:37  rgrimes
+ * Initial import, 0.1 + pk 0.2.4-B1
  *
  * Revision 1.1  1992/03/25  21:45:18  pace
  * Initial revision
@@ -63,6 +76,7 @@
  */
 
 #include "param.h"
+#include "systm.h"
 #include <machine/stdarg.h>
 
 /*
