@@ -1,7 +1,5 @@
-# $Header: /a/cvs/386BSD/src/gnu/lib/libregex/Makefile,v 1.7 1994/05/19 17:40:01 jkh Exp $
+# $Header: /a/cvs/386BSD/src/gnu/lib/libregex/Makefile,v 1.8 1994/05/27 10:53:33 csgr Exp $
 
-SHLIB_MAJOR=1
-SHLIB_MINOR=0
 
 LIB=	gnuregex
 CFLAGS+=-DHAVE_STRING_H=1
