@@ -37,7 +37,7 @@ static int wdtest = 0;
  * SUCH DAMAGE.
  *
  *	from: @(#)wd.c	7.2 (Berkeley) 5/9/91
- *	$Id: wd.c,v 1.26 1994/02/06 17:03:17 ats Exp $
+ *	$Id: wd.c,v 1.27 1994/02/07 04:20:57 davidg Exp $
  */
 
 /* TODO:
@@ -697,9 +697,6 @@ oops:
 		chk = min(DEV_BSIZE / sizeof(short), du->dk_bc / sizeof(short));
 
 		/* ready to receive data? */
-		if ((du->dk_status & (WDCS_READY | WDCS_SEEKCMPLT | WDCS_DRQ))
-		    != (WDCS_READY | WDCS_SEEKCMPLT | WDCS_DRQ))
-			wderror(bp, du, "wdintr: read intr arrived early");
 		if (wdwait(du, WDCS_READY | WDCS_SEEKCMPLT | WDCS_DRQ) != 0) {
 			wderror(bp, du, "wdintr: read error detected late");
 			goto oops;
