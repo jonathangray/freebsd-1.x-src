@@ -1,4 +1,5 @@
-#	@(#)Makefile	5.10 (Berkeley) 5/6/91
+#	from: @(#)Makefile	5.10 (Berkeley) 5/6/91
+#	$Id: Makefile,v 1.10 1994/02/23 09:56:37 rgrimes Exp $
 
 LIB=	util
 # kvm.c needs -I/sys
