@@ -15,7 +15,7 @@
  *
  *  October 1992
  *
- *	$Id: pcfs_vfsops.c,v 1.4 1993/11/25 01:37:13 wollman Exp $
+ *	$Id: pcfs_vfsops.c,v 1.5 1993/12/19 02:07:58 ache Exp $
  */
 
 #include "param.h"
@@ -296,9 +296,10 @@ mountpcfs(devvp, mp, p)
 		pmp->pm_fatblocksize = MAXBSIZE;
 	pmp->pm_fatblocksec = pmp->pm_fatblocksize / pmp->pm_BytesPerSec;
 		
+#if defined(PCFSDEBUG)
 	if ((pmp->pm_rootdirsize % pmp->pm_SectPerClust) != 0)
 		printf("mountpcfs(): root directory is not a multiple of the clustersize in length\n");
-
+#endif
 /*
  *  Compute mask and shift value for isolating cluster relative
  *  byte offsets and cluster numbers from a file offset.
