@@ -9,7 +9,10 @@
 #					overflow shell args
 # $History$
 # $Log: bsd.lib.mk,v $
-# Revision 1.2  1993/06/17 02:01:11  rgrimes
+# Revision 1.3  1993/07/02 06:44:30  root
+# New manual page system
+#
+# Revision 1.2  1993/06/17  02:01:11  rgrimes
 # Make clean in src/lib/libc failed due to too many arguments to /bin/sh,
 # this was fixed for make cleandir in the patchkit, this fixes it for
 # make clean.
@@ -34,11 +37,7 @@ BINMODE?=	555
 .MAIN: all
 
 # prefer .s to a .c, add .po, remove stuff not used in the BSD libraries
-.SUFFIXES:
-.SUFFIXES: .out .o .po .s .c .f .y .l .8 .7 .6 .5 .4 .3 .2 .1 .0
-
-.8.0 .7.0 .6.0 .5.0 .4.0 .3.0 .2.0 .1.0:
-	nroff -mandoc ${.IMPSRC} > ${.TARGET}
+.SUFFIXES: .out .o .po .s .c .f .y .l
 
 .c.o:
 	${CC} ${CFLAGS} -c ${.IMPSRC} 
@@ -62,15 +61,13 @@ BINMODE?=	555
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
 
-MANALL=	${MAN1} ${MAN2} ${MAN3} ${MAN4} ${MAN5} ${MAN6} ${MAN7} ${MAN8}
-
 .if !defined(NOPROFILE)
 _LIBS=lib${LIB}.a lib${LIB}_p.a
 .else
 _LIBS=lib${LIB}.a
 .endif
 
-all: ${_LIBS} ${MANALL}# llib-l${LIB}.ln
+all: ${_LIBS} # llib-l${LIB}.ln
 
 OBJS+=	${SRCS:R:S/$/.o/g}
 
@@ -93,7 +90,7 @@ llib-l${LIB}.ln: ${SRCS}
 .if !target(clean)
 clean:
 	rm -f a.out Errs errs mklog core ${CLEANFILES} ${OBJS} \
-	    lib${LIB}.a llib-l${LIB}.ln ${MANALL}
+	    lib${LIB}.a llib-l${LIB}.ln
 	rm -f ${POBJS} profiled/*.o lib${LIB}_p.a
 .endif
 
@@ -101,7 +98,7 @@ clean:
 cleandir:
 	rm -f a.out Errs errs mklog core ${CLEANFILES} ${OBJS} \
 	    lib${LIB}.a llib-l${LIB}.ln \
-	    ${MANALL} ${.CURDIR}/tags .depend
+	    ${.CURDIR}/tags .depend
 	rm -f ${POBJS} profiled/*.o lib${LIB}_p.a
 	cd ${.CURDIR}; rm -rf obj;
 .endif
