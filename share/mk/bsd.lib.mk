@@ -1,7 +1,10 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.17  1993/11/06 18:57:00  paul
+# Revision 1.18  1993/11/06 19:15:25  paul
+# Added missing $ to {CXX} in .cc.so
+#
+# Revision 1.17  1993/11/06  18:57:00  paul
 # Added missing $ before {AR} in .s.so
 #
 # Revision 1.16  1993/11/04  03:51:31  paul
@@ -134,7 +137,7 @@ BINMODE?=	555
 	@mv a.out ${.TARGET}
 
 .cc.so .C.so:
-	{CXX} ${PICFLAG} -DPIC ${CXXFLAGS} -c ${.IMPSRC} -o ${.TARGET}
+	${CXX} ${PICFLAG} -DPIC ${CXXFLAGS} -c ${.IMPSRC} -o ${.TARGET}
 
 .f.o:
 	${FC} ${RFLAGS} -o ${.TARGET} -c ${.IMPSRC} 
