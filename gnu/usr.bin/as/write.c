@@ -21,7 +21,7 @@
 /* This thing should be set up to do byteordering correctly.  But... */
 
 #ifndef lint
-static char rcsid[] = "$Id: write.c,v 1.4 1993/12/12 17:01:24 jkh Exp $";
+static char rcsid[] = "$Id: write.c,v 1.5 1994/02/20 16:06:12 rgrimes Exp $";
 #endif
 
 #include "as.h"
@@ -179,7 +179,9 @@ void write_object_file()
 	 * that requires least thought. ".align" frags like to have a following
 	 * frag since that makes calculating their intended length trivial.
 	 */
+#ifndef SUB_SEGMENT_ALIGN
 #define SUB_SEGMENT_ALIGN (2)
+#endif
 	for (frchainP = frchain_root; frchainP; frchainP = frchainP->frch_next) {
 #ifdef	OBJ_VMS
 		/*
