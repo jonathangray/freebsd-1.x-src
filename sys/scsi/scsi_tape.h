@@ -21,7 +21,7 @@
 /*
  * Ported to run under 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
  *
- *	$Id: scsi_tape.h,v 1.5 1993/08/28 03:08:52 rgrimes Exp $
+ *	$Id: scsi_tape.h,v 1.6 1993/09/05 15:42:20 rgrimes Exp $
  */
 
 
@@ -196,5 +196,7 @@ struct	blk_desc_cipher
 #define QIC_320		0x11
 #define QIC_525		0x11
 #define QIC_1320	0x12
+#define DDS		0x13
+#define DAT-1		0x13
 
 
