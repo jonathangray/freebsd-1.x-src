@@ -45,7 +45,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id: vfs__bio.c,v 1.18 1994/04/05 03:23:27 davidg Exp $
+ *	$Id: vfs__bio.c,v 1.19 1994/05/24 22:10:15 ats Exp $
  */
 
 #include "param.h"
@@ -620,7 +620,9 @@ biodone(register struct buf *bp)
 			
 			biodone(tbp);
 		}
+#ifndef NOBOUNCE
 		vm_bounce_kva_free( bp->b_un.b_addr, bp->b_bufsize, 0);
+#endif
 		relpbuf(bp);
 		splx(s);
 		return;
