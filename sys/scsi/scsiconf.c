@@ -14,7 +14,7 @@
  *
  * Ported to run under 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
  *
- *	$Id: scsiconf.c,v 1.5 1993/08/28 03:08:53 rgrimes Exp $
+ *	$Id: scsiconf.c,v 1.6 1993/09/05 17:41:07 rgrimes Exp $
  */
 
 #include <sys/types.h>
@@ -166,7 +166,8 @@ struct	scsi_switch	*scsi_switch;
 
 #ifdef	SCSI_DELAY
 #if 	SCSI_DELAY > 2
-	printf("waiting for scsi devices to settle\n");
+	printf("%s%d waiting for scsi devices to settle\n",
+		scsi_switch->name, unit);
 #else	SCSI_DELAY > 2
 #define	SCSI_DELAY 2
 #endif	SCSI_DELAY > 2
