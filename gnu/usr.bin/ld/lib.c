@@ -1,5 +1,5 @@
 /*
- * $Id: lib.c,v 1.2 1993/11/09 04:19:00 paul Exp $	- library routines
+ * $Id: lib.c,v 1.3 1993/11/22 19:04:43 jkh Exp $	- library routines
  */
 
 #include <sys/param.h>
@@ -572,6 +572,8 @@ read_shared_object (desc, entry)
 		entry->symbols[i].symbol = NULL;
 		entry->symbols[i].next = NULL;
 		entry->symbols[i].gotslot_offset = -1;
+		entry->symbols[i].gotslot_claimed = 0;
+		entry->symbols[i].rename = 0;
 	}
 
 	/* Read strings (text segment) */
