@@ -1,7 +1,11 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: lib.mk,v $
-# Revision 1.1  1993/08/05 02:15:32  paul
+# Revision 1.2  1993/11/11 02:12:15  jkh
+# Removed extra ld -x -r's that were gumming up the works (fix for now,
+# may go shared later as soon as this is better tested).
+#
+# Revision 1.1  1993/08/05  02:15:32  paul
 # Added lib.mk with lorder|tsort ripped out from library creation
 # because tsort got stuck in a loop when setting HAVE_cossf2 to 0.
 #
@@ -51,25 +55,25 @@ BINMODE?=	555
 
 .c.o:
 	${CC} ${CFLAGS} -c ${.IMPSRC} 
-	@${LD} -x -r ${.TARGET}
-	@mv a.out ${.TARGET}
+#	@${LD} -x -r ${.TARGET}
+#	@mv a.out ${.TARGET}
 
 .c.po:
 	${CC} -p ${CFLAGS} -c ${.IMPSRC} -o ${.TARGET}
-	@${LD} -X -r ${.TARGET}
-	@mv a.out ${.TARGET}
+#	@${LD} -X -r ${.TARGET}
+#	@mv a.out ${.TARGET}
 
 .s.o:
 	${CPP} -E ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
 	    ${AS} -o ${.TARGET}
-	@${LD} -x -r ${.TARGET}
-	@mv a.out ${.TARGET}
+#	@${LD} -x -r ${.TARGET}
+#	@mv a.out ${.TARGET}
 
 .s.po:
 	${CPP} -E -DPROF ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
 	    ${AS} -o ${.TARGET}
-	@${LD} -X -r ${.TARGET}
-	@mv a.out ${.TARGET}
+#	@${LD} -X -r ${.TARGET}
+#	@mv a.out ${.TARGET}
 
 .if !defined(NOPROFILE)
 _LIBS=lib${LIB}.a lib${LIB}_p.a
