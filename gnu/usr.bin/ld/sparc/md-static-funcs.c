@@ -1,5 +1,7 @@
 
 /*
+ *	$Id: md-static-funcs.c,v 1.2 1993/12/11 12:02:08 jkh Exp $
+ *
  * Simple SPARC relocations for the benefit of self-relocation of ld.so
  * avoiding the use of global variables (ie. reloc_bitshift[] et. al.).
  * Only types supported are RELOC_32 and RELOC_RELATIVE.
