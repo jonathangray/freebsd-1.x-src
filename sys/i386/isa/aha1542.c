@@ -21,7 +21,22 @@
 /*
  * HISTORY
  * $Log: aha1542.c,v $
- * Revision 1.4  1993/08/06 11:58:59  rgrimes
+ * Revision 1.5  1993/08/19 21:32:59  alm
+ * added Bustek 545 support (patch from Christoph Robitschko):
+ * *** aha1542.c~	Thu Aug 19 14:25:33 1993
+ * --- aha1542.c	Thu Aug 19 14:25:49 1993
+ * ***************
+ * *** 954,959 ****
+ * --- 954,960 ----
+ * printf("aha%d:",unit);
+ * #define	PRNT(x) printf(x)
+ * #endif	__386BSD__
+ * + 	DELAY(1000);	/* for Bustek 545 */
+ * aha_cmd(unit,0, sizeof(conf), 0 ,&conf, AHA_CONF_GET);
+ * switch(conf.chan)
+ * {
+ *
+ * Revision 1.4  1993/08/06  11:58:59  rgrimes
  * Fixed **probing for scsi devices** message to have a controller and unit
  * message on the begining of it:
  * aha0: **probing for scsi devices**
@@ -962,6 +977,7 @@ int	unit;
 	printf("aha%d:",unit);
 #define	PRNT(x) printf(x)
 #endif	__386BSD__
+	DELAY(1000);	/* for Bustek 545 */
 	aha_cmd(unit,0, sizeof(conf), 0 ,&conf, AHA_CONF_GET);
 	switch(conf.chan)
 	{
