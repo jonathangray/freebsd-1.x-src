@@ -12,7 +12,7 @@
  * on the understanding that TFS is not responsible for the correct
  * functioning of this software in any circumstances.
  *
- *      $Id: aha1542.c,v 1.21 1994/03/01 16:06:37 ats Exp $
+ *      $Id: aha1542.c,v 1.22 1994/03/20 00:29:58 wollman Exp $
  */
 
 /*
@@ -741,7 +741,7 @@ aha_get_ccb(unit, flags)
 	 * to come free
 	 */
 	while ((!(rc = aha->aha_ccb_free)) && (!(flags & SCSI_NOSLEEP))) {
-		sleep(&aha->aha_ccb_free, PRIBIO);
+		tsleep((caddr_t)&aha->aha_ccb_free, PRIBIO, "ahaccb", 0);
 	}
 	if (rc) {
 		aha->aha_ccb_free = aha->aha_ccb_free->next;
