@@ -32,13 +32,11 @@
  */
 
 #ifndef lint
-static char sccsid[] = "@(#)iso.c	5.6 (Berkeley) 4/27/91";
+/* From: static char sccsid[] = "@(#)iso.c	5.6 (Berkeley) 4/27/91"; */
+static const char iso_c_rcsid[] =
+	"$Id: iso.c,v 1.4 1993/11/17 20:19:21 wollman Exp $";
 #endif /* not lint */
 
-/*
- * $Header: /a/cvs/386BSD/src/usr.bin/netstat/iso.c,v 1.3 1993/11/16 01:44:48 wollman Exp $
- * $Source: /a/cvs/386BSD/src/usr.bin/netstat/iso.c,v $
- */
 /*******************************************************************************
 	          Copyright IBM Corporation 1987
 
