@@ -1,4 +1,5 @@
-#	@(#)Makefile	8.1 (Berkeley) 6/7/93
+#	From: @(#)Makefile	8.1 (Berkeley) 6/7/93
+#	$Id: Makefile,v 1.2 1994/04/03 00:28:10 wollman Exp $
 
 PROG=	mklocale
 SRCS=	yacc.c lex.c
