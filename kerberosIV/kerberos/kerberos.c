@@ -11,7 +11,7 @@
 
 #ifndef lint
 static char *rcsid_kerberos_c =
-"$Id: kerberos.c,v 1.1 1994/02/25 01:14:03 wollman Exp $";
+"$Id: kerberos.c,v 1.2 1994/05/12 22:54:25 wollman Exp $";
 #endif  lint
 
 #include <mit-copyright.h>
@@ -72,7 +72,7 @@ static char *req_realm_ptr;
 static u_char req_no_req;
 static u_long req_time_ws;
 
-int req_act_vno = KRB_PROT_VERSION; /* Temporary for version skew */
+extern int req_act_vno;
 
 static char local_realm[REALM_SZ];
 

@@ -11,7 +11,7 @@
 
 #ifndef lint
 static char *rcsid_cr_err_reply_c =
-"$Header: /a/cvs/386BSD/src/kerberosIV/krb/cr_err_reply.c,v 1.1 1994/02/25 01:14:10 wollman Exp $";
+"$Header: /a/cvs/386BSD/src/kerberosIV/krb/cr_err_reply.c,v 1.2 1994/05/12 22:54:32 wollman Exp $";
 #endif /* lint */
 
 #include <mit-copyright.h>
@@ -21,8 +21,8 @@ static char *rcsid_cr_err_reply_c =
 #include <prot.h>
 #include <strings.h>
 
-extern int req_act_vno;		/* this is defined in the kerberos
-				 * server code */
+int req_act_vno = KRB_PROT_VERSION; /* Temporary for version skew */
+
 
 /*
  * This routine is used by the Kerberos authentication server to
