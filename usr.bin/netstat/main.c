@@ -40,7 +40,7 @@ char copyright[] =
 #ifndef lint
 /* From: static char sccsid[] = "@(#)main.c	5.23 (Berkeley) 7/1/91"; */
 const char main_c_rcsid[] =
-	"$Id: main.c,v 1.4 1994/05/17 21:10:16 jkh Exp $";
+	"$Id: main.c,v 1.5 1994/05/17 21:50:41 wollman Exp $";
 #endif /* not lint */
 
 #include <sys/param.h>
@@ -243,7 +243,7 @@ main(argc, argv)
 	int ch;
 	void usage(); 
 
-	while ((ch = getopt(argc, argv, "Aadf:hI:iM:mN:np:Rrstuw:")) != EOF)
+	while ((ch = getopt(argc, argv, "Aadf:ghI:iM:mN:np:rstuw:")) != EOF)
 		switch((char)ch) {
 		case 'A':
 			Aflag = 1;
@@ -309,7 +309,7 @@ main(argc, argv)
 		case 'r':
 			rflag = 1;
 			break;
-		case 'R':
+		case 'g':
 			Rflag = 1;
 			break;
 		case 's':
