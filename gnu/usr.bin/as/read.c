@@ -19,7 +19,7 @@
    the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA. */
 
 #ifndef lint
-static char rcsid[] = "$Id: read.c,v 1.3 1993/11/30 20:55:43 jkh Exp $";
+static char rcsid[] = "$Id: read.c,v 1.4 1993/12/12 17:01:16 jkh Exp $";
 #endif
 
 #define MASK_CHAR (0xFF)	/* If your chars aren't 8 bits, you will
@@ -1136,6 +1136,7 @@ void s_size() {
 	expressionS	*exp;
 	segT		seg;
 	
+	SKIP_WHITESPACE();
 	name = input_line_pointer;
 	c = get_symbol_end();
 	/* just after name is now '\0' */
@@ -1187,6 +1188,7 @@ void s_type() {
 	register symbolS *symbolP;
 	int	aux;
 	
+	SKIP_WHITESPACE();
 	name = input_line_pointer;
 	c = get_symbol_end();
 	/* just after name is now '\0' */
