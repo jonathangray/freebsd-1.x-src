@@ -29,7 +29,11 @@
 /*
  * HISTORY
  * $Log: boot.c,v $
- * Revision 1.4  1993/10/08 20:19:23  rgrimes
+ * Revision 1.5  1993/10/09 08:31:39  chmr
+ * Changed the "Insert filesystem floppy" prompt to give the user a choice in
+ * which drive he wants the root file system (A or B).
+ *
+ * Revision 1.4  1993/10/08  20:19:23  rgrimes
  * Remove the ``loader overlaps bss, kernel must bzero'' printf since that
  * is so often reported as an error condition when it is not.  We print the
  * size of things so for those who want to know if this happened they can
@@ -143,7 +147,7 @@ int drive;
 		ouraddr,
 		argv[7] = memsize(0),
 		argv[8] = memsize(1),
-		"$Revision: 1.4 $");
+		"$Revision: 1.5 $");
 	printf("use options hd(1,...... to boot sd0 when wd0 is also installed\n");
 	gateA20();
 loadstart:
@@ -310,8 +314,19 @@ loadprog(howto)
 	switch(maj)
 	{
 	case 2:
-		printf("\n\nInsert file system floppy \n");
-		getchar();
+		printf("\n\nInsert file system floppy in drive A or B\n");
+		printf("Press 'A', 'B' or any other key for the default ");
+		printf("%c: ", unit+'A');
+		i = getchar();
+		switch (i) {
+			case '0': case 'A': case 'a':
+				unit = 0;
+				break;
+			case '1': case 'B': case 'b':
+				unit = 1;
+				break;
+		}
+		printf("\n");
 		break;
 	case 4:
 		break;
