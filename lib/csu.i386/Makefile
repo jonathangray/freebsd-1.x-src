@@ -1,5 +1,5 @@
 #	from: @(#)Makefile	5.6 (Berkeley) 5/22/91
-#	$Id: Makefile,v 1.6 1993/11/16 02:22:16 paul Exp $
+#	$Id: Makefile,v 1.7 1993/11/18 00:08:03 ache Exp $
 
 CFLAGS+=	-DLIBC_SCCS -DDYNAMIC
 OBJS=		crt0.o gcrt0.o
@@ -19,7 +19,7 @@ moncrt0.o: crt0.c
 
 gcrt0.o: moncrt0.o gmon.o
 #	${LD} -x -r -o ${.TARGET} moncrt0.o gmon.o
-	${LD} -o ${.TARGET} moncrt0.o gmon.o
+	${LD} -r -o ${.TARGET} moncrt0.o gmon.o
 
 gmon.o: gmon.c gmon.h
 	${CC} ${CFLAGS} -c ${.IMPSRC}
