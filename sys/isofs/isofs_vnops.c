@@ -1,5 +1,5 @@
 /*
- *	$Id: isofs_vnops.c,v 1.5 1994/03/25 22:26:22 davidg Exp $
+ *	$Id: isofs_vnops.c,v 1.6 1994/06/12 04:05:29 davidg Exp $
  */
 #include "param.h"
 #include "systm.h"
@@ -165,8 +165,6 @@ isofs_read(vp, uio, ioflag, cred)
 		}
 
 		error = uiomove(bp->b_un.b_addr + on, (int)n, uio);
-		if (n + on == imp->im_bsize || uio->uio_offset == ip->i_size)
-			bp->b_flags |= B_AGE;
 		brelse(bp);
 	} while (error == 0 && uio->uio_resid > 0 && n != 0);
 	return (error);
