@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.2 1993/12/21 20:16:46 wollman Exp $
+# $Id: Makefile,v 1.3 1993/12/21 21:06:27 wollman Exp $
 #
 
 CFLAGS+= -I${.CURDIR}/../include
@@ -15,7 +15,7 @@ SRCS=	atoint.c atolfp.c atouint.c auth12crypt.c authdecrypt.c authdes.c \
 	uglydate.c uinttoa.c utvtoa.c clocktypes.c \
 	md5.c a_md5encrypt.c a_md5decrypt.c \
 	a_md512crypt.c decodenetnum.c systime.c msyslog.c syssignal.c \
-	findconfig.c
+	findconfig.c getopt.c
 
 NOMAN=
 NOPROFILE=
