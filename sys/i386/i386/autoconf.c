@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)autoconf.c	7.1 (Berkeley) 5/9/91
- *	$Id: autoconf.c,v 1.6 1993/12/19 00:49:57 wollman Exp $
+ *	$Id: autoconf.c,v 1.7 1994/01/16 02:21:56 martin Exp $
  */
 
 /*
@@ -79,12 +79,14 @@ configure()
 	isa_configure();
 #endif
 
-#if GENERICxxx
+#if GENERICxxx && !defined(DISKLESS)
 	if ((boothowto & RB_ASKNAME) == 0)
 		setroot();
 	setconf();
 #else
+#ifndef DISKLESS
 	setroot();
+#endif
 #endif
 	/*
 	 * Configure swap area and related system
