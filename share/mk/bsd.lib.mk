@@ -1,7 +1,11 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.14  1993/10/31 03:33:46  paul
+# Revision 1.15  1993/10/31 15:43:03  ljo
+# bsd.dep.mk wasn't installed. bsd.lib.mk was missing a "\" line
+# continuation character in afterdepend target.
+#
+# Revision 1.14  1993/10/31  03:33:46  paul
 # Added NetBSD's bsd.dep.mk
 #
 # Revision 1.13  1993/10/31  01:45:26  ljo
@@ -180,7 +184,7 @@ cleandir:
 .if defined(SRCS)
 afterdepend:
 	@(TMP=/tmp/_depend$$$$; \
-	sed -e 's/^\([^\.]*\).o[ ]*:/\1.o \1.po \1.so:/' < .depend > $$TMP; 
+	sed -e 's/^\([^\.]*\).o[ ]*:/\1.o \1.po \1.so:/' < .depend > $$TMP; \
 	mv $$TMP .depend)
 .endif
 
