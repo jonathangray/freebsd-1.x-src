@@ -32,11 +32,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id: memmove.s,v 1.1 1993/08/16 18:40:36 jtc Exp $
+ *	$Id: memmove.s,v 1.2 1993/10/09 08:31:22 davidg Exp $
  */
 
 #if defined(LIBC_RCS) && !defined(lint)
-        .asciz "$Id: memmove.s,v 1.1 1993/08/16 18:40:36 jtc Exp $"
+        .asciz "$Id: memmove.s,v 1.2 1993/10/09 08:31:22 davidg Exp $"
 #endif /* LIBC_RCS and not lint */
 
 #include "DEFS.h"
@@ -46,6 +46,7 @@
 	 *  ws@tools.de     (Wolfgang Solfrank, TooLs GmbH) +49-228-985800
 	 */
 
+ALTENTRY(memcpy)
 ENTRY(memmove)
 	pushl	%esi
 	pushl	%edi
