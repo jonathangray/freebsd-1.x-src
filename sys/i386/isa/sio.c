@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)com.c	7.5 (Berkeley) 5/16/91
- *	$Id: sio.c,v 1.54 1994/06/08 00:07:24 ache Exp $
+ *	$Id: sio.c,v 1.55 1994/06/15 23:26:42 jkh Exp $
  */
 
 #include "sio.h"
@@ -87,7 +87,7 @@
 #endif /* COM_MULTIPORT */
 
 #define	COM_NOFIFO(dev)	((dev)->id_flags & 0x02)
-#define	COM_QUIET(dev)	((dev)->id_flags & 0x80)
+#define	COM_VERBOSE(dev) ((dev)->id_flags & 0x80)
 
 #define	com_scr		7	/* scratch register for 16450-16550 (R/W) */
 
@@ -496,7 +496,7 @@ sioprobe(dev)
 		if (failures[fn]) {
 			outb(iobase + com_mcr, 0);
 			result = 0;
-			if (!COM_QUIET(dev))
+			if (COM_VERBOSE(dev))
 				printf("sio%d: probe test %d failed\n",
 				       dev->id_unit, fn);
 		}
