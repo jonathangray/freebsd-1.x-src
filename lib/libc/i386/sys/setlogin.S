@@ -32,6 +32,8 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
+ *
+ *	$Id: setlogin.S,v 1.2 1994/02/21 05:19:17 rgrimes Exp $
  */
 
 #if defined(LIBC_SCCS) && !defined(lint)
@@ -45,12 +47,12 @@
 SYSCALL(setlogin)
 #ifdef PIC
 	PIC_PROLOGUE
-	pushl   %eax
-	movl    PIC_GOT(__logname_valid),%eax
-	movl    $0,(%eax)
-	popl    %eax
+	pushl	%eax
+	movl	PIC_GOT(__logname_valid),%eax
+	movl	$0,(%eax)
+	popl	%eax
 	PIC_EPILOGUE
 #else
-	movl    $0,__logname_valid
+	movl	$0,__logname_valid
 #endif
 	ret				/* setlogin(name) */

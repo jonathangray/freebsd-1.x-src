@@ -32,6 +32,8 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
+ *
+ *	$Id: sbrk.S,v 1.2 1994/02/21 05:19:16 rgrimes Exp $
  */
 
 #if defined(SYSLIBC_SCCS) && !defined(lint)
@@ -53,23 +55,23 @@ curbrk:	.long	_end
 
 ENTRY(sbrk)
 #ifdef PIC
-	movl    4(%esp),%ecx
+	movl	4(%esp),%ecx
 	PIC_PROLOGUE
-	movl    PIC_GOT(curbrk),%edx
-	movl    (%edx),%eax
+	movl	PIC_GOT(curbrk),%edx
+	movl	(%edx),%eax
 	PIC_EPILOGUE
-	addl    %eax,4(%esp)
-	lea     SYS_brk,%eax
+	addl	%eax,4(%esp)
+	lea	SYS_brk,%eax
 	LCALL(7,0)
-	jb      err
+	jb	err
 	PIC_PROLOGUE
-	movl    PIC_GOT(curbrk),%edx
-	movl    (%edx),%eax
-	addl    %ecx,(%edx)
+	movl	PIC_GOT(curbrk),%edx
+	movl	(%edx),%eax
+	addl	%ecx,(%edx)
 	PIC_EPILOGUE
 	ret
 err:
-	jmp     PIC_PLT(cerror)
+	jmp	PIC_PLT(cerror)
 
 #else
 
