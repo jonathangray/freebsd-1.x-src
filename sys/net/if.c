@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)if.c	7.14 (Berkeley) 4/20/91
- *	$Id: if.c,v 1.8 1994/05/02 19:10:20 wollman Exp $
+ *	$Id: if.c,v 1.9 1994/06/10 11:10:24 ache Exp $
  */
 
 #include "param.h"
@@ -204,7 +204,7 @@ ifa_ifwithdstaddr(addr)
 		for (ifa = ifp->if_addrlist; ifa; ifa = ifa->ifa_next) {
 			if (ifa->ifa_addr->sa_family != addr->sa_family)
 				continue;
-			if (equal(addr, ifa->ifa_dstaddr))
+			if (ifa->ifa_dstaddr && equal(addr, ifa->ifa_dstaddr))
 				return (ifa);
 	}
 	return ((struct ifaddr *)0);
