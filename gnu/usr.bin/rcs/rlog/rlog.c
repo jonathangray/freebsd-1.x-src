@@ -36,9 +36,13 @@ Report problems and direct all questions to:
 
 
 /* $Log: rlog.c,v $
-/* Revision 1.1  1993/06/18 04:22:16  jkh
-/* Initial revision
+/* Revision 1.2  1993/08/06 16:47:16  nate
+/* Have rlog output be much easier to parse.  (Added one line which is not
+/* used by any CVS/RCS commands)
 /*
+ * Revision 1.1.1.1  1993/06/18  04:22:17  jkh
+ * Updated GNU utilities
+ *
  * Revision 5.9  1991/09/17  19:07:40  eggert
  * Getscript() didn't uncache partial lines.
  *
@@ -194,7 +198,7 @@ static struct lockers *lockerlist;
 static struct stateattri *statelist;
 
 
-mainProg(rlogId, "rlog", "$Id: rlog.c,v 1.1 1993/06/18 04:22:16 jkh Exp $")
+mainProg(rlogId, "rlog", "$Id: rlog.c,v 1.2 1993/08/06 16:47:16 nate Exp $")
 {
 	static char const cmdusage[] =
 		"\nrlog usage: rlog -{bhLRt} -ddates -l[lockers] -rrevs -sstates -w[logins] -Vn file ...";
@@ -405,6 +409,7 @@ mainProg(rlogId, "rlog", "$Id: rlog.c,v 1.1 1993/06/18 04:22:16 jkh Exp $")
 		putrunk();
 		putree(Head);
 	    }
+	    aputs("----------------------------\n", out);
 	    aputs("=============================================================================\n",out);
 	} while (cleanup(),
 		 ++argv, --argc >= 1);
