@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)vm_pager.c	7.4 (Berkeley) 5/7/91
- *	$Id: vm_pager.c,v 1.9 1994/01/14 16:27:30 davidg Exp $
+ *	$Id: vm_pager.c,v 1.10 1994/01/31 04:21:43 davidg Exp $
  */
 
 /*
@@ -127,7 +127,7 @@ vm_pager_allocate(type, handle, size, prot, off)
 	caddr_t handle;
 	vm_size_t size;
 	vm_prot_t prot;
-	int	off;
+	vm_offset_t off;
 {
 	vm_pager_t pager;
 	struct pagerops *ops;
