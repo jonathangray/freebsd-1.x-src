@@ -1,7 +1,10 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.18  1993/11/06 19:15:25  paul
+# Revision 1.19  1993/11/07 09:14:44  paul
+# Added missing cleandir line for shared libs.
+#
+# Revision 1.18  1993/11/06  19:15:25  paul
 # Added missing $ to {CXX} in .cc.so
 #
 # Revision 1.17  1993/11/06  18:57:00  paul
@@ -231,6 +234,7 @@ cleandir:
 	rm -f lib${LIB}.a llib-l${LIB}.ln
 	rm -f ${.CURDIR}/tags .depend
 	rm -f ${POBJS} profiled/*.o lib${LIB}_p.a
+	rm -f ${SOBJS} shared/*.o lib${LIB}_pic.a 
 	cd ${.CURDIR}; rm -rf obj;
 .endif
 
