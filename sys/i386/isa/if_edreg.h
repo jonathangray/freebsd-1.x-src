@@ -2,14 +2,24 @@
  * National Semiconductor DS8390 NIC register definitions 
  *
  * $Log: if_edreg.h,v $
- * Revision 1.4  1993/07/20 23:16:50  davidg
- * Added config file override for memory size and added flags to force
- * 8bit or 16bit operation, and a flag to disable transmitter double buffering.
- * See the updated "ed.relnotes" file for information about how to set
- * the flags.
- * This should be considered the first "production"  release. It still
- * needs a manual page, though.
+ * Revision 1.5  1993/09/09 07:01:23  davidg
+ * As of this revision, all known bugs have been fixed. Some of the fixes include:
  *
+ * 1) fixed 3c503 lock-up if the thinwire cable was disconnected at boot time
+ * 2) 8013EBT boards now work (quite well!) in 16bit/16k mode
+ * 3) ED_NO_DOUBLE_BUFFERING flag now works
+ * 4) slightly higer performance (about 3%) with 16bit WD/SMC boards
+ * 5) support for WD8013WC (10BaseT) boards
+ *
+ * Additionally, the probe code has been reorganized to be much cleaner. This
+ * revision of the driver is 1.25. The release notes have been updated as well.
+ *
+ * Revision 1.5  93/08/25  20:38:34  davidg
+ * added define for card type WD8013WC (10BaseT)
+ * 
+ * Revision 1.4  93/08/14  20:07:55  davidg
+ * fix board type definition for 8013EP
+ * 
  * Revision 1.3  93/07/20  15:25:25  davidg
  * added config flags for forcing 8/16bit mode and disabling double
  * xmit buffers.
@@ -670,7 +680,8 @@ struct ed_ring	{
 #define ED_TYPE_WD8003S		0x02
 #define ED_TYPE_WD8003E		0x03
 #define ED_TYPE_WD8013EBT	0x05
-#define ED_TYPE_WD8013EB	0x27
+#define ED_TYPE_WD8013EP	0x27
+#define ED_TYPE_WD8013WC	0x28
 #define ED_TYPE_WD8013EBP	0x2c
 #define ED_TYPE_WD8013EPC	0x29
 
