@@ -1,7 +1,12 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.22  1993/11/13 20:19:14  paul
+# Revision 1.23  1993/12/04 20:04:31  ats
+# Added rules for ".S" to ".o" etc. Added ".S" to the known suffixes.
+# This is necessary to change all .s to .S files in the libc to get
+# make depend running again.
+#
+# Revision 1.22  1993/11/13  20:19:14  paul
 # Commented out ALL ld -x -r lines.
 #
 # Revision 1.21  1993/11/12  00:01:30  paul
@@ -128,7 +133,7 @@ BINMODE?=	555
 # prefer .s to a .c, add .po, remove stuff not used in the BSD libraries
 # .so used for PIC object files
 .SUFFIXES:
-.SUFFIXES: .out .o .po .so .s .c .cc .cxx .C .f .y .l
+.SUFFIXES: .out .o .po .so .s .S .c .cc .cxx .C .f .y .l
 
 .c.o:
 	${CC} ${CFLAGS} -c ${.IMPSRC} 
@@ -181,6 +186,18 @@ BINMODE?=	555
 #	@mv a.out ${.TARGET}
 
 .s.so:
+	${CPP} -E -DPIC ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
+	   ${AS} -k -o ${.TARGET}
+
+.S.o:
+	${CPP} -E ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
+	    ${AS} -o ${.TARGET}
+
+.S.po:
+	${CPP} -E -DPROF ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
+	    ${AS} -o ${.TARGET}
+
+.S.so:
 	${CPP} -E -DPIC ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
 	   ${AS} -k -o ${.TARGET}
 
