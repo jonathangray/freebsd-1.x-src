@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)in.c	7.17 (Berkeley) 4/20/91
- *	$Id: in.c,v 1.7 1993/12/19 00:52:34 wollman Exp $
+ *	$Id: in.c,v 1.8 1994/01/15 14:29:21 davidg Exp $
  */
 
 #include "param.h"
@@ -228,7 +228,7 @@ in_canforward(in)
 		return (0);
 	if (IN_CLASSA(i)) {
 		net = i & IN_CLASSA_NET;
-		if (net == 0 || net == IN_LOOPBACKNET)
+		if (net == 0 || net == (IN_LOOPBACKNET << IN_CLASSA_NSHIFT))
 			return (0);
 	}
 	return (1);
