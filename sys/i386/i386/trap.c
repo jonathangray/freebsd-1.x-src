@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)trap.c	7.4 (Berkeley) 5/13/91
- *	$Id: trap.c,v 1.9 1993/11/28 09:28:54 davidg Exp $
+ *	$Id: trap.c,v 1.10 1993/12/03 05:07:45 alm Exp $
  */
 
 /*
@@ -370,6 +370,9 @@ nogo:
 			goto we_re_toast;
 		}
 		i = (rv == KERN_PROTECTION_FAILURE) ? SIGBUS : SIGSEGV;
+		ucode = type &~ T_USER;
+		frame.tf_err = eva;
+		     /* kludge to pass faulting virtual address to sendsig */
 		break;
 	    }
 

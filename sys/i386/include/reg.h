@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)reg.h	5.5 (Berkeley) 1/18/91
- *	$Id: reg.h,v 1.4 1993/11/16 09:54:57 davidg Exp $
+ *	$Id: reg.h,v 1.5 1993/12/03 05:10:08 alm Exp $
  */
 
 #ifndef _MACHINE_REG_H_
@@ -59,6 +59,8 @@
 #define	tEDX	(7)
 #define	tECX	(8)
 #define	tEAX	(9)
+
+#define	tERR	(11)
 
 #define	tEIP	(12)
 #define	tCS	(13)
