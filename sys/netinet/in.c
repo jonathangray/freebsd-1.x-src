@@ -31,10 +31,11 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)in.c	7.17 (Berkeley) 4/20/91
- *	$Id: in.c,v 1.4 1993/11/07 22:55:02 wollman Exp $
+ *	$Id: in.c,v 1.5 1993/11/18 00:08:13 wollman Exp $
  */
 
 #include "param.h"
+#include "systm.h"
 #include "ioctl.h"
 #include "mbuf.h"
 #include "socket.h"
