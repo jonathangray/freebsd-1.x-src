@@ -34,11 +34,14 @@
 #if defined(LIBC_SCCS) && !defined(lint)
 static char sccsid[] = "From: @(#)setrgid.c	5.5 (Berkeley) 2/23/91";
 static const char rcsid[] =
-	"$Id: setrgid.c,v 1.3 1994/04/22 21:13:30 ache Exp $";
+	"$Id: setrgid.c,v 1.4 1994/04/23 20:39:02 wollman Exp $";
 #endif /* LIBC_SCCS and not lint */
 
 #include <unistd.h>
-#include <err.h>
+#include <string.h>
+
+#define MESSAGE ": warning: this program uses setrgid(), which doesn't do anything\r\n(but used to)\r\n"
+
 
 int
 #ifdef __STDC__
@@ -48,7 +51,9 @@ setrgid(rgid)
 	int rgid;
 #endif
 {
-	warnx("this program uses setrgid(), which doesn't do anything\r\n(but used to)\r");
+	extern char *__progname;
+	writye(2, __progname, strlen(__progname));
+	write(2, MESSAGE, sizeof(MESSAGE) - 1);
 	return (setregid(rgid, -1));
 }
 

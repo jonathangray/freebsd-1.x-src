@@ -34,11 +34,13 @@
 #if defined(LIBC_SCCS) && !defined(lint)
 static char sccsid[] = "From: @(#)setruid.c	5.5 (Berkeley) 2/23/91";
 static const char rcsid[] =
-	"$Id: setruid.c,v 1.3 1994/04/22 21:13:32 ache Exp $";
+	"$Id: setruid.c,v 1.4 1994/04/23 20:39:02 wollman Exp $";
 #endif /* LIBC_SCCS and not lint */
 
 #include <unistd.h>
-#include <err.h>
+#include <string.h>
+
+#define MESSAGE ": warning: this program uses setruid, which doesn't do anything\r\n(but used to)\r\n"
 
 int
 #ifdef __STDC__
@@ -48,7 +50,9 @@ setruid(ruid)
 	int ruid;
 #endif
 {
-	warnx("this program uses setruid, which doesn't do anything\r\n(but used to)\r");
+	extern char *__progname;
+	write(2, __progname, strlen(__progname));
+	write(2, MESSAGE, sizeof(MESSAGE) - 1);
 	return (setreuid(ruid, -1));
 }
 
