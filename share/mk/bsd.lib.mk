@@ -1,7 +1,11 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.8  1993/08/03 20:57:34  nate
+# Revision 1.9  1993/08/05 18:45:53  nate
+# Removed the ranlib statements from before the install (since it's done
+# after the install as well), and changed ranlib -> ${RANLIB}
+#
+# Revision 1.8  1993/08/03  20:57:34  nate
 # Fixed macros so that you can do a
 # make maninstall at all times and have it not blow up
 #
@@ -85,14 +89,14 @@ lib${LIB}.a:: ${OBJS}
 	@echo building standard ${LIB} library
 	@rm -f lib${LIB}.a
 	@${AR} cTq lib${LIB}.a `lorder ${OBJS} | tsort` ${LDADD}
-	ranlib lib${LIB}.a
+	${RANLIB} lib${LIB}.a
 
 POBJS+=	${OBJS:.o=.po}
 lib${LIB}_p.a:: ${POBJS}
 	@echo building profiled ${LIB} library
 	@rm -f lib${LIB}_p.a
 	@${AR} cTq lib${LIB}_p.a `lorder ${POBJS} | tsort` ${LDADD}
-	ranlib lib${LIB}_p.a
+	${RANLIB} lib${LIB}_p.a
 
 llib-l${LIB}.ln: ${SRCS}
 	${LINT} -C${LIB} ${CFLAGS} ${.ALLSRC:M*.c}
@@ -128,12 +132,10 @@ beforeinstall:
 .endif
 
 realinstall: beforeinstall
-	ranlib lib${LIB}.a
 	install ${COPY} -o ${LIBOWN} -g ${LIBGRP} -m ${LIBMODE} lib${LIB}.a \
 	    ${DESTDIR}${LIBDIR}
 	${RANLIB} -t ${DESTDIR}${LIBDIR}/lib${LIB}.a
 .if !defined(NOPROFILE)
-	ranlib lib${LIB}_p.a
 	install ${COPY} -o ${LIBOWN} -g ${LIBGRP} -m ${LIBMODE} \
 	    lib${LIB}_p.a ${DESTDIR}${LIBDIR}
 	${RANLIB} -t ${DESTDIR}${LIBDIR}/lib${LIB}_p.a
