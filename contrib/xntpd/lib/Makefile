@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.3 1993/12/21 21:06:27 wollman Exp $
+# $Id: Makefile,v 1.4 1993/12/22 11:32:23 rgrimes Exp $
 #
 
 CFLAGS+= -I${.CURDIR}/../include
@@ -20,10 +20,11 @@ SRCS=	atoint.c atolfp.c atouint.c auth12crypt.c authdecrypt.c authdes.c \
 NOMAN=
 NOPROFILE=
 LIB= ntp
+CLEANFILES+=authdes.c
 
 install:
 
 authdes.c: authdes.c.export
-	cp authdes.c.export authdes.c
+	cp ${.CURDIR}/authdes.c.export authdes.c
 
 .include <bsd.lib.mk>
