@@ -4,8 +4,8 @@
  * terms of the GNU General Public License, see the file COPYING.
  */
 
-#ifndef lint
-static char rcsid[] = "$Id: util.c,v 1.2 1993/06/19 00:22:39 nate Exp $";
+#ifdef RCSID
+static char rcsid[] = "$Id: util.c,v 1.3 1993/10/14 00:33:26 nate Exp $";
 #endif
 
 #include <ctype.h>
@@ -301,7 +301,7 @@ char *add_envopt(argcp, argvp, env)
 	if (*p) *p++ = '\0';		     /* mark it */
     }
     if (nargc == 0) {
-	free(env); env = NULL;
+	free(env);
 	return NULL;
     }
     *argcp += nargc;
