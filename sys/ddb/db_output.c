@@ -34,16 +34,20 @@
 /*
  * HISTORY
  * $Log: db_output.c,v $
- * Revision 1.2  1993/07/27 10:52:00  davidg
+ * Revision 1.3  1993/09/09 23:03:24  rgrimes
+ * Moved db_end_line after db_printf to eliminate forward reference and
+ * shut up the compiler about prototype mismatch.
+ *
+ * Revision 1.2  1993/07/27  10:52:00  davidg
  * * Applied fixes from Bruce Evans to fix COW bugs, >1MB kernel loading,
- * profiling, and various protection checks that cause security holes
- * and system crashes.
+ *   profiling, and various protection checks that cause security holes
+ *   and system crashes.
  * * Changed min/max/bcmp/ffs/strlen to be static inline functions
- * - included from cpufunc.h in via systm.h. This change
- * improves performance in many parts of the kernel - up to 5% in the
- * networking layer alone. Note that this requires systm.h to be included
- * in any file that uses these functions otherwise it won't be able to
- * find them during the load.
+ *   - included from cpufunc.h in via systm.h. This change
+ *   improves performance in many parts of the kernel - up to 5% in the
+ *   networking layer alone. Note that this requires systm.h to be included
+ *   in any file that uses these functions otherwise it won't be able to
+ *   find them during the load.
  * * Fixed incorrect call to splx() in if_is.c
  * * Fixed bogus variable assignment to splx() in if_ed.c
  *
@@ -174,16 +178,6 @@ db_print_position()
 }
 
 /*
- * End line if too long.
- */
-void
-db_end_line()
-{
-	if (db_output_position >= db_max_width)
-	    db_printf("\n");
-}
-
-/*
  * Printing
  */
 extern int	db_radix;
@@ -206,6 +200,16 @@ kdbprintf(char *fmt, ...)
 	va_start(listp, fmt);
 	db_printf_guts (fmt, listp);
 	va_end(listp);
+}
+
+/*
+ * End line if too long.
+ */
+void
+db_end_line()
+{
+	if (db_output_position >= db_max_width)
+	    db_printf("\n");
 }
 
 /*
