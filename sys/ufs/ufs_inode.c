@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ufs_inode.c	7.40 (Berkeley) 5/8/91
+ *	from: @(#)ufs_inode.c	7.40 (Berkeley) 5/8/91
+ *	$Id: ufs_inode.c,v 1.3 1993/10/16 18:17:52 rgrimes Exp $
  */
 
 #include "param.h"

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)inode.h	7.17 (Berkeley) 5/8/91
+ *	from: @(#)inode.h	7.17 (Berkeley) 5/8/91
+ *	$Id: inode.h,v 1.3 1993/10/16 18:17:40 rgrimes Exp $
  */
 
 #ifdef KERNEL

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ufsmount.h	7.9 (Berkeley) 5/8/91
+ *	from: @(#)ufsmount.h	7.9 (Berkeley) 5/8/91
+ *	$Id: ufsmount.h,v 1.2 1993/10/16 18:18:05 rgrimes Exp $
  */
 
 /*

@@ -33,7 +33,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)quota.h	7.9 (Berkeley) 2/22/91
+ *	from: @(#)quota.h	7.9 (Berkeley) 2/22/91
+ *	$Id: quota.h,v 1.2 1993/10/16 18:17:47 rgrimes Exp $
  */
 
 #ifndef _QUOTA_
