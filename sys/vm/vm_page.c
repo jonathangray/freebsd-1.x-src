@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)vm_page.c	7.4 (Berkeley) 5/7/91
- *	$Id: vm_page.c,v 1.6 1993/12/21 05:51:04 davidg Exp $
+ *	$Id: vm_page.c,v 1.7 1994/01/03 07:58:07 davidg Exp $
  */
 
 /*
@@ -573,6 +573,11 @@ void vm_page_free(mem)
 
 		vm_page_free_count++;
 		simple_unlock(&vm_page_queue_free_lock);
+/*
+ * Other processes than pageproc can free memory, pageproc does the wakeup
+ * and so should other processes that free memory. 
+ */
+		wakeup((caddr_t) &vm_page_free_count);
 		splx(spl);
 	}
 }
