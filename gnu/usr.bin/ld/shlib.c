@@ -1,5 +1,5 @@
 /*
- * $Id: shlib.c,v 1.1 1993/11/03 23:41:07 paul Exp $
+ * $Id: shlib.c,v 1.2 1993/11/09 04:19:03 paul Exp $
  */
 
 #include <sys/param.h>
@@ -48,9 +48,10 @@ char	*paths;
 
 	if (paths != NULL)
 		/* Add search directories from `paths' */
-		while ((cp = strtok(paths, ":")) != NULL) {
-			paths = NULL;
+		while ((cp = strsep(&paths, ":")) != NULL) {
 			add_search_dir(cp);
+			if (paths)
+				*(paths-1) = ':';
 		}
 
 	/* Append standard search directories */

@@ -1,5 +1,5 @@
 /*
- * $Id: etc.c,v 1.1 1993/11/03 23:40:55 paul Exp $
+ * $Id: etc.c,v 1.2 1993/11/09 04:18:52 paul Exp $
  */
 
 #include <sys/param.h>

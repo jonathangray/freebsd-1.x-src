@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *	$Id: ldconfig.c,v 1.1 1993/11/03 23:41:36 paul Exp $
+ *	$Id: ldconfig.c,v 1.2 1993/11/09 04:19:22 paul Exp $
  */
 
 #include <sys/param.h>

@@ -1,4 +1,4 @@
-#	$Id: Makefile,v 1.2 1993/11/07 03:25:25 paul Exp $
+#	$Id: Makefile,v 1.3 1993/11/09 04:19:29 paul Exp $
 
 PROG=	ld.so
 SRCS=	mdprologue.S rtld.c shlib.c etc.c md.c
@@ -8,7 +8,7 @@ LDDIR?= $(.CURDIR)/..
 PICFLAG=-fpic
 CFLAGS += -I$(LDDIR) -I$(.CURDIR) -I$(LDDIR)/$(MACHINE) -O $(PICFLAG) -DRTLD
 LDFLAGS = -Bshareable -Bsymbolic -assert nosymbolic
-LIBS =  -lc_pic -lgcc_pic
+LIBS =  -lc_pic
 BINDIR= /usr/libexec
 
 .PATH: $(LDDIR) $(LDDIR)/$(MACHINE)
@@ -16,7 +16,7 @@ BINDIR= /usr/libexec
 .SUFFIXES: .S
 
 $(PROG):
-	$(LD) -o $(PROG) $(LDFLAGS) $(OBJS) $(LIBS)
+	$(LD) -o $(PROG) $(LDFLAGS) $(OBJS) $(LIBS) $(LDADD)
 
 .S.o:
 	$(CPP) $(.IMPSRC) | $(AS) -k -o $(.TARGET) -
