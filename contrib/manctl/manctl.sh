@@ -30,7 +30,7 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-# $Id: manctl.sh,v 1.2 1994/04/17 22:13:08 csgr Exp $
+# $Id: manctl.sh,v 1.3 1994/04/17 22:27:56 csgr Exp $
 #
 # manctl: 
 #	a utility for manipulating manual pages
@@ -129,7 +129,7 @@ do_uncompress()
 		if [ -d $1 ] ; then
 			dir=$1
 			cd $dir
-			for i in $dir/* ; do
+			for i in * ; do
 				case $i in
 				*cat?)	;; # ignore cat directories
 				*)	{
@@ -186,7 +186,8 @@ compress_page()
 		else
 			if [ $2 != "symbolic" ] ; then
 				echo gzipping page $pname 1>&2
-				soelim $pname | gzip -c -- > /tmp/manager.$$
+				cat $pname | \
+				(cd .. ; soelim )| gzip -c -- > /tmp/manager.$$
 				chmod u+w $pname
 				cp /tmp/manager.$$ $pname
 				chmod 444 $pname
