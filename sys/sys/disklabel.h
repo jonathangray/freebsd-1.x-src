@@ -31,13 +31,14 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)disklabel.h	7.19 (Berkeley) 5/7/91
- *	$Id: disklabel.h,v 1.4 1993/11/25 01:37:56 wollman Exp $
+ *	$Id: disklabel.h,v 1.5 1993/11/28 14:23:10 ats Exp $
  */
 
 #ifndef _SYS_DISKLABEL_H_
 #define _SYS_DISKLABEL_H_ 1
 
 #ifndef KERNEL
+#include <sys/cdefs.h>
 #include <sys/conf.h>
 #else
 #include "conf.h"
