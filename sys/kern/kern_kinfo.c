@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)kern_kinfo.c	7.17 (Berkeley) 6/26/91
- *	$Id: kern_kinfo.c,v 1.6 1993/11/25 01:32:59 wollman Exp $
+ *	$Id: kern_kinfo.c,v 1.7 1993/11/29 19:22:18 ache Exp $
  */
 
 #include "param.h"
@@ -249,8 +249,10 @@ fill_eproc(p, ep)
 	ep->e_flag = ep->e_sess->s_ttyvp ? EPROC_CTTY : 0;
 	if (SESS_LEADER(p))
 		ep->e_flag |= EPROC_SLEADER;
-	if (p->p_wmesg)
+	if (p->p_wmesg) {
 		strncpy(ep->e_wmesg, p->p_wmesg, WMESGLEN);
+		ep->e_wmesg[WMESGLEN] = 0; /* prevents fault on long wmesg */
+	}
 	ep->e_xsize = ep->e_xrssize = 0;
 	ep->e_xccount = ep->e_xswrss = 0;
 }
