@@ -3,14 +3,12 @@
  */
 
 #ifndef lint
-static char rcsid[] = "$Id: lzw.c,v 1.1 1993/06/18 18:39:38 nate Exp $";
+static char rcsid[] = "$Id: lzw.c,v 1.2 1993/06/19 00:22:32 nate Exp $";
 #endif
 
 #include "tailor.h"
 #include "gzip.h"
 #include "lzw.h"
-
-#include <stdio.h>
 
 static int msg_done = 0;
 

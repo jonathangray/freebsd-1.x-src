@@ -14,10 +14,8 @@
  */
 
 #ifndef lint
-static char rcsid[] = "$Id: unzip.c,v 1.1 1993/06/18 18:39:39 nate Exp $";
+static char rcsid[] = "$Id: unzip.c,v 1.2 1993/06/19 00:22:38 nate Exp $";
 #endif
-
-#include <stdio.h>
 
 #include "tailor.h"
 #include "gzip.h"

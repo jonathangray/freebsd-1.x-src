@@ -8,10 +8,9 @@
  */
 
 #ifndef lint
-static char rcsid[] = "$Id: unlzw.c,v 1.1 1993/06/18 18:39:39 nate Exp $";
+static char rcsid[] = "$Id: unlzw.c,v 1.2 1993/06/19 00:22:37 nate Exp $";
 #endif
 
-#include <stdio.h>
 #include <sys/types.h>
 
 #include "tailor.h"
@@ -263,6 +262,7 @@ int unlzw(in, out)
 		read_error();
 	    }
 	    insize += rsize;
+	    bytes_in += (ulg)rsize;
 	}
 	inbits = ((rsize != 0) ? ((long)insize - insize%n_bits)<<3 : 
 		  ((long)insize<<3)-(n_bits-1));
@@ -313,7 +313,8 @@ int unlzw(in, out)
 			    posbits, p[-1],p[0],p[1],p[2],p[3]);
 #endif
 		    if (!test && outpos > 0) {
-			write_buf(out, outbuf, outpos);
+			write_buf(out, (char*)outbuf, outpos);
+			bytes_out += (ulg)outpos;
 		    }
 		    error("corrupt input. Use zcat to recover some data.");
 		}
@@ -341,7 +342,10 @@ int unlzw(in, out)
 			    outpos += i;
 			}
 			if (outpos >= OUTBUFSIZ) {
-			    if (!test) write_buf(out, outbuf, outpos);
+			    if (!test) {
+				write_buf(out, (char*)outbuf, outpos);
+				bytes_out += (ulg)outpos;
+			    }
 			    outpos = 0;
 			}
 			stackp+= i;
@@ -360,10 +364,11 @@ int unlzw(in, out)
 	    } 
 	    oldcode = incode;	/* Remember previous code.	*/
 	}
-	bytes_in += rsize;
-
     } while (rsize != 0);
     
-    if (!test && outpos > 0) write_buf(out, outbuf, outpos);
+    if (!test && outpos > 0) {
+	write_buf(out, (char*)outbuf, outpos);
+	bytes_out += (ulg)outpos;
+    }
     return OK;
 }
