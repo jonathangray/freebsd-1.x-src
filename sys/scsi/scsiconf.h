@@ -14,8 +14,11 @@
  *
  * Ported to run under 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
  *
- *	$Id: scsiconf.h,v 1.5 1993/08/28 03:08:54 rgrimes Exp $
+ *	$Id: scsiconf.h,v 1.6 1993/11/07 17:51:34 wollman Exp $
  */
+
+#ifndef _SCSI_SCSICONF_H_
+#define _SCSI_SCSICONF_H_ 1
 
 /***********************************************\
 * these calls are called by the high-end	*
@@ -123,3 +126,4 @@ struct scsi_xfer
 #define XS_SWTIMEOUT	0x04	/* The Timeout reported was caught by SW  */
 #define XS_BUSY		0x08	/* The device busy, try again later?	  */
 
+#endif /* _SCSI_SCSICONF_H_ */

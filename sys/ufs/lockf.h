@@ -34,8 +34,11 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)lockf.h	7.1 (Berkeley) 2/1/91
- *	$Id: lockf.h,v 1.3 1993/10/20 07:31:36 davidg Exp $
+ *	$Id: lockf.h,v 1.4 1993/11/07 17:53:40 wollman Exp $
  */
+
+#ifndef _UFS_LOCKF_H_
+#define _UFS_LOCKF_H_ 1
 
 /*
  * The lockf structure is a kernel structure which contains all the
@@ -70,3 +73,4 @@ extern struct lockf *lf_getblock();	/* Return the first blocking lock */
 extern int lockf_debug;
 #endif	LOCKF_DEBUG
 #endif	KERNEL
+#endif /* _UFS_LOCKF_H_ */

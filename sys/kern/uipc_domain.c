@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)uipc_domain.c	7.9 (Berkeley) 3/4/91
- *	$Id: uipc_domain.c,v 1.2 1993/10/16 15:25:06 rgrimes Exp $
+ *	$Id: uipc_domain.c,v 1.3 1993/11/07 17:46:22 wollman Exp $
  */
 
 #include <sys/cdefs.h>
@@ -42,6 +42,8 @@
 #include "mbuf.h"
 #include "time.h"
 #include "kernel.h"
+
+struct domain *domains;
 
 #define	ADDDOMAIN(x)	{ \
 	extern struct domain __CONCAT(x,domain); \

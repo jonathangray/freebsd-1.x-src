@@ -37,7 +37,7 @@
  *
  *	from: Utah $Hdr: uipc_shm.c 1.9 89/08/14$
  *	from: @(#)sysv_shm.c	7.15 (Berkeley) 5/13/91
- *	$Id: sysv_shm.c,v 1.4 1993/10/16 15:24:52 rgrimes Exp $
+ *	$Id: sysv_shm.c,v 1.5 1993/11/07 17:46:20 wollman Exp $
  */
 
 /*
@@ -63,6 +63,10 @@
 #ifdef HPUXCOMPAT
 #include "hp300/hpux/hpux.h"
 #endif
+
+/* From shm.h */
+struct	shmid_ds	*shmsegs;
+struct	shminfo		shminfo;
 
 int	shmat(), shmctl(), shmdt(), shmget();
 int	(*shmcalls[])() = { shmat, shmctl, shmdt, shmget };

@@ -1,6 +1,9 @@
 /*
- *	$Id: isofs_node.h,v 1.2 1993/07/20 03:27:31 jkh Exp $
+ *	$Id: isofs_node.h,v 1.3 1993/11/07 17:46:04 wollman Exp $
  */
+
+#ifndef _ISOFS_ISOFS_NODE_H_
+#define _ISOFS_ISOFS_NODE_H_ 1
 
 
 typedef	struct	{
@@ -90,3 +93,4 @@ int isofs_strategy __P((struct buf *bp));
 int isofs_print __P((struct vnode *vp));
 int isofs_islocked __P((struct vnode *vp));
 
+#endif /* _ISOFS_ISOFS_NODE_H_ */
