@@ -1,6 +1,6 @@
-# $Header: /a/cvs/386BSD/src/gnu/lib/libregex/Makefile,v 1.4 1993/11/09 20:23:44 paul Exp $
+# $Header: /a/cvs/386BSD/src/gnu/lib/libregex/Makefile,v 1.5 1993/12/28 07:57:07 smace Exp $
 
-SHLIB_MAJOR=0
+SHLIB_MAJOR=1
 SHLIB_MINOR=0
 
 LIB=	gnuregex
