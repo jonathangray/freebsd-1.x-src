@@ -2,7 +2,7 @@
  * Written by grefen@?????
  * Based on scsi drivers by Julian Elischer (julian@tfs.com)
  *
- *      $Id: ch.c,v 1.7 1993/12/19 00:54:49 wollman Exp $
+ *      $Id: ch.c,v 1.8 1994/01/29 10:30:36 rgrimes Exp $
  */
 
 #include	<sys/types.h>
@@ -148,7 +148,7 @@ chopen(dev)
 	 */
 	if (ch_data[unit].flags & CH_OPEN) {
 		printf("ch%d: already open\n", unit);
-		return ENXIO;
+		return EBUSY;
 	}
 	/*
 	 * Make sure the device has been initialised
