@@ -38,7 +38,7 @@
  *
  *	from: @(#)vm_machdep.c	7.3 (Berkeley) 5/13/91
  *	Utah $Hdr: vm_machdep.c 1.16.1.1 89/06/23$
- *	$Id: vm_machdep.c,v 1.23 1994/05/25 08:06:59 swallace Exp $
+ *	$Id: vm_machdep.c,v 1.24 1994/05/25 11:23:20 davidg Exp $
  */
 
 #include "npx.h"
@@ -258,6 +258,7 @@ int count;
 		pa = vm_bounce_page_find(1);
 		pmap_kenter(kva + i * NBPG, pa);
 	}
+	pmap_update();
 	return kva;
 }
 
