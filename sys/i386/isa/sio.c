@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)com.c	7.5 (Berkeley) 5/16/91
- *	$Id: sio.c,v 1.41 1994/04/01 16:47:01 ache Exp $
+ *	$Id: sio.c,v 1.42 1994/04/02 07:00:48 davidg Exp $
  */
 
 #include "sio.h"
@@ -98,7 +98,6 @@
 #endif
 
 #define	com_scr		7	/* scratch register for 16450-16550 (R/W) */
-#define setsofttty()    (ipending |= 1 << 4)     /* XXX */
 
 /*
  * Input buffer watermarks.
