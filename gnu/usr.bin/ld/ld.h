@@ -1,4 +1,4 @@
-/*	$Id: ld.h,v 1.2 1993/11/09 04:18:59 paul Exp $	*/
+/*	$Id: ld.h,v 1.3 1993/11/18 20:52:34 jkh Exp $	*/
 /*-
  * This code is derived from software copyrighted by the Free Software
  * Foundation.
@@ -426,6 +426,13 @@ typedef struct glosym {
 
 	/* Size of symbol as determined by N_SIZE 'nlist's in object files */
 	int             size;
+
+	/* Auxialiary info to put in the `nz_other' field of the
+	 * RRS symbol table. Used by the run-time linker to resolve
+	 * references to function addresses from within shared objects.
+	 */
+	int		aux;
+#define RRS_FUNC	2
 
 	/*
 	 * Chain of external 'nlist's in shared objects for this symbol, both
