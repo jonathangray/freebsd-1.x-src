@@ -26,7 +26,7 @@
 #include "uucp.h"
 
 #if USE_RCS_ID
-const char serial_rcsid[] = "$Id: serial.c,v 1.2 1993/11/18 01:03:18 ache Exp $";
+const char serial_rcsid[] = "$Id: serial.c,v 1.3 1994/02/07 23:47:51 ache Exp $";
 #endif
 
 #include "uudefs.h"
@@ -1031,7 +1031,7 @@ fsserial_open (qconn, ibaud, fwait)
   q->snew.c_lflag &=~ ICLEAR_LFLAG;
   cSmin = 1;
   q->snew.c_cc[VMIN] = cSmin;
-  q->snew.c_cc[VTIME] = 1;
+  q->snew.c_cc[VTIME] = 0;
 
 #ifdef TCFLSH
   /* Flush pending input.  */
@@ -1054,7 +1054,7 @@ fsserial_open (qconn, ibaud, fwait)
   q->snew.c_lflag &=~ ICLEAR_LFLAG;
   cSmin = 1;
   q->snew.c_cc[VMIN] = cSmin;
-  q->snew.c_cc[VTIME] = 1;
+  q->snew.c_cc[VTIME] = 0;
 
   (void) cfsetospeed (&q->snew, ib);
   (void) cfsetispeed (&q->snew, ib);
