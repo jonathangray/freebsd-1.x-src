@@ -12,7 +12,7 @@
  * on the understanding that TFS is not responsible for the correct
  * functioning of this software in any circumstances.
  *
- *      $Id: aha1542.c,v 1.22 1994/03/20 00:29:58 wollman Exp $
+ *      $Id: aha1542.c,v 1.23 1994/03/23 09:15:26 davidg Exp $
  */
 
 /*
@@ -589,6 +589,7 @@ ahaattach(dev)
 	aha->sc_link.adapter_targ = aha->aha_scsi_dev;
 	aha->sc_link.adapter = &aha_switch;
 	aha->sc_link.device = &aha_dev;
+	aha->sc_link.flags = SDEV_BOUNCE;
 
 	/*
 	 * ask the adapter what subunits are present
