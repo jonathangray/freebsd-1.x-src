@@ -12,7 +12,7 @@
  * on the understanding that TFS is not responsible for the correct
  * functioning of this software in any circumstances.
  *
- *      $Id: bt742a.c,v 1.21 1994/06/14 18:22:54 jkh Exp $
+ *      $Id: bt742a.c,v 1.22 1994/06/15 04:19:23 jkh Exp $
  */
 
 /*
@@ -609,6 +609,7 @@ btattach(dev)
 	bt->sc_link.adapter_targ = bt->bt_scsi_dev;
 	bt->sc_link.adapter = &bt_switch;
 	bt->sc_link.device = &bt_dev;
+	bt->sc_link.flags = SDEV_BOUNCE;
 
 	/*
 	 * ask the adapter what subunits are present
