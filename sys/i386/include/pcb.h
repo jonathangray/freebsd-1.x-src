@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)pcb.h	5.10 (Berkeley) 5/12/91
- *	$Id: pcb.h,v 1.2 1993/10/08 20:51:00 rgrimes Exp $
+ *	$Id: pcb.h,v 1.3 1993/11/07 17:42:59 wollman Exp $
  */
 
 #ifndef _I386_PCB_H_
@@ -81,7 +81,7 @@ struct pcb {
 };
 
 #ifdef KERNEL
-struct pcb *curpcb;		/* our current running pcb */
+extern struct pcb *curpcb;		/* our current running pcb */
 #endif
 
 #endif /* _I386_PCB_H_ */
