@@ -42,6 +42,7 @@ char copyright[] =
 
 #ifndef lint
 static char sccsid[] = "@(#)ls.c	5.48 (Berkeley) 4/3/91";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/bin/ls/ls.c,v 1.2 1993/06/29 02:59:32 nate Exp $";
 #endif /* not lint */
 
 #include <sys/param.h>
@@ -238,13 +239,14 @@ main(argc, argv)
 	    (f_longform || f_listdir || f_type || f_recursive) && !f_ignorelink ? lstat : stat;
 
 	if (!argc) {
-		static char dot[] = ".";
+		static char *nargv[2];
+		char dot[2];
 
-		argc = 1;
-		argv[0] = dot;
-		argv[1] = NULL;
-	}
-	doargs(argc, argv);
+		strcpy(dot, ".");
+		nargv[0] = dot;
+		doargs(1, nargv);
+	} else
+		doargs(argc, argv);
 	exit(0);
 }
 
