@@ -46,6 +46,9 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
+ *
+ *     $Id: reg_u_mul.s,v 1.2 1994/04/29 21:34:25 gclarkii Exp $
+ *
  */
 
 /*---------------------------------------------------------------------------+

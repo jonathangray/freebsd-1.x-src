@@ -48,7 +48,10 @@
  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *                                    unsigned int control_word)
+ *
+ * 
+ *      $Id: reg_div.s,v 1.2 1994/04/29 21:30:19 gclarkii Exp $
+ *
  */
 
 #include "exception.h"
