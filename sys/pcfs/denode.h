@@ -15,7 +15,7 @@
  *
  *  October 1992
  *
- *	$Id: denode.h,v 1.3 1993/11/07 17:51:13 wollman Exp $
+ *	$Id: denode.h,v 1.4 1993/11/17 23:26:16 wollman Exp $
  */
 
 #ifndef _PCFS_DENODE_H_
@@ -185,7 +185,7 @@ struct defid {
 	u_long	defid_dirclust;	/* cluster this dir entry came from	*/
 	u_long	defid_dirofs;	/* index of entry within the cluster	*/
 
-/*	u_long	defid_gen;	/* generation number */
+/*	u_long	defid_gen;*/	/* generation number */
 };
 
 /*
