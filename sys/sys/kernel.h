@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)kernel.h	7.4 (Berkeley) 2/15/91
- *	$Id: kernel.h,v 1.9 1994/03/19 23:41:17 wollman Exp $
+ *	$Id: kernel.h,v 1.10 1994/03/20 00:03:33 wollman Exp $
  */
 
 #ifndef _SYS_KERNEL_H_
@@ -75,6 +75,9 @@ extern const char ostype[];	/* operating system type */
 extern const char osrelease[];	/* operating system release */
 extern const int osbuild;	/* operating system build number */
 extern const char osconfig[];	/* operating system configuration name */
+extern const char machine[];	/* machine type */
+extern const char *cpu_model;	/* CPU model */
+
 extern int nblkdev;		/* number of entries in bdevsw */
 extern int nchrdev;		/* number of entries in cdevsw */
 extern int nswdev;		/* number of swap devices */
