@@ -30,7 +30,7 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-# $Id: manctl.sh,v 1.1 1994/04/17 21:26:20 csgr Exp $
+# $Id: manctl.sh,v 1.2 1994/04/17 22:13:08 csgr Exp $
 #
 # manctl: 
 #	a utility for manipulating manual pages
@@ -122,10 +122,13 @@ do_uncompress()
 {
 	local	i
 	local	dir
+	local	workdir
 
+	workdir=`pwd`
 	while [ $# != 0 ] ; do
 		if [ -d $1 ] ; then
 			dir=$1
+			cd $dir
 			for i in $dir/* ; do
 				case $i in
 				*cat?)	;; # ignore cat directories
@@ -139,6 +142,7 @@ do_uncompress()
 					fi } ;;
 				esac
 			done
+			cd $workdir
 		else
 			echo "directory $1 not found" 1>&2
 		fi
@@ -211,11 +215,14 @@ do_compress()
 {
 	local	i
 	local	dir
+	local	workdir
 
+	workdir=`pwd`
 	while [ $# != 0 ] ; do
 		if [ -d $1 ] ; then
 			dir=$1
-			for i in $dir/* ; do
+			cd $dir
+			for i in * ; do
 				case $i in
 				*cat?)	;; # ignore cat directories
 				*)	{
@@ -228,6 +235,7 @@ do_compress()
 					fi } ;;
 				esac
 			done
+			cd $workdir
 		else
 			echo "directory $1 not found" 1>&2
 		fi
