@@ -47,7 +47,7 @@
  * 27 Feb 93	Charles Hannum		Proper return values for ptsclose()
  *					and ptcclose()
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/kern/tty_pty.c,v 1.1 1993/06/12 14:57:30 rgrimes Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/kern/tty_pty.c,v 1.2 1993/08/15 06:11:22 alm Exp $";
 
 /*
  * Pseudo-teletype Driver
@@ -483,7 +483,7 @@ again:
 		while (uio->uio_resid > 0 && RB_LEN(&tp->t_can) < TTYHOG - 1) {
 			if (cc == 0) {
 				cc = min(uio->uio_resid, BUFSIZ);
-				cc = min(cc, TTYHOG - 1 - RB_CONTIGPUT(&tp->t_can));
+				cc = min(cc, RB_CONTIGPUT(&tp->t_can));
 				cp = locbuf;
 				error = uiomove((caddr_t)cp, cc, uio);
 				if (error)
