@@ -25,13 +25,17 @@
  * any improvements or extensions that they make and grant Carnegie Mellon
  * the rights to redistribute these changes.
  *
- *	$Id: boot.c,v 1.6 1993/10/11 02:43:42 rgrimes Exp $
+ *	$Id: boot.c,v 1.7 1993/10/15 12:33:03 rgrimes Exp $
  */
 
 /*
  * HISTORY
  * $Log: boot.c,v $
- * Revision 1.6  1993/10/11 02:43:42  rgrimes
+ * Revision 1.7  1993/10/15 12:33:03  rgrimes
+ * Dont just mask the Megabyte, we need all the bits below too,
+ * and ELIMITNATE THE 28K BOGOUSITY.
+ *
+ * Revision 1.6  1993/10/11  02:43:42  rgrimes
  * Fixed the options hd(1,... to be more accurate (removed word options it
  * now reads:
  *
@@ -158,7 +162,7 @@ int drive;
 		ouraddr,
 		argv[7] = memsize(0),
 		argv[8] = memsize(1),
-		"$Revision: 1.6 $");
+		"$Revision: 1.7 $");
 	printf("use hd(1,a)/386bsd to boot sd0 when wd0 is also installed\n");
 	gateA20();
 loadstart:
@@ -208,7 +212,7 @@ loadprog(howto)
 		poff = 32;*/
 
 	startaddr = (int)head.a_entry;
-	addr = (startaddr & 0x00f00000); /* some MEG boundary */
+	addr = (startaddr & 0x00ffffff); /* some MEG boundary */
 	addr0 = addr;
 	printf("Booting %s(%d,%c)%s @ 0x%x\n"
 			, devs[maj]
@@ -223,11 +227,7 @@ loadprog(howto)
 			printf("kernel will not fit below loader\n");
 			return;
 		}
-		/*
-		 * The +28672 is for memory allocated by locore.s that must
-		 * fit in the bss! (XXX - cgd)
-		 */
-		if((addr + head.a_text + head.a_data + head.a_bss + 28672) > 0xa0000)
+		if((addr + head.a_text + head.a_data + head.a_bss) > 0xa0000)
 		{
 			printf("kernel too big, won't fit in 640K with bss\n");
 			printf("Only hope is to link the kernel for > 1MB\n");
