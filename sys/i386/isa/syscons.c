@@ -35,7 +35,7 @@
  * SUCH DAMAGE.
  *
  *	from:@(#)syscons.c	1.3 940129
- *	$Id: syscons.c,v 1.37 1994/03/06 20:56:26 guido Exp $
+ *	$Id: syscons.c,v 1.38 1994/03/08 15:17:41 davidg Exp $
  *
  */
 
@@ -1102,7 +1102,7 @@ void pccnprobe(struct consdev *cp)
 	/* initialize required fields */
 	cp->cn_dev = makedev(maj, NCONS);
 	cp->cn_pri = CN_INTERNAL;
-#if defined(__386BSD__)
+#if defined(__386BSD__) && !defined(__FreeBSD__)
 	cp->cn_tp = CONSOLE_TTY;
 #endif
 }
