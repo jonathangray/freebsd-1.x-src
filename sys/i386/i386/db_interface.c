@@ -22,32 +22,8 @@
  * 
  * any improvements or extensions that they make and grant Carnegie the
  * rights to redistribute these changes.
- */
-/*
- * HISTORY
- * $Log: db_interface.c,v $
- * Revision 1.1  1993/06/12 14:58:06  rgrimes
- * Initial revision
  *
- * Revision 1.1  1992/03/25  21:42:03  pace
- * Initial revision
- *
- * Revision 2.4  91/02/05  17:11:13  mrt
- * 	Changed to new Mach copyright
- * 	[91/02/01  17:31:17  mrt]
- * 
- * Revision 2.3  90/12/04  14:45:55  jsb
- * 	Changes for merged intel/pmap.{c,h}.
- * 	[90/12/04  11:14:41  jsb]
- * 
- * Revision 2.2  90/10/25  14:44:43  rwd
- * 	Added watchpoint support.
- * 	[90/10/18            rpd]
- * 
- * 	Created.
- * 	[90/07/25            dbg]
- * 
- *
+ *	$Id: db_interface.c,v 1.2 1993/10/16 14:14:55 rgrimes Exp $
  */
 
 /*

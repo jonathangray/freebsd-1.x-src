@@ -33,7 +33,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)swapgeneric.c	5.5 (Berkeley) 5/9/91
+ *	from: @(#)swapgeneric.c	5.5 (Berkeley) 5/9/91
+ *	$Id: swapgeneric.c,v 1.2 1993/10/16 14:15:09 rgrimes Exp $
  */
 
 #include "machine/pte.h"

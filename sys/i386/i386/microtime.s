@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Header: /a/cvs/386BSD/src/sys/i386/i386/microtime.s,v 1.1 1993/06/12 14:58:04 rgrimes Exp $
+ *	from: Steve McCanne's microtime code
+ *	$Id: microtime.s,v 1.2 1993/10/16 14:15:08 rgrimes Exp $
  */
 
 #include "asm.h"
