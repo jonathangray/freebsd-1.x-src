@@ -1,6 +1,6 @@
 #	@(#)Makefile	5.1.1.2 (Berkeley) 5/9/91
 #
-#	$Id: Makefile,v 1.31 1994/01/05 20:11:49 nate Exp $
+#	$Id: Makefile,v 1.32 1994/01/11 08:06:49 rgrimes Exp $
 #
 
 SUBDIR=
@@ -37,6 +37,16 @@ SUBDIR+= usr.bin
 .if exists(usr.sbin)
 SUBDIR+= usr.sbin
 .endif
+
+# This is for people who want to have src/ports, src/local built
+# automatically.  
+.if defined(MAKE_LOCAL) & exists(local) & exists(local/Makefile)
+SUBDIR+= local
+.endif
+.if defined(MAKE_PORTS) & exists(ports) & exists(ports/Makefile)
+SUBDIR+= ports
+.endif
+
 
 # Special cases: etc sys
 # Not ported: kerberosIV
