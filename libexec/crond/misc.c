@@ -1,5 +1,5 @@
 #if !defined(lint) && !defined(LINT)
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/libexec/crond/Attic/misc.c,v 1.1 1993/06/12 14:55:02 rgrimes Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/libexec/crond/Attic/misc.c,v 1.2 1993/11/28 10:24:52 ats Exp $";
 #endif
 
 /* vix 26jan87 [RCS has the rest of the log]
@@ -40,6 +40,7 @@ static char rcsid[] = "$Header: /a/cvs/386BSD/src/libexec/crond/Attic/misc.c,v 1
 #include <sys/ioctl.h>
 #include <sys/file.h>
 #include <errno.h>
+#include <string.h>
 #if defined(ATT)
 # include <fcntl.h>
 #endif
@@ -52,7 +53,6 @@ char *
 savestr(str)
 	char	*str;
 {
-	extern	int	strlen();
 	extern	char	*malloc(), *strcpy();
 	/**/	char	*temp;
 
