@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)kern_xxx.c	7.17 (Berkeley) 4/20/91
- *	$Id: kern_xxx.c,v 1.6 1993/11/25 01:33:15 wollman Exp $
+ *	$Id: kern_xxx.c,v 1.7 1994/01/18 05:28:24 nate Exp $
  */
 
 #include "param.h"
@@ -199,3 +199,16 @@ oquota()
 	return (ENOSYS);
 }
 #endif
+
+
+void
+shutdown_nice(void)
+{
+	register struct proc *p;
+
+	/* Send a signal to init(8) and have it shutdown the world */
+	p = pfind(1);
+	psignal(p, SIGINT);
+
+	return;
+}
