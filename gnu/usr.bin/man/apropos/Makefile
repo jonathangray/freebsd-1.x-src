@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.6 1994/06/05 20:39:47 csgr Exp $
+# $Id: Makefile,v 1.7 1994/06/05 21:57:03 csgr Exp $
 
 .if exists(${.CURDIR}/obj)
 MAN1=  ${.CURDIR}/obj/apropos.1
@@ -39,5 +39,9 @@ install: ${TARG} maninstall
 .include "../Makefile.inc"
 
 .if make(maninstall) || make(install)
+.if !defined(NOMAN)
 .include <bsd.man.mk>
+.elif !target(maninstall)
+maninstall:
+.endif
 .endif
