@@ -1,4 +1,4 @@
-#	$Id: Makefile,v 1.7 1993/12/11 21:05:59 jkh Exp $
+#	$Id: Makefile,v 1.8 1994/01/03 18:35:54 davidg Exp $
 
 PROG=	ld.so
 SRCS=	mdprologue.S sbrk.c rtld.c shlib.c etc.c md.c
@@ -7,7 +7,7 @@ LDDIR?= $(.CURDIR)/..
 #PICFLAG=-pic
 PICFLAG=-fpic
 CFLAGS += -I$(LDDIR) -I$(.CURDIR) -I$(LDDIR)/$(MACHINE) -O $(PICFLAG) -DRTLD
-LDFLAGS = -Bshareable -Bsymbolic -assert nosymbolic
+LDFLAGS = -Bshareable -Bsymbolic -assert nosymbolic -Z
 LIBS =  -lc_pic -lgcc_pic
 BINDIR= /usr/libexec
 ASFLAGS = -k
