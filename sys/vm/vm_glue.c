@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)vm_glue.c	7.8 (Berkeley) 5/15/91
- *	$Id: vm_glue.c,v 1.8 1993/10/16 16:20:25 rgrimes Exp $
+ *	$Id: vm_glue.c,v 1.9 1993/10/19 00:54:49 nate Exp $
  */
 
 /*
@@ -451,6 +451,7 @@ swapout(p)
 #endif
 	size = round_page(ctob(UPAGES));
 	addr = (vm_offset_t) p->p_addr;
+	p->p_stats->p_ru.ru_nswap++ ;		/* record in resource stats */
 #ifdef notyet
 #ifdef hp300
 	/*
