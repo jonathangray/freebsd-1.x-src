@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)types.h	7.17 (Berkeley) 5/6/91
- *	$Id: types.h,v 1.3 1993/11/28 14:23:11 ats Exp $
+ *	$Id: types.h,v 1.4 1993/11/30 21:54:25 ats Exp $
  */
 
 #ifndef _TYPES_H_
@@ -127,7 +127,9 @@ struct	pgrp;
 struct	ucred;
 struct	rusage;
 struct	file;
+#ifdef KERNEL
 struct	buf;
+#endif
 struct	tty;
 struct	uio;
 #endif
