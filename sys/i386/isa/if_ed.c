@@ -17,14 +17,23 @@
  * Modification history
  *
  * $Log: if_ed.c,v $
- * Revision 1.8  1993/07/20 23:16:47  davidg
- * Added config file override for memory size and added flags to force
- * 8bit or 16bit operation, and a flag to disable transmitter double buffering.
- * See the updated "ed.relnotes" file for information about how to set
- * the flags.
- * This should be considered the first "production"  release. It still
- * needs a manual page, though.
+ * Revision 1.9  1993/07/25 23:43:30  davidg
+ * Fixed logic problem which caused a bogus value to be written to the 3c503
+ * asic register even if the board isn't a 3c503. This caused old 8003E's not
+ * to work because they ignore IO address bits >10bits and the 3c503 asic is
+ * located at +0x400....the offset was ignored by the 8003E and so the
+ * value was written to one of the NIC registers. The bug was discovered by
+ * Wolfgang Solfrank.
  *
+ * Revision 1.16  93/07/25  14:27:12  davidg
+ * added parans to the previous fix so that it can cope with outb
+ * being a macro.
+ * 
+ * Revision 1.15  93/07/25  14:07:56  davidg
+ * fixed logic problem where a 3c503 register was being written
+ * even if the board wasn't a 3Com. Wolfgang Solfrank pointed this
+ * out.
+ * 
  * Revision 1.14  93/07/20  15:24:25  davidg
  * ommision for force 16bit case fixed from last patch
  * 
@@ -965,10 +974,12 @@ ed_init(unit)
 	 * If this is a 3Com board, the tranceiver must be software enabled
 	 *	(there is no settable hardware default).
 	 */
-	if ((sc->vendor == ED_VENDOR_3COM) && (ifp->if_flags & IFF_LLC0)) {
-		outb(sc->asic_addr + ED_3COM_CR, 0);
-	} else {
-		outb(sc->asic_addr + ED_3COM_CR, ED_3COM_CR_XSEL);
+	if (sc->vendor == ED_VENDOR_3COM) {
+		if (ifp->if_flags & IFF_LLC0) {
+			outb(sc->asic_addr + ED_3COM_CR, 0);
+		} else {
+			outb(sc->asic_addr + ED_3COM_CR, ED_3COM_CR_XSEL);
+		}
 	}
 
 	/*
@@ -1591,10 +1602,12 @@ ed_ioctl(ifp, command, data)
 		 *	of the tranceiver for 3Com boards. The LLC0 flag disables
 		 *	the tranceiver if set.
 		 */
-		if ((sc->vendor == ED_VENDOR_3COM) && (ifp->if_flags & IFF_LLC0)) {
-			outb(sc->asic_addr + ED_3COM_CR, 0);
-		} else {
-			outb(sc->asic_addr + ED_3COM_CR, ED_3COM_CR_XSEL);
+		if (sc->vendor == ED_VENDOR_3COM) {
+			if (ifp->if_flags & IFF_LLC0) {
+				outb(sc->asic_addr + ED_3COM_CR, 0);
+			} else {
+				outb(sc->asic_addr + ED_3COM_CR, ED_3COM_CR_XSEL);
+			}
 		}
 
 		break;
