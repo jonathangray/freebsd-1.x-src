@@ -18,6 +18,8 @@
 # -DTRACE	compile in kernel tracing hooks
 # -DQUOTA	compile in file system quotas
 #
+#	$Id: Makefile.i386,v 1.4 1993/08/21 23:47:20 rgrimes Exp $
+#
 
 TOUCH=	touch -f -c
 LD=	/usr/bin/ld
