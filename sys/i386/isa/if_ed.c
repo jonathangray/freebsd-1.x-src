@@ -17,19 +17,17 @@
  * Modification history
  *
  * $Log: if_ed.c,v $
- * Revision 1.11  1993/07/27 10:52:29  davidg
- * * Applied fixes from Bruce Evans to fix COW bugs, >1MB kernel loading,
- * profiling, and various protection checks that cause security holes
- * and system crashes.
- * * Changed min/max/bcmp/ffs/strlen to be static inline functions
- * - included from cpufunc.h in via systm.h. This change
- * improves performance in many parts of the kernel - up to 5% in the
- * networking layer alone. Note that this requires systm.h to be included
- * in any file that uses these functions otherwise it won't be able to
- * find them during the load.
- * * Fixed incorrect call to splx() in if_is.c
- * * Fixed bogus variable assignment to splx() in if_ed.c
+ * Revision 1.12  1993/08/02 10:36:05  davidg
+ * * Fixed problem where some rev 8013EBT boards want the DCR_LS flag
+ * * set in order to work in 16bit mode.
  *
+ * Seems also to improve performance by 15%! (?!) I think there might
+ * be more to this flag than the manual says.
+ *
+ * Revision 1.19  93/08/02  02:57:53  davidg
+ * Fixed problem where some rev 8013EBT boards want the DCR_LS flag
+ * set in order to work in 16bit mode.
+ * 
  * Revision 1.18  93/07/27  03:41:36  davidg
  * removed unnecessary variable assignment in ed_reset()
  * 
@@ -894,14 +892,14 @@ ed_init(unit)
 	if (sc->memwidth == 16) {
 		/*
 		 * Set FIFO threshold to 8, No auto-init Remote DMA,
-		 *	byte order=80x86, word-wide DMA xfers
+		 *	byte order=80x86, word-wide DMA xfers,
 		 */
-		outb(sc->nic_addr + ED_P0_DCR, ED_DCR_FT1|ED_DCR_WTS);
+		outb(sc->nic_addr + ED_P0_DCR, ED_DCR_FT1|ED_DCR_WTS|ED_DCR_LS);
 	} else {
 		/*
 		 * Same as above, but byte-wide DMA xfers
 		 */
-		outb(sc->nic_addr + ED_P0_DCR, ED_DCR_FT1);
+		outb(sc->nic_addr + ED_P0_DCR, ED_DCR_FT1|ED_DCR_LS);
 	}
 
 	/*
