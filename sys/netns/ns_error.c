@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ns_error.c	7.8 (Berkeley) 6/28/90
+ *	from: @(#)ns_error.c	7.8 (Berkeley) 6/28/90
+ *	$Id: ns_error.c,v 1.3 1993/10/16 19:55:12 rgrimes Exp $
  */
 
 #include "param.h"

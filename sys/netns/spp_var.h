@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)spp_var.h	7.7 (Berkeley) 6/28/90
+ *	from: @(#)spp_var.h	7.7 (Berkeley) 6/28/90
+ *	$Id: spp_var.h,v 1.2 1993/10/16 19:54:41 rgrimes Exp $
  */
 
 /*

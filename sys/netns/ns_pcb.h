@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ns_pcb.h	7.4 (Berkeley) 6/28/90
+ *	from: @(#)ns_pcb.h	7.4 (Berkeley) 6/28/90
+ *	$Id: ns_pcb.h,v 1.2 1993/10/16 19:54:30 rgrimes Exp $
  */
 
 /*
