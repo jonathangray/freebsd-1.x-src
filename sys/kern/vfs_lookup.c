@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)vfs_lookup.c	7.32 (Berkeley) 5/21/91
- *	$Id: vfs_lookup.c,v 1.3 1993/11/07 17:46:25 wollman Exp $
+ *	$Id: vfs_lookup.c,v 1.4 1993/11/07 21:44:48 wollman Exp $
  */
 
 #include "param.h"
@@ -401,7 +401,7 @@ mntloop:
 	       (ndp->ni_nameiop & NOCROSSMOUNT) == 0) {
 		while(mp->mnt_flag & MNT_MLOCK) {
 			mp->mnt_flag |= MNT_MWAIT;
-			sleep((caddr_t)mp, PVFS);
+			tsleep((caddr_t)mp, PVFS, "lookup", 0);
 			goto mntloop;
 		}
 		if (error = VFS_ROOT(dp->v_mountedhere, &tdp))
