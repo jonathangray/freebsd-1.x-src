@@ -1,5 +1,5 @@
 #	From: @(#)Makefile	8.1 (Berkeley) 6/7/93
-#	$Id: Makefile,v 1.2 1994/04/03 00:28:10 wollman Exp $
+#	$Id: Makefile,v 1.3 1994/04/05 07:14:46 ache Exp $
 
 PROG=	mklocale
 SRCS=	yacc.c lex.c
@@ -8,7 +8,7 @@ CLEANFILES+=y.tab.h yacc.c lex.c
 BINDIR=	/usr/bin
 MAN1=	mklocale.1
 
-LOCALES=	Ja_JP.EUC POSIX
+LOCALES=        Ja_JP.EUC POSIX Russian.koi8-r
 LOCALEDIR=	${DESTDIR}/usr/share/locale
 
 afterinstall:
