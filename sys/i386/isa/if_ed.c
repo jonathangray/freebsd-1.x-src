@@ -20,7 +20,7 @@
  */
 
 /*
- * $Id: if_ed.c,v 1.33 1994/02/03 11:50:58 davidg Exp $
+ * $Id: if_ed.c,v 1.34 1994/03/01 12:23:33 davidg Exp $
  */
 
 #include "ed.h"
@@ -164,8 +164,8 @@ static unsigned short ed_790_intr_mask[] = {
 	0,
 	IRQ9,
 	IRQ3,
-	IRQ4,
 	IRQ5,
+	IRQ7,
 	IRQ10,
 	IRQ11,
 	IRQ15
