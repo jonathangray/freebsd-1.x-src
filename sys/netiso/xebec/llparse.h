@@ -1,5 +1,7 @@
-/* $Header: /a/cvs/386BSD/src/sys/netiso/xebec/llparse.h,v 1.1 1993/06/12 14:57:23 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/xebec/llparse.h,v $ */
+/*
+ *	from: llparse.h,v 2.1 88/09/19 12:56:20 nhall Exp
+ *	$Id: llparse.h,v 1.2 1993/10/16 21:33:11 rgrimes Exp $
+ */
 
 	/************************************************************
 		attributes stack garbage

@@ -1,5 +1,7 @@
-/* $Header: /a/cvs/386BSD/src/sys/netiso/xebec/putdriver.c,v 1.1 1993/06/12 14:57:22 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/xebec/putdriver.c,v $ */
+/*
+ *	from: putdriver.c,v 2.2 88/09/19 12:55:27 nhall Exp
+ *	$Id: putdriver.c,v 1.2 1993/10/16 21:33:21 rgrimes Exp $
+ */
 
 /*
  * This code is such a kludge that I don't want to put my name on it.

@@ -1,5 +1,7 @@
-/* $Header: /a/cvs/386BSD/src/sys/netiso/xebec/main.h,v 1.1 1993/06/12 14:57:22 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/xebec/main.h,v $ */
+/*
+ *	from: main.h,v 2.1 88/09/19 12:56:24 nhall Exp
+ *	$Id: main.h,v 1.2 1993/10/16 21:33:15 rgrimes Exp $
+ */
 
 #define TRUE 1
 #define FALSE 0

@@ -1,5 +1,8 @@
-/* $Header: /a/cvs/386BSD/src/sys/netiso/xebec/llparse.c,v 1.1 1993/06/12 14:57:23 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/xebec/llparse.c,v $ */
+/*
+ *	from: llparse.c,v 2.2 88/09/19 12:54:59 nhall Exp
+ *	$Id: llparse.c,v 1.2 1993/10/16 21:33:09 rgrimes Exp $
+ */
+
 /*
  * ************************* NOTICE *******************************
  * This code is in the public domain.  It cannot be copyrighted.

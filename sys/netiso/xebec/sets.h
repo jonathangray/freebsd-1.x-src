@@ -1,5 +1,7 @@
-/* $Header: /a/cvs/386BSD/src/sys/netiso/xebec/sets.h,v 1.1 1993/06/12 14:57:22 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/xebec/sets.h,v $ */
+/*
+ *	from: sets.h,v 2.1 88/09/19 12:56:33 nhall Exp
+ *	$Id: sets.h,v 1.2 1993/10/16 21:33:24 rgrimes Exp $
+ */
 
 #define MAXEVENTS 200
 #define MAXSTATES 200

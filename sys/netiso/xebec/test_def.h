@@ -1,3 +1,7 @@
+/*
+ *	from: unknown
+ *	$Id: test_def.h,v 1.2 1993/10/16 21:33:26 rgrimes Exp $
+ */
 
 struct blah {
 	unsigned int blahfield;

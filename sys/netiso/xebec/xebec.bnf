@@ -1,3 +1,8 @@
+/*
+ *	from: unknown
+ *	$Id: xebec.bnf,v 1.2 1993/10/16 21:33:28 rgrimes Exp $
+ */
+
 {
 #include "main.h"
 #include "sets.h"

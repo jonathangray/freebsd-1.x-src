@@ -1,5 +1,7 @@
-/* $Header: /a/cvs/386BSD/src/sys/netiso/xebec/xebec.c,v 1.1 1993/06/12 14:57:22 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/xebec/xebec.c,v $ */
+/*
+ *	from: xebec.c,v 2.2 88/09/19 12:55:37 nhall Exp
+ *	$Id: xebec.c,v 1.2 1993/10/16 21:33:29 rgrimes Exp $
+ */
 
 #include "xebec.h"
 #include "llparse.h"
