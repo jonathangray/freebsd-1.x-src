@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)saioctl.h	7.4 (Berkeley) 6/28/90
+ *	from: @(#)saioctl.h	7.4 (Berkeley) 6/28/90
+ *	$Id: saioctl.h,v 1.2 1993/10/16 19:31:36 rgrimes Exp $
  */
 
 /* ioctl's -- for disks just now */

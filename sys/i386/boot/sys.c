@@ -1,6 +1,4 @@
 /*
- * Ported to boot 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
- *
  * Mach Operating System
  * Copyright (c) 1992, 1991 Carnegie Mellon University
  * All Rights Reserved.
@@ -24,23 +22,9 @@
  * 
  * any improvements or extensions that they make and grant Carnegie Mellon
  * the rights to redistribute these changes.
- */
-
-/*
- * HISTORY
- * $Log: sys.c,v $
- * Revision 1.2  1993/07/13 18:15:31  root
- * New boot blocks, from Bruce Evans, and NetBSD fixes.  Allows kernel to
- * be loaded above 1MB.  Same boot code for floppies now.  Speed improvements.
- * etc etc etc. (I don't have much history on this, but then have been tested)
  *
- * Revision 1.1  1993/03/21  18:08:45  cgd
- * after 0.2.2 "stable" patches applied
- *
- * Revision 2.2  92/04/04  11:36:34  rpd
- * 	Fabricated from 3.0 bootstrap and scratch.
- * 	[92/03/30            mg32]
- * 
+ *	from: Mach, Revision 2.2  92/04/04  11:36:34  rpd
+ *	$Id: sys.c,v 1.3 1993/10/16 19:11:39 rgrimes Exp $
  */
 
 #include "boot.h"

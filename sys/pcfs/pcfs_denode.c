@@ -15,15 +15,7 @@
  *
  *  October 1992
  *
- *	$Header: /a/cvs/386BSD/src/sys/pcfs/pcfs_denode.c,v 1.1 1993/06/12 14:57:13 rgrimes Exp $
- *
- *  April 15, 1993
- *	"James Jegers" <jimj@miller.cs.uwm.edu>, made it work for rgrimes!
- *  in file  pcfs_denode.c  on line 184  change
- *
- *  ldep->de_FileSize = pmp->pm_rootdirsize;
- *      to
- *  ldep->de_FileSize = pmp->pm_rootdirsize * 512;
+ *	$Id: pcfs_denode.c,v 1.2 1993/10/16 19:29:32 rgrimes Exp $
  */
 
 #include "param.h"

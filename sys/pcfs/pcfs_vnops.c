@@ -15,8 +15,7 @@
  *
  *  October 1992
  *
- *	$Header: /a/cvs/386BSD/src/sys/pcfs/pcfs_vnops.c,v 1.1 1993/06/12 14:57:12 rgrimes Exp $
- *
+ *	$Id: pcfs_vnops.c,v 1.2 1993/10/16 19:29:39 rgrimes Exp $
  */
 
 #include "param.h"

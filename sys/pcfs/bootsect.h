@@ -15,8 +15,7 @@
  *
  *  October 1992
  *
- *	$Header: /a/cvs/386BSD/src/sys/pcfs/bootsect.h,v 1.1 1993/06/12 14:57:13 rgrimes Exp $
- *
+ *	$Id: bootsect.h,v 1.2 1993/10/16 19:29:24 rgrimes Exp $
  */
 
 /*

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ls.c	7.9 (Berkeley) 6/28/90
+ *	from: @(#)ls.c	7.9 (Berkeley) 6/28/90
+ *	$Id: ls.c,v 1.2 1993/10/16 19:31:32 rgrimes Exp $
  */
 
 #include "sys/param.h"

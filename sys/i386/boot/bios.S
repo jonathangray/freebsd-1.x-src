@@ -1,6 +1,4 @@
 /*
- * Ported to boot 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
- *
  * Mach Operating System
  * Copyright (c) 1992, 1991 Carnegie Mellon University
  * All Rights Reserved.
@@ -24,47 +22,10 @@
  * 
  * any improvements or extensions that they make and grant Carnegie Mellon
  * the rights to redistribute these changes.
+ *
+ *	from: Mach, Revision 2.2  92/04/04  11:34:26  rpd
+ *	$Id: bios.S,v 1.2 1993/10/16 19:11:30 rgrimes Exp $
  */
-
-/*
- * HISTORY
- * $Log: bios.S,v $
- * Revision 1.1  1993/07/13 18:15:23  root
- * New boot blocks, from Bruce Evans, and NetBSD fixes.  Allows kernel to
- * be loaded above 1MB.  Same boot code for floppies now.  Speed improvements.
- * etc etc etc. (I don't have much history on this, but then have been tested)
- *
-Revision 1.2  1993/07/11  12:02:20  andrew
-Fixes from bde, including support for loading @ any MB boundary (e.g. a
-kernel linked for 0xfe100000 will load at the 1MB mark) and read-ahead
-buffering to speed booting from floppies.  Also works with aha174x
-controllers in enhanced mode.
-
- *
- * 93/06/28  bde
- *	Guess the disk size when the BIOS doesn't support the diskinfo
- *	interrupt.
- *
- *	Change biosread() interface.  Sector count and io address are now
- *	args.
- *
- *	Change all data16's to data32's.
- *
-Revision 1.1  1993/03/21  18:08:23  cgd
-after 0.2.2 "stable" patches applied
-
- * Revision 2.2  92/04/04  11:34:26  rpd
- * 	Fix Intel Copyright as per B. Davies authorization.
- * 	[92/04/03            rvb]
- * 	From 2.5 version
- * 	[92/03/30            mg32]
- * 
- * Revision 2.2  91/04/02  14:35:21  mbj
- * 	Add Intel copyright
- * 	[90/02/09            rvb]
- * 
- */
-
 
 /*
   Copyright 1988, 1989, 1990, 1991, 1992 

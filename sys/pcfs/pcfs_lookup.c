@@ -15,8 +15,7 @@
  *
  *  October 1992
  *
- *	$Header: /a/cvs/386BSD/src/sys/pcfs/pcfs_lookup.c,v 1.2 1993/07/27 10:53:17 davidg Exp $
- *
+ *	$Id: pcfs_lookup.c,v 1.3 1993/10/16 19:29:35 rgrimes Exp $
  */
 
 #include "param.h"

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)dev.c	7.14 (Berkeley) 5/5/91
+ *	from: @(#)dev.c	7.14 (Berkeley) 5/5/91
+ *	$Id: dev.c,v 1.2 1993/10/16 19:31:31 rgrimes Exp $
  */
 
 #include <sys/param.h>
