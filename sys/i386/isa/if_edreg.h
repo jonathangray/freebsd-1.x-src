@@ -2,10 +2,18 @@
  * National Semiconductor DS8390 NIC register definitions 
  *
  * $Log: if_edreg.h,v $
- * Revision 1.3  1993/06/23 16:22:04  davidg
- * Second beta release of device driver for SMC/WD 80x3 ethernet boards +
- * some additional comments.
+ * Revision 1.4  1993/07/20 23:16:50  davidg
+ * Added config file override for memory size and added flags to force
+ * 8bit or 16bit operation, and a flag to disable transmitter double buffering.
+ * See the updated "ed.relnotes" file for information about how to set
+ * the flags.
+ * This should be considered the first "production"  release. It still
+ * needs a manual page, though.
  *
+ * Revision 1.3  93/07/20  15:25:25  davidg
+ * added config flags for forcing 8/16bit mode and disabling double
+ * xmit buffers.
+ * 
  * Revision 1.2  93/06/23  03:03:05  davidg
  * added some additional definitions for the 83C584 bus interface
  * chip (SMC/WD boards)
@@ -565,7 +573,19 @@ struct ed_ring	{
 /*
  * this sets the default for enabling/disablng the tranceiver
  */
-#define ED_FLAGS_DISABLE_TRANCEIVER 0x01
+#define ED_FLAGS_DISABLE_TRANCEIVER	0x01
+
+/*
+ * This forces the board to be used in 8/16bit mode even if it
+ *	autoconfigs differently
+ */
+#define ED_FLAGS_FORCE_8BIT_MODE	0x02
+#define ED_FLAGS_FORCE_16BIT_MODE	0x04
+
+/*
+ * This disables the use of double transmit buffers.
+ */
+#define ED_FLAGS_NO_DOUBLE_BUFFERING	0x08
 
 /*
  *		Definitions for Western digital/SMC WD80x3 series ASIC
