@@ -1,7 +1,5 @@
-#	$Id: Makefile,v 1.7 1994/06/23 05:45:16 jkh Exp $
+#	$Id: Makefile,v 1.8 1994/06/23 05:46:59 jkh Exp $
 #	From: @(#)Makefile	5.5 (Berkeley) 5/11/90
-
-CFLAGS += -g
 
 PROG=	su
 BINOWN=	root
