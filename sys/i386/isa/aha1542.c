@@ -12,7 +12,7 @@
  * on the understanding that TFS is not responsible for the correct
  * functioning of this software in any circumstances.
  *
- *	$Id: aha1542.c,v 1.11 1993/10/15 09:43:51 rgrimes Exp $
+ *	$Id: aha1542.c,v 1.12 1993/10/16 12:27:20 rgrimes Exp $
  */
 
 /*
@@ -1048,10 +1048,18 @@ int	unit;
 	/***********************************************\
 	* Initialize memory transfer speed		*
 	\***********************************************/
+/*
+ * XXX This code seems to BREAK more boards than it makes
+ * work right, we are just going to NOP this here...
+ */ 
+#if 0
 	if(!(aha_set_bus_speed(unit)))
 	{
 		return(EIO);
 	}
+#else
+	printf ("\n");
+#endif
 	
 
 	/***********************************************\
