@@ -1,24 +1,33 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.11  1993/08/15 01:27:28  nate
+# Revision 1.12  1993/10/08 12:19:22  rgrimes
+# This fix is from Chris Demetriou
+# You need a SUFFIX: line that has nothing on it so that the built-in
+# SUFFIX rules get cleared.  This is why we did not build the c library
+# using the optimized assembler sources for the i386.
+#
+# You need to make clean in src/lib/libc and rebuild libc, then relink
+# the rest of the world for this fix to take effect.
+#
+# Revision 1.11  1993/08/15  01:27:28  nate
 # 1) Finishedup my DPSRCS fixes from way back.  Now any .h files will
-# automatically be depended and stripped out of the SRCS line
-# (I also left the external definition as well, in case of non-src
-# dependencies)
+#    automatically be depended and stripped out of the SRCS line
+#    (I also left the external definition as well, in case of non-src
+#     dependencies)
 #
 # 2) Cleaned up some of the clean/cleandirs to have a more pleasing format
-# (rm -f on every line rather than line-continuations)
+#    (rm -f on every line rather than line-continuations)
 #
 # 3) Added Charles Hannum's dependency fixes for a cleaner make depend that
-# works for both c/c++ files
+#    works for both c/c++ files
 #
 # 4) Added default targets for (file.cc|cxx|C) -> file.o in the all
-# affected make macros.  However, these as well as Charles c++
-# dependency fixes are commented out so that groff won't be broken.
-# I'll uncomment them after further testing on my box and seeing if
-# groff should be modified rather than relying on gcc2 doing the right
-# thing (subject to group vote)
+#    affected make macros.  However, these as well as Charles c++
+#    dependency fixes are commented out so that groff won't be broken.
+#    I'll uncomment them after further testing on my box and seeing if
+#    groff should be modified rather than relying on gcc2 doing the right
+#    thing (subject to group vote)
 #
 # Revision 1.10  1993/08/11  03:15:20  alm
 # added rules .f.po (and .f.o) from Jonas.
@@ -74,6 +83,7 @@ BINMODE?=	555
 
 # prefer .s to a .c, add .po, remove stuff not used in the BSD libraries
 #.SUFFIXES: .out .o .po .s .c .cc .cxx .C .f .y .l
+.SUFFIXES:
 .SUFFIXES: .out .o .po .s .c .f .y .l
 
 .c.o:
