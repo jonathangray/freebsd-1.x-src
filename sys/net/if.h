@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)if.h	7.11 (Berkeley) 3/19/91
- *	$Id: if.h,v 1.6 1993/11/07 17:46:54 wollman Exp $
+ *	$Id: if.h,v 1.7 1993/11/13 03:22:12 wollman Exp $
  */
 
 #ifndef _NET_IF_H_
@@ -264,7 +264,9 @@ extern struct	ifqueue rawintrq;		/* raw packet input queue */
 extern struct	ifnet *ifnet;
 struct	ifaddr *ifa_ifwithaddr(), *ifa_ifwithnet();
 struct	ifaddr *ifa_ifwithdstaddr();
-#else KERNEL
+extern struct	ifnet loif;
+
+#else /* KERNEL */
 #include <net/if_arp.h>
-#endif KERNEL
+#endif /* KERNEL */
 #endif /* _NET_IF_H_ */
