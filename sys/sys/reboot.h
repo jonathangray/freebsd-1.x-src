@@ -31,8 +31,11 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)reboot.h	7.6 (Berkeley) 6/28/90
- *	$Id: reboot.h,v 1.2 1993/10/16 17:17:26 rgrimes Exp $
+ *	$Id: reboot.h,v 1.3 1993/11/07 17:52:58 wollman Exp $
  */
+
+#ifndef _SYS_REBOOT_H_
+#define _SYS_REBOOT_H_ 1
 
 /*
  * Arguments to reboot system call.
@@ -86,3 +89,4 @@
 	(((type) << B_TYPESHIFT) | ((adaptor) << B_ADAPTORSHIFT) | \
 	((controller) << B_CONTROLLERSHIFT) | ((unit) << B_UNITSHIFT) | \
 	((partition) << B_PARTITIONSHIFT) | B_DEVMAGIC)
+#endif /* _SYS_REBOOT_H_ */

@@ -31,8 +31,11 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)protosw.h	7.8 (Berkeley) 4/28/91
- *	$Id: protosw.h,v 1.2 1993/10/16 17:17:22 rgrimes Exp $
+ *	$Id: protosw.h,v 1.3 1993/11/07 17:52:56 wollman Exp $
  */
+
+#ifndef _SYS_PROTOSW_H_
+#define _SYS_PROTOSW_H_ 1
 
 /*
  * Protocol switch table.
@@ -208,3 +211,4 @@ char	*prcorequests[] = {
 #ifdef KERNEL
 extern	struct protosw *pffindproto(), *pffindtype();
 #endif
+#endif /* _SYS_PROTOSW_H_ */
