@@ -1,5 +1,5 @@
-/*-
- * Copyright (c) 1990 The Regents of the University of California.
+/*
+ * Copyright (c) 1989 The Regents of the University of California.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,34 +30,53 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	From: @(#)stddef.h	5.5 (Berkeley) 4/3/91
- *	$Id: stddef.h,v 1.2 1994/04/04 21:10:52 wollman Exp $
+ *	@(#)ctype.h	5.3 (Berkeley) 4/3/91
  */
 
-#ifndef _STDDEF_H_
-#define _STDDEF_H_
+#ifndef _CTYPE_H_
+#define _CTYPE_H_
 
-#include <machine/ansi.h>
+#include <sys/cdefs.h>
 
-typedef	_PTRDIFF_T_	ptrdiff_t;
+#define	_U	0x01
+#define	_L	0x02
+#define	_N	0x04
+#define	_S	0x08
+#define	_P	0x10
+#define	_C	0x20
+#define	_X	0x40
+#define	_B	0x80
 
-#ifdef	_SIZE_T_
-typedef	_SIZE_T_	size_t;
-#undef	_SIZE_T_
-#endif
+extern char	_ctype_[];
 
-#ifdef	_BSD_WCHAR_T_
-#ifndef _ANSI_SOURCE
-typedef	_BSD_WCHAR_T_	rune_t;
-#endif
-typedef	_BSD_WCHAR_T_	wchar_t;
-#undef	_BSD_WCHAR_T_
-#endif
+__BEGIN_DECLS
+int isdigit __P((int));
+int islower __P((int));
+int isspace __P((int));
+int ispunkt __P((int));
+int isupper __P((int));
+int isalpha __P((int));
+int isxdigit __P((int));
+int isalnum __P((int));
+int isprint __P((int));
+int isgraph __P((int));
+int iscntrl __P((int));
+int toupper __P((int));
+int tolower __P((int));
+__END_DECLS
 
-#ifndef	NULL
-#define	NULL	0
-#endif
+#define	isdigit(c)	((_ctype_ + 1)[c] & _N)
+#define	islower(c)	((_ctype_ + 1)[c] & _L)
+#define	isspace(c)	((_ctype_ + 1)[c] & _S)
+#define	ispunct(c)	((_ctype_ + 1)[c] & _P)
+#define	isupper(c)	((_ctype_ + 1)[c] & _U)
+#define	isalpha(c)	((_ctype_ + 1)[c] & (_U|_L))
+#define	isxdigit(c)	((_ctype_ + 1)[c] & (_N|_X))
+#define	isalnum(c)	((_ctype_ + 1)[c] & (_U|_L|_N))
+#define	isprint(c)	((_ctype_ + 1)[c] & (_P|_U|_L|_N|_B))
+#define	isgraph(c)	((_ctype_ + 1)[c] & (_P|_U|_L|_N))
+#define	iscntrl(c)	((_ctype_ + 1)[c] & _C)
+#define	isascii(c)	((unsigned)(c) <= 0177)
+#define	toascii(c)	((c) & 0177)
 
-#define	offsetof(type, member)	((size_t)(&((type *)0)->member))
-
-#endif /* _STDDEF_H_ */
+#endif /* !_CTYPE_H_ */

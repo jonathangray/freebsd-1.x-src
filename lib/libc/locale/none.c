@@ -1,6 +1,9 @@
 /*-
- * Copyright (c) 1990 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * This code is derived from software contributed to Berkeley by
+ * Paul Borman at Krystal Technologies.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -29,35 +32,62 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
- *	From: @(#)stddef.h	5.5 (Berkeley) 4/3/91
- *	$Id: stddef.h,v 1.2 1994/04/04 21:10:52 wollman Exp $
  */
 
-#ifndef _STDDEF_H_
-#define _STDDEF_H_
+#if defined(LIBC_SCCS) && !defined(lint)
+static char sccsid[] = "@(#)none.c	8.1 (Berkeley) 6/4/93";
+#endif /* LIBC_SCCS and not lint */
 
-#include <machine/ansi.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <rune.h>
+#include <errno.h>
+#include <stdlib.h>
 
-typedef	_PTRDIFF_T_	ptrdiff_t;
+rune_t	_none_sgetrune __P((const char *, size_t, char const **));
+int	_none_sputrune __P((rune_t, char *, size_t, char **));
 
-#ifdef	_SIZE_T_
-typedef	_SIZE_T_	size_t;
-#undef	_SIZE_T_
-#endif
+int
+_none_init(rl)
+	_RuneLocale *rl;
+{
+	rl->sgetrune = _none_sgetrune;
+	rl->sputrune = _none_sputrune;
+	_CurrentRuneLocale = rl;
+	__mb_cur_max = 1;
+	return(0);
+}
 
-#ifdef	_BSD_WCHAR_T_
-#ifndef _ANSI_SOURCE
-typedef	_BSD_WCHAR_T_	rune_t;
-#endif
-typedef	_BSD_WCHAR_T_	wchar_t;
-#undef	_BSD_WCHAR_T_
-#endif
+rune_t
+_none_sgetrune(string, n, result)
+	const char *string;
+	size_t n;
+	char const **result;
+{
+	int c;
 
-#ifndef	NULL
-#define	NULL	0
-#endif
+	if (n < 1) {
+		if (result)
+			*result = string;
+		return(_INVALID_RUNE);
+	}
+	if (result)
+		*result = string + 1;
+	return(*string & 0xff);
+}
 
-#define	offsetof(type, member)	((size_t)(&((type *)0)->member))
-
-#endif /* _STDDEF_H_ */
+int
+_none_sputrune(c, string, n, result)
+	rune_t c;
+	char *string, **result;
+	size_t n;
+{
+	if (n >= 1) {
+		if (string)
+			*string = c;
+		if (result)
+			*result = string + 1;
+	} else if (result)
+		*result = (char *)0;
+	return(1);
+}

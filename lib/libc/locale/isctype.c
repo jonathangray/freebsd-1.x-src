@@ -1,6 +1,9 @@
-/*-
- * Copyright (c) 1990 The Regents of the University of California.
- * All rights reserved.
+/*
+ * Copyright (c) 1989, 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * This code is derived from software contributed to Berkeley by
+ * Paul Borman at Krystal Technologies.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -29,35 +32,139 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
- *	From: @(#)stddef.h	5.5 (Berkeley) 4/3/91
- *	$Id: stddef.h,v 1.2 1994/04/04 21:10:52 wollman Exp $
  */
 
-#ifndef _STDDEF_H_
-#define _STDDEF_H_
+#if defined(LIBC_SCCS) && !defined(lint)
+static char sccsid[] = "@(#)isctype.c	8.1 (Berkeley) 6/4/93";
+#endif /* LIBC_SCCS and not lint */
 
-#include <machine/ansi.h>
+#define _ANSI_LIBRARY
+#include <ctype.h>
 
-typedef	_PTRDIFF_T_	ptrdiff_t;
+#undef isalnum
+int
+isalnum(c)
+	int c;
+{
+	return(__istype((c), (_A|_D)));
+}
 
-#ifdef	_SIZE_T_
-typedef	_SIZE_T_	size_t;
-#undef	_SIZE_T_
-#endif
+#undef isalpha
+int
+isalpha(c)
+	int c;
+{
+	return (__istype((c), _A));
+}
 
-#ifdef	_BSD_WCHAR_T_
-#ifndef _ANSI_SOURCE
-typedef	_BSD_WCHAR_T_	rune_t;
-#endif
-typedef	_BSD_WCHAR_T_	wchar_t;
-#undef	_BSD_WCHAR_T_
-#endif
+#undef isascii
+int
+isascii(c)
+	int c;
+{
+	return((c & ~0x7F) == 0);
+}
 
-#ifndef	NULL
-#define	NULL	0
-#endif
+#undef isblank
+int
+isblank(c)
+	int c;
+{
+	return (__istype((c), _B));
+}
 
-#define	offsetof(type, member)	((size_t)(&((type *)0)->member))
+#undef iscntrl
+int
+iscntrl(c)
+	int c;
+{
+	return (__istype((c), _C));
+}
 
-#endif /* _STDDEF_H_ */
+#undef isdigit
+int
+isdigit(c)
+	int c;
+{
+	return (__isctype((c), _D));
+}
+
+#undef isgraph
+int
+isgraph(c)
+	int c;
+{
+	return (__istype((c), _G));
+}
+
+#undef islower
+int
+islower(c)
+	int c;
+{
+	return (__istype((c), _L));
+}
+
+#undef isprint
+int
+isprint(c)
+	int c;
+{
+	return (__istype((c), _R));
+}
+
+#undef ispunct
+int
+ispunct(c)
+	int c;
+{
+	return (__istype((c), _P));
+}
+
+#undef isspace
+int
+isspace(c)
+	int c;
+{
+	return (__istype((c), _S));
+}
+
+#undef isupper
+int
+isupper(c)
+	int c;
+{
+	return (__istype((c), _U));
+}
+
+#undef isxdigit
+int
+isxdigit(c)
+	int c;
+{
+	return (__isctype((c), _X));
+}
+
+#undef toascii
+int
+toascii(c)
+	int c;
+{
+	return (c & 0177);
+}
+
+#undef tolower
+int
+tolower(c)
+	int c;
+{
+        return((c & _CRMASK) ? ___toupper(c) : _CurrentRuneLocale->mapupper[c]);
+}
+
+#undef toupper
+int
+toupper(c)
+	int c;
+{
+        return((c & _CRMASK) ? ___tolower(c) : _CurrentRuneLocale->maplower[c]);
+}

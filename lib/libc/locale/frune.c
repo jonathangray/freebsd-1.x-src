@@ -1,6 +1,9 @@
 /*-
- * Copyright (c) 1990 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * This code is derived from software contributed to Berkeley by
+ * Paul Borman at Krystal Technologies.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -29,35 +32,72 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
- *	From: @(#)stddef.h	5.5 (Berkeley) 4/3/91
- *	$Id: stddef.h,v 1.2 1994/04/04 21:10:52 wollman Exp $
  */
 
-#ifndef _STDDEF_H_
-#define _STDDEF_H_
+#if defined(LIBC_SCCS) && !defined(lint)
+static char sccsid[] = "@(#)frune.c	8.1 (Berkeley) 6/4/93";
+#endif /* LIBC_SCCS and not lint */
 
-#include <machine/ansi.h>
+#include <limits.h>
+#include <rune.h>
+#include <stddef.h>
+#include <stdio.h>
 
-typedef	_PTRDIFF_T_	ptrdiff_t;
+long
+fgetrune(fp)
+	FILE *fp;
+{
+	rune_t  r;
+	int c, len;
+	char buf[MB_LEN_MAX];
+	char const *result;
 
-#ifdef	_SIZE_T_
-typedef	_SIZE_T_	size_t;
-#undef	_SIZE_T_
-#endif
+	len = 0;
+	do {
+		if ((c = getc(fp)) == EOF) {
+			if (len)
+				break;
+			return (EOF);
+		}
+		buf[len++] = c;
 
-#ifdef	_BSD_WCHAR_T_
-#ifndef _ANSI_SOURCE
-typedef	_BSD_WCHAR_T_	rune_t;
-#endif
-typedef	_BSD_WCHAR_T_	wchar_t;
-#undef	_BSD_WCHAR_T_
-#endif
+		if ((r = sgetrune(buf, len, &result)) != _INVALID_RUNE)
+			return (r);
+	} while (result == buf && len < MB_LEN_MAX);
 
-#ifndef	NULL
-#define	NULL	0
-#endif
+	while (--len > 0)
+		ungetc(buf[len], fp);
+	return (_INVALID_RUNE);
+}
 
-#define	offsetof(type, member)	((size_t)(&((type *)0)->member))
+int
+fungetrune(r, fp)
+	rune_t r;
+	FILE* fp;
+{
+	int len;
+	char buf[MB_LEN_MAX];
 
-#endif /* _STDDEF_H_ */
+	len = sputrune(r, buf, MB_LEN_MAX, 0);
+	while (len-- > 0)
+		if (ungetc(buf[len], fp) == EOF)
+			return (EOF);
+	return (0);
+}
+
+int
+fputrune(r, fp)
+	rune_t r;
+	FILE *fp;
+{
+	int i, len;
+	char buf[MB_LEN_MAX];
+
+	len = sputrune(r, buf, MB_LEN_MAX, 0);
+
+	for (i = 0; i < len; ++i)
+		if (putc(buf[i], fp) == EOF)
+			return (EOF);
+
+	return (0);
+}

@@ -1,6 +1,9 @@
 /*-
- * Copyright (c) 1990 The Regents of the University of California.
- * All rights reserved.
+ * Copyright (c) 1993
+ *	The Regents of the University of California.  All rights reserved.
+ *
+ * This code is derived from software contributed to Berkeley by
+ * Paul Borman at Krystal Technologies.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,34 +33,34 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	From: @(#)stddef.h	5.5 (Berkeley) 4/3/91
- *	$Id: stddef.h,v 1.2 1994/04/04 21:10:52 wollman Exp $
+ *	@(#)rune.h	8.1 (Berkeley) 6/27/93
  */
 
-#ifndef _STDDEF_H_
-#define _STDDEF_H_
+#ifndef	_RUNE_H_
+#define	_RUNE_H_
 
-#include <machine/ansi.h>
+#include <runetype.h>
+#include <stdio.h>
 
-typedef	_PTRDIFF_T_	ptrdiff_t;
+#define	_PATH_LOCALE	"/usr/share/locale"
 
-#ifdef	_SIZE_T_
-typedef	_SIZE_T_	size_t;
-#undef	_SIZE_T_
-#endif
+#define _INVALID_RUNE   _CurrentRuneLocale->invalid_rune
 
-#ifdef	_BSD_WCHAR_T_
-#ifndef _ANSI_SOURCE
-typedef	_BSD_WCHAR_T_	rune_t;
-#endif
-typedef	_BSD_WCHAR_T_	wchar_t;
-#undef	_BSD_WCHAR_T_
-#endif
+#define __sgetrune      _CurrentRuneLocale->sgetrune
+#define __sputrune      _CurrentRuneLocale->sputrune
 
-#ifndef	NULL
-#define	NULL	0
-#endif
+#define sgetrune(s, n, r)       (*__sgetrune)((s), (n), (r))
+#define sputrune(c, s, n, r)    (*__sputrune)((c), (s), (n), (r))
 
-#define	offsetof(type, member)	((size_t)(&((type *)0)->member))
+__BEGIN_DECLS
+char	*mbrune __P((const char *, rune_t));
+char	*mbrrune __P((const char *, rune_t));
+char	*mbmb __P((const char *, char *));
+long	 fgetrune __P((FILE *));
+int	 fputrune __P((rune_t, FILE *));
+int	 fungetrune __P((rune_t, FILE *));
+int	 setrunelocale __P((char *));
+void	 setinvalidrune __P((rune_t));
+__END_DECLS
 
-#endif /* _STDDEF_H_ */
+#endif	/*! _RUNE_H_ */
