@@ -27,11 +27,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *	$Id: strcmp.S,v 1.1 1993/12/05 13:01:57 ats Exp $
+ *	$Id: strcmp.S,v 1.2 1994/03/04 15:50:28 ache Exp $
  */
 
 #if defined(LIBC_RCS) && !defined(lint)
-        .asciz "$Id: strcmp.S,v 1.1 1993/12/05 13:01:57 ats Exp $"
+        .asciz "$Id: strcmp.S,v 1.2 1994/03/04 15:50:28 ache Exp $"
 #endif /* LIBC_RCS and not lint */
 
 #include "DEFS.h"
@@ -118,7 +118,7 @@ L2:	movb	(%eax),%cl
 	cmpb	%cl,(%edx)
 	je	L1
 	.align 2, 0x90
-L3:	movsbl	(%eax),%eax		/* unsigned comparison */
-	movsbl	(%edx),%edx
+L3:     movzbl  (%eax),%eax             /* unsigned comparison */
+	movzbl  (%edx),%edx
 	subl	%edx,%eax
 	ret
