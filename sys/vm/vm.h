@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)vm.h	7.1 (Berkeley) 5/5/91
- *	$Id: vm.h,v 1.4 1993/11/25 01:38:58 wollman Exp $
+ *	$Id: vm.h,v 1.5 1993/12/12 12:27:21 davidg Exp $
  */
 
 #ifndef _VM_H_
@@ -67,6 +67,7 @@ struct vmspace {
 	caddr_t	vm_taddr;	/* user virtual address of text XXX */
 	caddr_t	vm_daddr;	/* user virtual address of data XXX */
 	caddr_t vm_maxsaddr;	/* user VA at max stack growth */
+	caddr_t vm_minsaddr;	/* user VA of initial stack base */
 };
 
 struct	vmspace *vmspace_alloc __P((vm_offset_t min, vm_offset_t max,

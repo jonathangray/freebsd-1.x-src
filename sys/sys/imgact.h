@@ -1,11 +1,6 @@
-/*
- * Copyright (c) 1988 University of Utah.
- * Copyright (c) 1991 The Regents of the University of California.
+/*-
+ * Copyright (c) 1993, David Greenman
  * All rights reserved.
- *
- * This code is derived from software contributed to Berkeley by
- * the Systems Programming Group of the University of Utah Computer
- * Science Department.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -23,7 +18,7 @@
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
  * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
@@ -35,73 +30,31 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	from: Utah $Hdr: vm_unix.c 1.1 89/11/07$
- *	from: @(#)vm_unix.c	7.2 (Berkeley) 4/20/91
- *	$Id: vm_unix.c,v 1.5 1993/12/12 12:27:26 davidg Exp $
+ *	$Id: imgact.h,v 1.1 1993/12/12 12:31:40 davidg Exp $
  */
 
-/*
- * Traditional sbrk/grow interface to VM
- */
-#include "param.h"
-#include "systm.h"
 #include "proc.h"
-#include "resourcevar.h"
+#include "namei.h"
+#include "vnode.h"
 
-#include "vm.h"
-
-struct obreak_args {
-	char	*nsiz;
+struct execve_args {
+	char    *fname;		/* file name */
+	char    **argv;		/* pointer to table of argument pointers */
+	char    **envv;		/* pointer to table of environment pointers */
 };
 
-/* ARGSUSED */
-int
-obreak(p, uap, retval)
-	struct proc *p;
-	struct obreak_args *uap;
-	int *retval;
-{
-	register struct vmspace *vm = p->p_vmspace;
-	vm_offset_t new, old;
-	int rv;
-	register int diff;
-
-	old = (vm_offset_t)vm->vm_daddr;
-	new = round_page(uap->nsiz);
-	if ((int)(new - old) > p->p_rlimit[RLIMIT_DATA].rlim_cur)
-		return(ENOMEM);
-	old = round_page(old + ctob(vm->vm_dsize));
-	diff = new - old;
-	if (diff > 0) {
-		rv = vm_allocate(&vm->vm_map, &old, diff, FALSE);
-		if (rv != KERN_SUCCESS) {
-			uprintf("sbrk: grow failed, return = %d\n", rv);
-			return(ENOMEM);
-		}
-		vm->vm_dsize += btoc(diff);
-	} else if (diff < 0) {
-		diff = -diff;
-		rv = vm_deallocate(&vm->vm_map, new, diff);
-		if (rv != KERN_SUCCESS) {
-			uprintf("sbrk: shrink failed, return = %d\n", rv);
-			return(ENOMEM);
-		}
-		vm->vm_dsize -= btoc(diff);
-	}
-	return(0);
-}
-
-struct ovadvise_args {
-	int	anom;
+struct image_params {
+	struct proc *proc;	/* our process struct */
+	struct execve_args *uap; /* syscall arguments */
+	struct vnode *vnodep;	/* pointer to vnode of file to exec */
+	struct vattr *attr;	/* attributes of file */
+	const char *image_header; /* head of file to exec */
+	char *stringbase;	/* base address of tmp string storage */
+	char *stringp;		/* current 'end' pointer of tmp strings */
+	int stringspace;	/* space left in tmp string storage area */
+	int argc, envc;		/* count of argument and environment strings */
+	unsigned long entry_addr; /* entry address of target executable */
+	char vmspace_destroyed;	/* flag - we've blown away original vm space */
+	char interpreted;	/* flag - this executable is interpreted */
+	char interpreter_name[64]; /* name of the interpreter */
 };
-
-/* ARGSUSED */
-int
-ovadvise(p, uap, retval)
-	struct proc *p;
-	struct ovadvise_args *uap;
-	int *retval;
-{
-
-	return (EINVAL);
-}
