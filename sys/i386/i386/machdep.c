@@ -49,7 +49,7 @@
  * 20 Apr 93	Bruce Evans		New npx-0.5 code
  * 25 Apr 93	Bruce Evans		New intr-0.1 code
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/i386/machdep.c,v 1.3 1993/07/16 20:50:42 davidg Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/i386/machdep.c,v 1.4 1993/07/16 23:55:07 davidg Exp $";
 
 
 #include <stddef.h>
@@ -1079,6 +1079,7 @@ _remque(element)
 
 vmunaccess() {}
 
+#if 0		/* assembler versions now in locore.s */
 /*
  * Below written in C to allow access to debugging code
  */
@@ -1139,3 +1140,4 @@ copystr(fromaddr, toaddr, maxlength, lencopied) u_int *lencopied, maxlength;
 	if(lencopied) *lencopied = tally;
 	return(ENAMETOOLONG);
 }
+#endif
