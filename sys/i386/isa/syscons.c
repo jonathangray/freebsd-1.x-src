@@ -35,7 +35,7 @@
  *
  *	from: @(#)pccons.c	5.11 (Berkeley) 5/21/91
  *	from: @(#)syscons.c	1.1 931021
- *	$Id: syscons.c,v 1.25 1994/01/14 16:24:18 davidg Exp $
+ *	$Id: syscons.c,v 1.26 1994/01/18 05:33:34 nate Exp $
  *
  * Heavily modified by Sxren Schmidt (sos@login.dkuug.dk) to provide:
  *
@@ -2278,7 +2278,7 @@ next_code:
 			case NOP:
 				break;
 			case RBT:
-				cpu_reset();
+				shutdown_nice();
 				break;	
 			case DBG:
 #if DDB > 0			/* try to switch to console 0 */
