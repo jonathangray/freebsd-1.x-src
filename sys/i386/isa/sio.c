@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)com.c	7.5 (Berkeley) 5/16/91
- *	$Id: sio.c,v 1.55 1994/06/15 23:26:42 jkh Exp $
+ *	$Id: sio.c,v 1.56 1994/06/16 08:08:44 ache Exp $
  */
 
 #include "sio.h"
@@ -445,7 +445,7 @@ sioprobe(dev)
 	 * it's unlikely to do more than allow the null byte out.
 	 */
 	outb(iobase + com_data, 0);
-	DELAY((1 + 1) * 9600 / 10);
+	DELAY((2 + 1) * 9600 / 10);
 
 	/*
 	 * Turn off loopback mode so that the interrupt gate works again
