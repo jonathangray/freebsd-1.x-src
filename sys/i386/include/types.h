@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)types.h	7.5 (Berkeley) 3/9/91
+ *	from: @(#)types.h	7.5 (Berkeley) 3/9/91
+ *	$Id: types.h,v 1.2 1993/10/16 14:39:40 rgrimes Exp $
  */
 
 #ifndef	_MACHTYPES_H_

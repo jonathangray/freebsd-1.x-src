@@ -33,7 +33,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)psl.h	5.2 (Berkeley) 1/18/91
+ *	from: @(#)psl.h	5.2 (Berkeley) 1/18/91
+ *	$Id: psl.h,v 1.2 1993/10/16 14:39:26 rgrimes Exp $
  */
 
 /*

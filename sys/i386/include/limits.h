@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)limits.h	7.2 (Berkeley) 6/28/90
+ *	from: @(#)limits.h	7.2 (Berkeley) 6/28/90
+ *	$Id: limits.h,v 1.2 1993/10/16 14:39:19 rgrimes Exp $
  */
 
 #define	CHAR_BIT	8		/* number of bits in a char */

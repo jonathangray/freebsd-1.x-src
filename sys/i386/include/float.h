@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)float.h	7.1 (Berkeley) 5/8/90
+ *	from: @(#)float.h	7.1 (Berkeley) 5/8/90
+ *	$Id: float.h,v 1.4 1993/10/16 14:39:16 rgrimes Exp $
  */
 
 #define FLT_RADIX	2		/* b */

@@ -1,6 +1,8 @@
 /*
  * Functions to provide access to special i386 instructions.
  * XXX - bezillions more are defined in locore.s but are not declared anywhere.
+ *
+ *	$Id: cpufunc.h,v 1.3 1993/10/16 14:39:08 rgrimes Exp $
  */
 
 #include <sys/cdefs.h>
