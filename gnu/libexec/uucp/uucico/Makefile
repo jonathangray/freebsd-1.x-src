@@ -1,8 +1,9 @@
 # Makefile for uucico
-# $Id: Makefile,v 1.4 1994/05/31 05:08:11 ache Exp $
+# $Id: Makefile,v 1.5 1994/05/31 05:46:32 ache Exp $
 
 BINDIR=		$(sbindir)
 BINOWN=		$(owner)
+BINGRP=         $(group)
 BINMODE=        4550
 
 PROG=		uucico
