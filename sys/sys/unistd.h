@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)unistd.h	5.14 (Berkeley) 4/1/91
- *	$Id: unistd.h,v 1.4 1994/01/31 07:38:20 ache Exp $
+ *	$Id: unistd.h,v 1.5 1994/03/16 17:38:10 wollman Exp $
  */
 
 #ifndef _SYS_UNISTD_H_
@@ -39,9 +39,7 @@
 
 /* compile-time symbolic constants */
 #define	_POSIX_JOB_CONTROL	/* implementation supports job control */
-#ifdef _NOTYET
 #define	_POSIX_SAVED_IDS	/* saved set-user-ID and set-group-ID */
-#endif
 #define	_POSIX_VERSION		198808L
 
 /* execution-time symbolic constants */
