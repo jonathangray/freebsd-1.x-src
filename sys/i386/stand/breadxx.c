@@ -45,6 +45,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
+ *	from:	386BSD 0.1
+ *	$Id: breadxx.c,v 1.2 1993/10/16 18:49:24 rgrimes Exp $
  */
 
 /*

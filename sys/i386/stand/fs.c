@@ -13,7 +13,7 @@
  * 3. All advertising materials mentioning features or use of this software
  *    must display the following acknowledgement:
  *	This software is a component of "386BSD" developed by 
-	William F. Jolitz, TeleMuse.
+ *	William F. Jolitz, TeleMuse.
  * 4. Neither the name of the developer nor the name "386BSD"
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
@@ -45,9 +45,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
+ *	from: 386BSD 0.1
+ *	$Id: fs.c,v 1.2 1993/10/16 18:49:30 rgrimes Exp $
+ */
+
+/*
+ *
  * Routines to sift through a BSD fast filesystem. -wfj
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/stand/fs.c,v 1.1 1993/06/12 14:57:55 rgrimes Exp $";
 
 #include "param.h"
 #include "fs.h"

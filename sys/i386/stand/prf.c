@@ -33,7 +33,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)prf.c	7.4 (Berkeley) 5/4/91
+ *	from: @(#)prf.c	7.4 (Berkeley) 5/4/91
+ *	$Id: prf.c,v 1.2 1993/10/16 18:49:32 rgrimes Exp $
  */
 
 #include "types.h"

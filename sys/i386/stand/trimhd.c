@@ -45,9 +45,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
+ *	from: 386BSD 0.1
+ *	$Id: trimhd.c,v 1.2 1993/10/16 18:49:36 rgrimes Exp $
+ */
+
+/*
  * Trim off the start of a file.
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/stand/trimhd.c,v 1.1 1993/06/12 14:57:55 rgrimes Exp $";
 
 main(argc, argv) char *argv[]; {
 	int val, rv, buf;
