@@ -12,7 +12,7 @@
  * on the understanding that TFS is not responsible for the correct
  * functioning of this software in any circumstances.
  *
- *	$Id: bt742a.c,v 1.8 1993/10/12 07:15:35 rgrimes Exp $
+ *	$Id: bt742a.c,v 1.9 1993/11/17 23:25:16 wollman Exp $
  */
 
 /*
@@ -205,7 +205,7 @@ struct bt_mbx
 extern struct bt_mbx bt_mbx[];
 
 #if	defined(BIG_DMA)
-/* #define	BT_NSEG	8192	/* Number of scatter gather segments - to much vm */
+/* #define	BT_NSEG	8192*/	/* Number of scatter gather segments - to much vm */
 #define	BT_NSEG	512
 #else
 #define	BT_NSEG	33
