@@ -62,7 +62,7 @@ SOFTWARE.
 /* 
  * ARGO TP
  *
- * $Header: /a/cvs/386BSD/src/sys/netiso/tp_emit.c,v 1.1 1993/06/12 14:57:18 rgrimes Exp $
+ * $Header: /a/cvs/386BSD/src/sys/netiso/tp_emit.c,v 1.2 1993/08/22 03:02:37 rgrimes Exp $
  * $Source: /a/cvs/386BSD/src/sys/netiso/tp_emit.c,v $
  *
  * This file contains tp_emit() and tp_error_emit(), which
@@ -80,6 +80,7 @@ SOFTWARE.
  */
 
 #include "param.h"
+#include "systm.h"
 #include "mbuf.h"
 #include "socket.h"
 #include "socketvar.h"

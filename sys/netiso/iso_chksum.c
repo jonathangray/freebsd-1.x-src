@@ -60,7 +60,7 @@ SOFTWARE.
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
 /* 
- * $Header: /a/cvs/386BSD/src/sys/netiso/iso_chksum.c,v 1.1 1993/06/12 14:57:19 rgrimes Exp $
+ * $Header: /a/cvs/386BSD/src/sys/netiso/iso_chksum.c,v 1.2 1993/08/22 03:02:34 rgrimes Exp $
  * $Source: /a/cvs/386BSD/src/sys/netiso/iso_chksum.c,v $
  *
  * ISO CHECKSUM
@@ -85,6 +85,7 @@ SOFTWARE.
 #ifdef ISO
 #include "argo_debug.h"
 #include "param.h"
+#include "systm.h"
 #include "mbuf.h"
 #endif ISO
 

@@ -62,7 +62,7 @@ SOFTWARE.
 /* 
  * ARGO TP
  *
- * $Header: /a/cvs/386BSD/src/sys/netiso/tp_subr.c,v 1.1 1993/06/12 14:57:16 rgrimes Exp $
+ * $Header: /a/cvs/386BSD/src/sys/netiso/tp_subr.c,v 1.2 1993/08/22 03:02:38 rgrimes Exp $
  * $Source: /a/cvs/386BSD/src/sys/netiso/tp_subr.c,v $
  *
  * The main work of data transfer is done here.
@@ -75,6 +75,7 @@ SOFTWARE.
  */
 
 #include "param.h"
+#include "systm.h"
 #include "mbuf.h"
 #include "socket.h"
 #include "socketvar.h"

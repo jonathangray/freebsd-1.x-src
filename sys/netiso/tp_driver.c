@@ -1,4 +1,4 @@
-/* $Header: /a/cvs/386BSD/src/sys/netiso/tp_driver.c,v 1.1 1993/06/12 14:57:18 rgrimes Exp $ */
+/* $Header: /a/cvs/386BSD/src/sys/netiso/tp_driver.c,v 1.2 1993/08/22 03:02:36 rgrimes Exp $ */
 /* $Source: /a/cvs/386BSD/src/sys/netiso/tp_driver.c,v $ */
 #ifndef lint
 static char *rcsid = "$Header/**/$";
@@ -16,6 +16,7 @@ static struct act_ent {
 
 /*	%W% (Berkeley) %G% */
 #include "param.h"
+#include "systm.h"
 #include "socket.h"
 #include "socketvar.h"
 #include "protosw.h"
