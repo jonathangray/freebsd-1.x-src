@@ -1,8 +1,14 @@
+
 /*
  * HISTORY
  * $Log: scsi_disk.h,v $
- * Revision 1.1  1993/06/12 14:57:26  rgrimes
- * Initial revision
+ * Revision 1.2  1993/07/29 11:49:07  nate
+ * Removed PATCHKIT headers and updated our sources to Julian's with
+ * our patches back in.  Major changes to the Bustek driver and the
+ * Tape driver, the rest are minor.
+ *
+ * Revision 1.1.1.1  1993/06/12  14:57:27  rgrimes
+ * Initial import, 0.1 + pk 0.2.4-B1
  *
  * Revision 1.2  1992/10/13  03:14:21  julian
  * added the load-eject field in 'start/stop' for removable devices.
@@ -10,14 +16,6 @@
  * Revision 1.1  1992/09/26  22:11:29  julian
  * Initial revision
  *
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00098
- * --------------------         -----   ----------------------
- *
- * 16 Feb 93	Julian Elischer		ADDED for SCSI system
- * 
  */
 
 /*
