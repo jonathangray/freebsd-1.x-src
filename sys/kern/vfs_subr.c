@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)vfs_subr.c	7.60 (Berkeley) 6/21/91
- *	$Id: vfs_subr.c,v 1.8 1994/04/22 16:25:02 ache Exp $
+ *	$Id: vfs_subr.c,v 1.9 1994/04/23 19:40:20 ache Exp $
  */
 
 /*
@@ -235,24 +235,6 @@ getnewvnode(tag, mp, vops, vpp)
 			tablefull("vnode");
 			*vpp = 0;
 			return (ENFILE);
-		}
-		/*
-		 * Prefer a vnode with no attached buffers, so that thrashing
-		 * of the vnode cache doesn't necessarily thrash the buffer
-		 * cache.  It might be better to pick the first free vnode
-		 * and reassign the buffers.
-		 */
-		while (vp->v_dirtyblkhd || vp->v_cleanblkhd) {
-			vp = vp->v_freef;
-			if (vp == NULL) {
-				vp = vfreeh;
-				break;
-			}
-		}
-		if (vp != vfreeh) {
-			if (vp->v_type != VBAD)
-				vgone(vp);
-			vp = vfreeh;
 		}
 		if (vp->v_usecount)
 			panic("free vnode isn't");
