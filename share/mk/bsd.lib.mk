@@ -1,7 +1,26 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.10  1993/08/11 03:15:20  alm
+# Revision 1.11  1993/08/15 01:27:28  nate
+# 1) Finishedup my DPSRCS fixes from way back.  Now any .h files will
+# automatically be depended and stripped out of the SRCS line
+# (I also left the external definition as well, in case of non-src
+# dependencies)
+#
+# 2) Cleaned up some of the clean/cleandirs to have a more pleasing format
+# (rm -f on every line rather than line-continuations)
+#
+# 3) Added Charles Hannum's dependency fixes for a cleaner make depend that
+# works for both c/c++ files
+#
+# 4) Added default targets for (file.cc|cxx|C) -> file.o in the all
+# affected make macros.  However, these as well as Charles c++
+# dependency fixes are commented out so that groff won't be broken.
+# I'll uncomment them after further testing on my box and seeing if
+# groff should be modified rather than relying on gcc2 doing the right
+# thing (subject to group vote)
+#
+# Revision 1.10  1993/08/11  03:15:20  alm
 # added rules .f.po (and .f.o) from Jonas.
 #
 # Revision 1.9  1993/08/05  18:45:53  nate
@@ -54,6 +73,7 @@ BINMODE?=	555
 .MAIN: all
 
 # prefer .s to a .c, add .po, remove stuff not used in the BSD libraries
+#.SUFFIXES: .out .o .po .s .c .cc .cxx .C .f .y .l
 .SUFFIXES: .out .o .po .s .c .f .y .l
 
 .c.o:
@@ -65,6 +85,16 @@ BINMODE?=	555
 	${CC} -p ${CFLAGS} -c ${.IMPSRC} -o ${.TARGET}
 	@${LD} -X -r ${.TARGET}
 	@mv a.out ${.TARGET}
+
+#.cc.o .cxx.o .C.o:
+#	${CXX} ${CXXFLAGS} -c ${.IMPSRC} 
+#	@${LD} -x -r ${.TARGET}
+#	@mv a.out ${.TARGET}
+
+#.cc.po .C.po .cxx.o:
+#	${CXX} -p ${CXXFLAGS} -c ${.IMPSRC} -o ${.TARGET}
+#	@${LD} -X -r ${.TARGET}
+#	@mv a.out ${.TARGET}
 
 .f.o:
 	${FC} ${RFLAGS} -o ${.TARGET} -c ${.IMPSRC} 
@@ -96,7 +126,7 @@ _LIBS=lib${LIB}.a
 
 all: ${_LIBS} # llib-l${LIB}.ln
 
-OBJS+=	${SRCS:R:S/$/.o/g}
+OBJS+=	${SRCS:N*.h:R:S/$/.o/g}
 
 lib${LIB}.a:: ${OBJS}
 	@echo building standard ${LIB} library
@@ -116,16 +146,16 @@ llib-l${LIB}.ln: ${SRCS}
 
 .if !target(clean)
 clean:
-	rm -f a.out Errs errs mklog ${CLEANFILES} ${OBJS} \
-	    lib${LIB}.a llib-l${LIB}.ln
+	rm -f a.out Errs errs mklog ${CLEANFILES} ${OBJS}
+	rm -f lib${LIB}.a llib-l${LIB}.ln
 	rm -f ${POBJS} profiled/*.o lib${LIB}_p.a
 .endif
 
 .if !target(cleandir)
 cleandir:
-	rm -f a.out Errs errs mklog ${CLEANFILES} ${OBJS} \
-	    lib${LIB}.a llib-l${LIB}.ln \
-	    ${.CURDIR}/tags .depend
+	rm -f a.out Errs errs mklog ${CLEANFILES} ${OBJS}
+	rm -f lib${LIB}.a llib-l${LIB}.ln
+	rm -f ${.CURDIR}/tags .depend
 	rm -f ${POBJS} profiled/*.o lib${LIB}_p.a
 	cd ${.CURDIR}; rm -rf obj;
 .endif
@@ -133,9 +163,17 @@ cleandir:
 .if !target(depend)
 depend: .depend
 .depend: ${SRCS}
-	mkdep ${CFLAGS:M-[ID+]*} ${AINC} ${.ALLSRC}
+	rm -f .depend
+	files="${.ALLSRC:M*.c}"; \
+	if [ "$$files" != "" ]; then \
+	  mkdep -a ${MKDEP} ${CFLAGS:M-[ID]*} $$files; \
+	fi
+#	files="${.ALLSRC:M*.cc} ${.ALLSRC:M*.C} ${.ALLSRC:M*.cxx}"; \
+#	if [ "$$files" != "  " ]; then \
+#	  mkdep -a ${MKDEP} -+ ${CXXFLAGS:M-[ID]*} $$files; \
+#	fi
 	@(TMP=/tmp/_depend$$$$; \
-	    sed -e 's/^\([^\.]*\).o:/\1.o \1.po:/' < .depend > $$TMP; \
+	    sed -e 's/^\([^\.]*\).o[ ]*:/\1.o \1.po:/' < .depend > $$TMP; \
 	    mv $$TMP .depend)
 .endif
 
