@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)if_sl.c	7.22 (Berkeley) 4/20/91
- *	$Id: if_sl.c,v 1.9 1994/03/21 21:29:50 ache Exp $
+ *	$Id: if_sl.c,v 1.10 1994/03/22 01:16:06 ache Exp $
  */
 
 /*
@@ -65,7 +65,7 @@
  * interrupts and network activity; thus, splimp must be >= spltty.
  */
 
-/* $Id: if_sl.c,v 1.9 1994/03/21 21:29:50 ache Exp $ */
+/* $Id: if_sl.c,v 1.10 1994/03/22 01:16:06 ache Exp $ */
 /* from if_sl.c,v 1.11 84/10/04 12:54:47 rick Exp */
 
 #include "sl.h"
@@ -332,6 +332,7 @@ slclose(tp)
 	register struct sl_softc *sc;
 	int s;
 
+	ttywflush(tp);
 	s = splimp();		/* actually, max(spltty, splnet) */
 	tp->t_line = 0;
 	sc = (struct sl_softc *)tp->t_sc;
