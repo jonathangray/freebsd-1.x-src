@@ -1,69 +1,4 @@
 /*
- * HISTORY
- * $Log: scsi_tape.h,v $
- * Revision 1.3  1993/08/20 09:23:25  rgrimes
- * Update scsi code to the latest from Julian.  This code is now identical
- * to the last copy from Julian.  After this commit I will be commiting the
- * local fixes and makeing diffs to send back to Julian so he can update his
- * code.
- *
- * ----
- * From julian@jules.DIALix.oz.au  Thu Aug  5 09:25:23 1993
- * To: hd@world.std.com, julian@jules.DIALix.oz.au
- * Cc: nate@bsd.coe.montana.edu
- * Subject: Re: new scsi
- *
- * ----
- * From julian@jules.DIALix.oz.au  Sat Aug  7 04:13:17 1993
- * To: hd@world.std.com (HD Associates)
- * Cc: nate@bsd.coe.montana.edu
- * Subject: Re: timeout diffs
- *
- * Here are the diffs to take the scsi stuff to my latest tree from what
- * Nate and you received..
- *
- * the changes remove all the local timeout stuff and use (un)timeout(),
- *
- * ----
- * From julian@jules.DIALix.oz.au  Sat Aug  7 04:13:45 1993
- * To: hd@world.std.com (HD Associates)
- * Cc: nate@bsd.coe.montana.edu, briggs@csugrad.cs.vt.edu
- *
- * here is a fix for a silly bug in the scsiconf I just sent out
- * and a similar fix for st.c
- *
- * Revision 1.5  93/08/05  21:38:14  julian
- * fix the definitionof the last byte of each scsi command.
- * 
- * Revision 1.4  93/08/01  02:39:40  julian
- * compiles.. no mode bitfields
- * 
- * Revision 1.3  93/07/31  23:05:40  root
- * removed all bitfields
- * 
- * Revision 1.2  93/05/10  23:57:23  root
- * added some special stuff for some OLD scsi tapes (CIPHER ST150S)
- * 
- * Revision 1.1  93/04/12  21:51:06  root
- * checkin for 'jules'
- * 
- * Revision 1.2  1993/01/26  18:39:08  julian
- * add the 'write protected' bit in the device status struct.
- *
- * Revision 1.1  1992/09/26  22:10:21  julian
- * Initial revision
- *
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00098
- * --------------------         -----   ----------------------
- *
- * 16 Feb 93	Julian Elischer		ADDED for SCSI system
- * 
- */
-
-/*
  * SCSI tape interface description
  */
 
@@ -81,20 +16,14 @@
  * on the understanding that TFS is not responsible for the correct
  * functioning of this software in any circumstances.
  *
- */
-
-/*
  * Ported to run under 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
+ *
+ *	$Id: scsi_tape.h,v 1.4 1993/08/21 20:01:55 rgrimes Exp $
  */
-
-
-
-
 
 /*
  * SCSI command format
  */
-
 
 struct scsi_rw_tape
 {

@@ -12,99 +12,7 @@
  * on the understanding that TFS is not responsible for the correct
  * functioning of this software in any circumstances.
  *
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00098
- * --------------------         -----   ----------------------
- *
- * 16 Feb 93	Julian Elischer		ADDED for SCSI system
- */
-
-/*
- * HISTORY
- * $Log: bt742a.c,v $
- * Revision 1.4  1993/08/20 09:21:38  rgrimes
- * Update scsi code to the latest from Julian.  This code is now identical
- * to the last copy from Julian.  After this commit I will be commiting the
- * local fixes and makeing diffs to send back to Julian so he can update his
- * code.
- *
- * ----
- * >From julian@jules.DIALix.oz.au  Thu Aug  5 09:25:23 1993
- * To: hd@world.std.com, julian@jules.DIALix.oz.au
- * Cc: nate@bsd.coe.montana.edu
- * Subject: Re: new scsi
- *
- * ----
- * >From julian@jules.DIALix.oz.au  Sat Aug  7 04:13:17 1993
- * To: hd@world.std.com (HD Associates)
- * Cc: nate@bsd.coe.montana.edu
- * Subject: Re: timeout diffs
- *
- * Here are the diffs to take the scsi stuff to my latest tree from what
- * Nate and you received..
- *
- * the changes remove all the local timeout stuff and use (un)timeout(),
- *
- * ----
- * >From julian@jules.DIALix.oz.au  Sat Aug  7 04:13:45 1993
- * To: hd@world.std.com (HD Associates)
- * Cc: nate@bsd.coe.montana.edu, briggs@csugrad.cs.vt.edu
- *
- * here is a fix for a silly bug in the scsiconf I just sent out
- * and a similar fix for st.c
- *
- * Revision 1.12  93/08/07  13:20:44  julian
- * replace private timeout stuff with system timeout calls.
- * 
- * Revision 1.11  93/05/27  13:39:52  root
- * Enable mail box round-robin scheme by new host adapter command appeared
- *  at FirmWare V3.31 ( This release is shipped without testing at V3.31 )
- * 
- * Revision 1.10  93/05/22  16:38:22  root
- * under OSF, the dev_pic must be set up before it's used.
- * was only done ifndef OSF.
- * 
- * Revision 1.9  93/05/07  11:37:24  root
- * fix SLEEPTIME calculation.
- * 
- * Revision 1.8  93/05/07  11:27:00  root
- * Merge with 1.7.1
- * 
- * Revision 1.7.1 1993/01/01  04:01:02  amurai
- * Basically this modification fixes 'doesn't take command' issue 
- * that occured on FirmWare V3.30
- *  - Using IN/OUT mail box as round-robin for reducing I/O bus cycle
- *    and interrupts.
- *  - Print out routine are ifdef'ed rather than just 'if (flags)'
- *    for perfomance.
- *
- * Revision 1.7  1992/08/24  22:40:16  jason
- * BIG_DMA ifdef for 512 dma segments instead of 128 segments
- *
- * Revision 1.6  1992/08/24  21:01:58  jason
- * many changes and bugfixes for osf1
- *
- * Revision 1.5  1992/07/31  01:22:03  julian
- * support improved scsi.h layout
- *
- * Revision 1.4  1992/07/25  03:11:26  julian
- * check each request fro sane flags.
- *
- * Revision 1.3  1992/07/24  00:52:45  julian
- * improved timeout handling.
- * added support for two arguments to the sd_done (or equiv) call so that
- * they can pre-queue several arguments.
- * slightly clean up error handling
- *
- * Revision 1.2  1992/07/17  22:03:54  julian
- * upgraded the timeout code.
- * added support for UIO-based i/o (as used for pmem operations)
- *
- * Revision 1.1  1992/05/27  00:51:12  balsup
- * machkern/cor merge
- * 
+ *	$Id: bt742a.c,v 1.5 1993/08/21 20:01:32 rgrimes Exp $
  */
 
 /*
@@ -493,6 +401,7 @@ long int bt_adapter_info();
 
 struct	scsi_switch	bt_switch =
 {
+	"bt",
 	bt_scsi_cmd,
 	btminphys,
 	0,
@@ -555,7 +464,7 @@ u_char args;
 		}
 		if (!i)
 		{
-			printf("bt_cmd: bt742a host not idle(0x%x)\n",sts);
+			printf("bt%d: bt_cmd, host not idle(0x%x)\n",unit,sts);
 			return(ENXIO);
 		}
 	}
@@ -585,7 +494,7 @@ u_char args;
 		}
 		if (i >=  wait)
 		{
-			printf("bt_cmd: bt742a cmd/data port full\n");
+			printf("bt%d: bt_cmd, cmd/data port full\n",unit);
 			outb(BT_CTRL_STAT_PORT, BT_SRST); 
 			return(ENXIO);
 		}
@@ -606,7 +515,8 @@ u_char args;
 		}
 		if (i >=  wait)
 		{
-			printf("bt_cmd: bt742a cmd/data port empty %d\n",ocnt);
+			printf("bt%d: bt_cmd, cmd/data port empty %d\n",
+				unit,ocnt);
 			return(ENXIO);
 		}
 		oc = inb(BT_CMD_DATA_PORT);
@@ -627,7 +537,7 @@ u_char args;
 	}
 	if (!i)
 	{
-		printf("bt_cmd: bt742a host not finished(0x%x)\n",sts);
+		printf("bt%d: bt_cmd, host not finished(0x%x)\n",unit,sts);
 		return(ENXIO);
 	}
 	outb(BT_CTRL_STAT_PORT, BT_IRST);
@@ -658,7 +568,7 @@ struct isa_dev *dev;
 	bt_base[unit] = dev->dev_addr;
 	if(unit >= NBT) 
 	{
-		printf("bt: unit number (%d) too high\n",unit);
+		printf("bt%d: unit number too high\n",unit);
 		return(0);
 	}
 	/***********************************************\
@@ -695,7 +605,6 @@ struct isa_dev *dev;
 #ifdef  __386BSD__				/* 386BSD */
         dev->id_irq = (1 << bt_int[unit]);
         dev->id_drq = bt_dma[unit];
-	printf("\n  **");
 #endif  __386BSD__
 
 	btunit++;
@@ -711,10 +620,6 @@ struct	isa_dev	*dev;
 	int	unit = dev->dev_unit;
 
 
-#ifdef  __386BSD__
-	printf(" probing for scsi devices**\n");
-#endif  __386BSD__
-
 	/***********************************************\
 	* ask the adapter what subunits are present	*
 	\***********************************************/
@@ -722,9 +627,6 @@ struct	isa_dev	*dev;
 #if defined(OSF)
 	bt_attached[unit]=1;
 #endif /* defined(OSF) */
-#ifdef  __386BSD__
-	printf("bt%d",unit);
-#endif  __386BSD__
 	return;
 }
 
@@ -763,7 +665,7 @@ btintr(unit)
 
 	/* Mail Box out empty ? */
 	if ( stat & BT_MBOA ) {
-		printf("Available Free mbo post\n");
+		printf("bt%d: Available Free mbo post\n",unit);
  		/* Disable MBO available interrupt */
 		outb(BT_CMD_DATA_PORT,BT_MBO_INTR_EN);
 		wait = BT_CMD_TIMEOUT_FUDGE * delaycount; 
@@ -774,7 +676,7 @@ btintr(unit)
 		}
 		if (i >=  wait)
 		{
-			printf("bt_intr: bt742a cmd/data port full\n");
+			printf("bt%d: bt_intr, cmd/data port full\n",unit);
 			outb(BT_CTRL_STAT_PORT, BT_SRST); 
 			return 1;
 		}
@@ -862,7 +764,7 @@ AGAIN:
 			bt_nextmbx( wmbi, wmbx, mbi );
 		}
 		if ( !found ) {
-			printf("bt%02d: mbi at 0x%08x should be found, stat=%02x..resync\n",
+			printf("bt%d: mbi at 0x%08x should be found, stat=%02x..resync\n",
 				unit, wmbi, stat ); 
 		} else {
 			found = 0;
@@ -999,7 +901,7 @@ BT_MBO *bt_send_mbo( int unit,
 		}
 		if (i >=  wait)
 		{
-			printf("bt_send_mbo: bt742a cmd/data port full\n");
+			printf("bt%d: bt_send_mbo, cmd/data port full\n",unit);
 			outb(BT_CTRL_STAT_PORT, BT_SRST); 
 			return( (BT_MBO *)0 );
 		}
@@ -1145,7 +1047,7 @@ int	unit;
 	* level						*
 	\***********************************************/
 #ifdef	__386BSD__
-	printf("bt%d board settings,",unit);
+	printf("bt%d reading board settings, ",unit);
 #define	PRNT(x) printf(x)
 #else	__386BSD__
 	printf("bt%d:",unit);
@@ -1236,7 +1138,8 @@ int	unit;
 	* Initilize Mail Box stat to Free               *
 	\***********************************************/
 	if ( bt_ccb_free[unit]  !=  (struct bt_ccb *)0 ) {
-		printf("bt_ccb_free is NOT initialized but init here\n ");
+		printf("bt%d: bt_ccb_free is NOT initialized but init here\n",
+			unit);
 		bt_ccb_free[unit]        =  (struct bt_ccb *)0;
 	}
 	for (i=0; i < BT_CCB_SIZE; i++) {
@@ -1361,12 +1264,12 @@ struct scsi_xfer *xs;
 	if(xs->bp) flags |= (SCSI_NOSLEEP); /* just to be sure */
 	if(flags & ITSDONE)
 	{
-		printf("Already done?");
+		printf("bt%d: Already done?\n",unit);
 		xs->flags &= ~ITSDONE;
 	}
 	if(!(flags & INUSE))
 	{
-		printf("Not in use?");
+		printf("bt%d: Not in use?\n",unit);
 		xs->flags |= INUSE;
 	}
 	if (!(ccb = bt_get_ccb(unit,flags)))
@@ -1496,7 +1399,7 @@ struct scsi_xfer *xs;
 #endif
 		if (datalen)
 		{ /* there's still data, must have run out of segs! */
-			printf("bt_scsi_cmd%d: more than %d DMA segs\n",
+			printf("bt%d: bt_scsi_cmd, more than %d DMA segs\n",
 				unit,BT_NSEG);
 			xs->error = XS_DRIVER_STUFFUP;
 			bt_free_ccb(unit,ccb,flags);
@@ -1641,7 +1544,7 @@ bt_timeout(struct bt_ccb *ccb)
 	int	s	= splbio();
 
 	unit = ccb->xfer->adapter;
-	printf("bt%d:%d device timed out\n",unit
+	printf("bt%d: %d device timed out\n",unit
 			,ccb->xfer->targ);
 #ifdef	UTEST
 	if(bt_debug & BT_SHOWCCBS)
@@ -1655,7 +1558,7 @@ bt_timeout(struct bt_ccb *ccb)
  	if((struct bt_ccb *)PHYSTOKV(ccb->mbx->ccb_addr)==ccb &&
  	    ccb->mbx->cmd != BT_MBO_FREE )
 	{
- 		printf("bt%d not taking commands!\n"
+ 		printf("bt%d: not taking commands!\n"
  					,unit);
  		Debugger();
  	}
@@ -1666,14 +1569,14 @@ bt_timeout(struct bt_ccb *ccb)
 	\***************************************/
 	if(ccb->flags == CCB_ABORTED) /* abort timed out */
 	{
-		printf("Abort Operation has timed out.\n");
+		printf("bt%d: Abort Operation has timed out\n",unit);
 		ccb->xfer->retries = 0; /* I MEAN IT ! */
 		ccb->host_stat = BT_ABORTED;
 		bt_done(unit,ccb);
 	}
 	else	/* abort the operation that has timed out */
 	{
-		printf("Try to abort\n");
+		printf("bt%d: Try to abort\n",unit);
                	bt_send_mbo( unit, ~SCSI_NOMASK,
 			     BT_MBO_ABORT, ccb );
 			/* 2 secs for the abort */
