@@ -1,6 +1,6 @@
 /*
  *	from: unknown
- *	$Id: tp_driver.c,v 1.4 1993/11/25 01:36:00 wollman Exp $
+ *	$Id: tp_driver.c,v 1.5 1993/12/19 00:53:31 wollman Exp $
  */
 
 #define _XEBEC_PG static
@@ -51,7 +51,7 @@ void	tp_indicate(),				tp_getoptions(),
 		tp_cuntimeout(),			tp_ctimeout_MIN(),
 		tp_freeref(),				tp_detach(),
 		tp0_stash(), 				tp0_send(),
-		tp_netcmd(),				tp_send()
+		tp_netcmd();
 ;
 
 typedef  struct tp_pcb tpcb_struct;

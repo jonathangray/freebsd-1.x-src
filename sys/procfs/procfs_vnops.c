@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *	$Id: procfs_vnops.c,v 1.1 1993/12/12 12:26:41 davidg Exp $
+ *	$Id: procfs_vnops.c,v 1.2 1993/12/19 00:54:37 wollman Exp $
  */
 
 /*
@@ -49,7 +49,7 @@
 #include "kinfo.h"
 #include "kinfo_proc.h"
 
-#include "procfs.h"
+#include "sys/procfs.h"
 #include "pfsnode.h"
 
 #include "machine/vmparam.h"
@@ -452,7 +452,7 @@ pfs_setattr (vp, vap, cred, p)
 		if (cred->cr_uid == 0) {
 			pfsp->pfs_vflags = vap->va_flags;
 		} else {
-			pfsp->pfs_vflags &= 0xffff0000;
+			pfsp->pfs_vflags &= 0xffff0000ul;
 			pfsp->pfs_vflags |= (vap->va_flags & 0xffff);
 		}
 	}

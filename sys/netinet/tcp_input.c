@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)tcp_input.c	7.25 (Berkeley) 6/30/90
- *	$Id: tcp_input.c,v 1.3 1993/11/25 01:35:13 wollman Exp $
+ *	$Id: tcp_input.c,v 1.4 1993/12/19 00:52:48 wollman Exp $
  */
 
 #include "param.h"
@@ -70,7 +70,6 @@ int	tcppcbcachemiss;
 struct	tcpiphdr tcp_saveti;
 struct	inpcb *tcp_last_inpcb = &tcb;
 
-struct	tcpcb *tcp_newtcpcb();
 
 /*
  * Insert segment ti into reassembly queue of tcp with

@@ -20,7 +20,7 @@
  */
 
 /*
- * $Id: if_ed.c,v 1.25 1993/11/29 17:07:26 davidg Exp $
+ * $Id: if_ed.c,v 1.26 1993/12/19 00:50:37 wollman Exp $
  */
 
 /*
@@ -1596,7 +1596,7 @@ outloop:
 
 			/* copy trailer_header into a data structure */
 			m_copydata(m0, off, sizeof(struct trailer_header),
-				&trailer_header.ether_type);
+				(caddr_t)&trailer_header.ether_type);
 
 			/* copy residual data */
 			m_copydata(m0, off+sizeof(struct trailer_header),

@@ -31,11 +31,11 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)uipc_domain.c	7.9 (Berkeley) 3/4/91
- *	$Id: uipc_domain.c,v 1.4 1993/11/25 01:33:31 wollman Exp $
+ *	$Id: uipc_domain.c,v 1.5 1993/12/19 00:51:43 wollman Exp $
  */
 
-#include <sys/cdefs.h>
 #include "param.h"
+#include "systm.h"
 #include "socket.h"
 #include "protosw.h"
 #include "domain.h"

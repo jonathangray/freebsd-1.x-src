@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)udp_var.h	7.7 (Berkeley) 6/28/90
- *	$Id: udp_var.h,v 1.3 1993/11/07 17:48:16 wollman Exp $
+ *	$Id: udp_var.h,v 1.4 1993/12/19 00:52:57 wollman Exp $
  */
 
 #ifndef _NETINET_UDP_VAR_H_
@@ -75,5 +75,12 @@ struct	udpstat {
 #ifdef KERNEL
 extern struct	inpcb udb;
 extern struct	udpstat udpstat;
-#endif
+
+/* From in_var.h: */
+extern int udpcksum;
+extern int udp_ttl;
+extern u_long udp_sendspace;
+extern u_long udp_recvspace;
+
+#endif /* KERNEL */
 #endif /* _NETINET_UDP_VAR_H_ */

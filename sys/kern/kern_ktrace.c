@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)kern_ktrace.c	7.15 (Berkeley) 6/21/91
- *	$Id: kern_ktrace.c,v 1.5 1993/11/25 01:33:00 wollman Exp $
+ *	$Id: kern_ktrace.c,v 1.6 1993/12/19 00:51:27 wollman Exp $
  */
 
 #ifdef KTRACE
@@ -47,8 +47,11 @@
 #include "syslog.h"
 
 static void ktrwrite(struct vnode *, struct ktr_header *);
+static int ktrops(struct proc *, struct proc *, int, int, struct vnode *);
+static int ktrsetchildren(struct proc *, struct proc *, int, int, struct vnode *);
+static int ktrcanset(struct proc *, struct proc *);
 
-struct ktr_header *
+static struct ktr_header *
 ktrgetheader(type)
 	int type;
 {
@@ -290,7 +293,7 @@ done:
 	return (error);
 }
 
-int
+static int
 ktrops(curp, p, ops, facs, vp)
 	struct proc *curp, *p;
 	int ops;
@@ -328,7 +331,7 @@ ktrops(curp, p, ops, facs, vp)
 	return (1);
 }
 
-int
+static int
 ktrsetchildren(curp, top, ops, facs, vp)
 	struct proc *curp, *top;
 	int ops;
@@ -420,7 +423,7 @@ ktrwrite(vp, kth)
  *
  * TODO: check groups.  use caller effective gid.
  */
-int
+static int
 ktrcanset(callp, targetp)
 	struct proc *callp, *targetp;
 {

@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)kern_descrip.c	7.28 (Berkeley) 6/25/91
- *	$Id: kern_descrip.c,v 1.5 1993/11/25 01:32:54 wollman Exp $
+ *	$Id: kern_descrip.c,v 1.6 1993/12/19 00:51:22 wollman Exp $
  */
 
 #include "param.h"
@@ -49,6 +49,8 @@
 #include "malloc.h"
 #include "syslog.h"
 #include "resourcevar.h"
+
+#include "vm/vm_user.h"
 
 /*
  * Descriptor management.

@@ -38,10 +38,11 @@
  * from: Utah $Hdr: rmp.c 1.3 89/06/07$
  *
  *	From: @(#)rmp.c	7.1 (Berkeley) 5/8/90
- *	$Id: rmp.c,v 1.2 1993/11/25 01:36:40 wollman Exp $
+ *	$Id: rmp.c,v 1.3 1993/12/19 00:54:07 wollman Exp $
  */
 
 #include "param.h"
+#include "systm.h"
 #include "mbuf.h"
 #include "socket.h"
 #include "socketvar.h"

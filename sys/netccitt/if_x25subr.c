@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)if_x25subr.c	7.14 (Berkeley) 6/26/91
- *	$Id: if_x25subr.c,v 1.3 1993/11/25 01:34:25 wollman Exp $
+ *	$Id: if_x25subr.c,v 1.4 1993/12/19 00:52:16 wollman Exp $
  */
 
 #include "param.h"
@@ -642,7 +642,7 @@ x25_dg_rtinit(dst, ia, af)
 		 * This uses the X25 routing table to do inverse
 		 * lookup of x25 address to sockaddr.
 		 */
-		if (rt = rtalloc1(dst, 0)) {
+		if (rt = rtalloc1((struct sockaddr *)dst, 0)) {
 			sa = rt->rt_gateway;
 			rt->rt_refcnt--;
 		}

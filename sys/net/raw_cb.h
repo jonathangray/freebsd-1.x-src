@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)raw_cb.h	7.6 (Berkeley) 6/28/90
- *	$Id: raw_cb.h,v 1.3 1993/11/07 17:47:05 wollman Exp $
+ *	$Id: raw_cb.h,v 1.4 1993/12/19 00:52:05 wollman Exp $
  */
 
 #ifndef _NET_RAW_CB_H_
@@ -60,5 +60,12 @@ struct rawcb {
 
 #ifdef KERNEL
 extern struct rawcb rawcb;	/* head of list */
-#endif
+extern void raw_init(void);
+extern int raw_input(struct mbuf *, struct sockproto *, struct sockaddr *,
+		     struct sockaddr *);
+extern void raw_ctlinput(int, struct sockaddr *);
+extern int raw_usrreq(struct socket *, int, struct mbuf *, struct mbuf *,
+		      struct mbuf *, struct mbuf *);
+
+#endif /* KERNEL */
 #endif /* _NET_RAW_CB_H_ */

@@ -31,10 +31,11 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)mfs_vfsops.c	7.19 (Berkeley) 4/16/91
- *	$Id: mfs_vfsops.c,v 1.5 1993/11/25 01:38:25 wollman Exp $
+ *	$Id: mfs_vfsops.c,v 1.6 1993/12/19 00:55:41 wollman Exp $
  */
 
 #include "param.h"
+#include "systm.h"
 #include "time.h"
 #include "kernel.h"
 #include "proc.h"

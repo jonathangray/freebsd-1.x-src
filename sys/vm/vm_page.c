@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)vm_page.c	7.4 (Berkeley) 5/7/91
- *	$Id: vm_page.c,v 1.4 1993/12/12 12:27:24 davidg Exp $
+ *	$Id: vm_page.c,v 1.5 1993/12/19 00:56:10 wollman Exp $
  */
 
 /*
@@ -69,6 +69,7 @@
  */
 
 #include "param.h"
+#include "systm.h"
 
 #include "vm.h"
 #include "vm_map.h"

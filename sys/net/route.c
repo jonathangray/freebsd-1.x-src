@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)route.c	7.22 (Berkeley) 6/27/91
- *	$Id: route.c,v 1.4 1993/11/25 01:34:10 wollman Exp $
+ *	$Id: route.c,v 1.5 1993/12/19 00:52:06 wollman Exp $
  */
 
 #include "param.h"
@@ -160,8 +160,9 @@ rtfree(rt)
  */
 void
 rtredirect(dst, gateway, netmask, flags, src, rtp)
-	struct sockaddr *dst, *gateway, *netmask, *src;
+	struct sockaddr *dst, *gateway, *netmask;
 	int flags;
+	struct sockaddr *src;
 	struct rtentry **rtp;
 {
 	register struct rtentry *rt = 0;

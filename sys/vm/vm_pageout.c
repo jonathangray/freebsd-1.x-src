@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)vm_pageout.c	7.4 (Berkeley) 5/7/91
- *	$Id: vm_pageout.c,v 1.6 1993/11/25 12:07:42 davidg Exp $
+ *	$Id: vm_pageout.c,v 1.7 1993/12/19 00:56:12 wollman Exp $
  */
 
 /*
@@ -69,6 +69,7 @@
  */
 
 #include "param.h"
+#include "systm.h"
 
 #include "vm.h"
 #include "vm_page.h"

@@ -70,7 +70,7 @@
  */
 
 /*
- *	$Id: if_ppp.c,v 1.5 1993/11/25 01:34:04 wollman Exp $
+ *	$Id: if_ppp.c,v 1.6 1993/12/19 00:52:03 wollman Exp $
  * 	From: if_ppp.c,v 1.22 1993/08/31 23:20:40 paulus Exp
  *	From: if_ppp.c,v 1.21 1993/08/29 11:22:37 paulus Exp
  *	From: if_sl.c,v 1.11 84/10/04 12:54:47 rick Exp 
@@ -252,7 +252,7 @@ pppopen(dev, tp)
 
     sc->sc_flags = 0;
     sc->sc_ilen = 0;
-    sc->sc_asyncmap = 0xffffffff;
+    sc->sc_asyncmap = ~0;
     sc->sc_rasyncmap = 0;
     sc->sc_mru = PPP_MRU;
 #ifdef VJC

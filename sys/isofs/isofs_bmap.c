@@ -1,8 +1,9 @@
 /*
- * 	$Id: isofs_bmap.c,v 1.3 1993/11/25 01:32:21 wollman Exp $
+ * 	$Id: isofs_bmap.c,v 1.4 1993/12/19 00:51:03 wollman Exp $
  */
 
 #include "param.h"
+#include "systm.h"
 #include "namei.h"
 #include "buf.h"
 #include "file.h"

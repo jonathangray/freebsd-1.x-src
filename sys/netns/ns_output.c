@@ -31,10 +31,11 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)ns_output.c	7.8 (Berkeley) 12/16/90
- *	$Id: ns_output.c,v 1.3 1993/11/25 01:36:32 wollman Exp $
+ *	$Id: ns_output.c,v 1.4 1993/12/19 00:53:59 wollman Exp $
  */
 
 #include "param.h"
+#include "systm.h"
 #include "malloc.h"
 #include "mbuf.h"
 #include "errno.h"

@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)ufs_lockf.c	7.7 (Berkeley) 7/2/91
- *	$Id: ufs_lockf.c,v 1.6 1993/11/25 01:38:34 wollman Exp $
+ *	$Id: ufs_lockf.c,v 1.7 1993/12/19 00:55:44 wollman Exp $
  */
 
 #include "param.h"
@@ -726,7 +726,7 @@ lf_split(lock1, lock2)
 /*
  * Wakeup a blocklist
  */
-void
+static void
 lf_wakelock(listhead)
 	struct lockf *listhead;
 {

@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)tp_pcb.c	7.11 (Berkeley) 5/6/91
- *	$Id: tp_pcb.c,v 1.3 1993/11/25 01:36:09 wollman Exp $
+ *	$Id: tp_pcb.c,v 1.4 1993/12/19 00:53:41 wollman Exp $
  */
 
 /***********************************************************
@@ -76,8 +76,8 @@ SOFTWARE.
  *
  */
 
-#include "types.h"
 #include "param.h"
+#include "systm.h"
 #include "mbuf.h"
 #include "socket.h"
 #include "socketvar.h"

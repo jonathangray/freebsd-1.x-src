@@ -38,10 +38,11 @@
  * from: Utah $Hdr: rmp_proto.c 1.3 89/06/07$
  *
  *	From: @(#)rmp_proto.c	7.1 (Berkeley) 5/8/90
- *	$Id: rmp_proto.c,v 1.1 1993/11/07 22:55:11 wollman Exp $
+ *	$Id: rmp_proto.c,v 1.2 1993/12/19 00:54:08 wollman Exp $
  */
 
 #include "param.h"
+#include "systm.h"
 #include "socket.h"
 #include "protosw.h"
 #include "domain.h"

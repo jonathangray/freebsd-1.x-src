@@ -45,12 +45,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id: subr_rlist.c,v 1.3 1993/11/25 01:33:18 wollman Exp $
+ *	$Id: subr_rlist.c,v 1.4 1993/12/19 00:51:33 wollman Exp $
  */
 
-#include "sys/param.h"
-#include "sys/cdefs.h"
-#include "sys/malloc.h"
+#include "param.h"
+#include "systm.h"
+#include "malloc.h"
 #include "rlist.h"
 
 /*

@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)ufs_vfsops.c	7.56 (Berkeley) 6/28/91
- *	$Id: ufs_vfsops.c,v 1.5 1993/11/25 01:38:39 wollman Exp $
+ *	$Id: ufs_vfsops.c,v 1.6 1993/12/19 00:55:47 wollman Exp $
  */
 
 #include "param.h"
@@ -54,6 +54,8 @@
 #include "fs.h"
 #include "ufsmount.h"
 #include "inode.h"
+
+int mountfs(struct vnode *, struct mount *, struct proc *);
 
 struct vfsops ufs_vfsops = {
 	ufs_mount,

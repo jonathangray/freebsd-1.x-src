@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)if_eon.c	7.16 (Berkeley) 6/27/91
- *	$Id: if_eon.c,v 1.4 1993/11/25 01:35:54 wollman Exp $
+ *	$Id: if_eon.c,v 1.5 1993/12/19 00:53:20 wollman Exp $
  */
 
 /***********************************************************
@@ -579,7 +579,7 @@ eonctlinput(cmd, sin)
 
 	IFDEBUG(D_EON)
 		printf("eonctlinput: cmd 0x%x addr: ", cmd);
-		dump_isoaddr(sin);
+		dump_isoaddr((struct sockaddr_iso *)sin);
 		printf("\n");
 	ENDDEBUG
 

@@ -1,5 +1,5 @@
-/*
- * Copyright (c) 1984, 1985, 1986, 1987 Regents of the University of California.
+/*-
+ * Copyright (c) 1982, 1988, 1991 The Regents of the University of California.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,37 +30,22 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	from: @(#)idp_var.h	7.4 (Berkeley) 6/28/90
- *	$Id: idp_var.h,v 1.4 1993/12/19 00:53:53 wollman Exp $
+ *	from: @(#)systm.h	7.17 (Berkeley) 5/25/91
+ *	$Id: sysent.h,v 1.1 1993/12/19 00:55:24 wollman Exp $
  */
 
-#ifndef _NETNS_IDP_VAR_H_
-#define _NETNS_IDP_VAR_H_ 1
+#ifndef _SYS_SYSENT_H_
+#define _SYS_SYSENT_H_ 1
 
-/*
- * IDP Kernel Structures and Variables
- */
-struct	idpstat {
-	int	idps_badsum;		/* checksum bad */
-	int	idps_tooshort;		/* packet too short */
-	int	idps_toosmall;		/* not enough data */
-	int	idps_badhlen;		/* ip header length < data size */
-	int	idps_badlen;		/* ip length < ip header length */
+struct sysent {		/* system call table */
+	int	sy_narg;	/* number of arguments */
+	int	(*sy_call)();	/* implementing function */
 };
 
 #ifdef KERNEL
-extern struct	idpstat	idpstat;
-struct nspcb;
-extern void idp_input(struct mbuf *, struct nspcb *);
-extern void idp_abort(struct nspcb *, int);
-extern void idp_drop(struct nspcb *, int);
-extern int idp_output(struct nspcb *, struct mbuf *);
-extern int idp_ctloutput(int, struct socket *, int, int, struct mbuf **);
-extern int idp_usrreq(struct socket *, int, struct mbuf *, struct mbuf *, 
-		      struct mbuf *, struct mbuf *);
-extern int idp_raw_usrreq(struct socket *, int, struct mbuf *, struct mbuf *,
-			  struct mbuf *, struct mbuf *);
+extern struct sysent sysent[];
+#endif
+
+#endif /* _SYS_SYSENT_H_ */
 
 
-#endif /* KERNEL */
-#endif /* _NETNS_IDP_VAR_H_ */

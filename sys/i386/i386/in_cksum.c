@@ -32,10 +32,11 @@
  *
  *	from tahoe:	in_cksum.c	1.2	86/01/05
  *	from:		@(#)in_cksum.c	1.3 (Berkeley) 1/19/91
- *	$Id: in_cksum.c,v 1.3 1993/11/25 01:30:53 wollman Exp $
+ *	$Id: in_cksum.c,v 1.4 1993/12/19 00:50:02 wollman Exp $
  */
 
 #include "param.h"
+#include "systm.h"
 #include "sys/mbuf.h"
 
 /*

@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)clnp_output.c	7.10 (Berkeley) 5/6/91
- *	$Id: clnp_output.c,v 1.3 1993/11/25 01:35:45 wollman Exp $
+ *	$Id: clnp_output.c,v 1.4 1993/12/19 00:53:13 wollman Exp $
  */
 
 /***********************************************************
@@ -62,6 +62,7 @@ SOFTWARE.
  */
 
 #include "param.h"
+#include "systm.h"
 #include "mbuf.h"
 #include "domain.h"
 #include "protosw.h"

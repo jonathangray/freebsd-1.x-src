@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	From:	@(#)nfs_vnops.c	7.60 (Berkeley) 5/24/91
- *	$Id: nfs_vnops.c,v 1.5 1993/11/25 01:36:55 wollman Exp $
+ *	$Id: nfs_vnops.c,v 1.6 1993/12/19 00:54:18 wollman Exp $
  */
 
 /*
@@ -776,7 +776,7 @@ nfs_mknod(ndp, vap, cred, p)
 		rdev = txdr_unsigned(vap->va_rdev);
 #ifdef FIFO
 	else if (vap->va_type == VFIFO)
-		rdev = 0xffffffff;
+		rdev = 0xffffffffUL;
 #endif /* FIFO */
 	else {
 		VOP_ABORTOP(ndp);
