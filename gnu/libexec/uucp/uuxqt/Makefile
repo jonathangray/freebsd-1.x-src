@@ -1,9 +1,9 @@
 # Makefile for uuxqt
-# $Id: Makefile,v 1.3 1994/05/07 18:14:39 ache Exp $
+# $Id: Makefile,v 1.4 1994/05/31 05:09:03 ache Exp $
 
 BINDIR=		$(sbindir)
 BINOWN=		$(owner)
-BINMODE=	4555
+BINMODE=        4550
 
 PROG=		uuxqt
 SRCS=		uuxqt.c util.c log.c copy.c
