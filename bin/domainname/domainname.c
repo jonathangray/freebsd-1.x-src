@@ -1,5 +1,5 @@
 #ifndef lint
-static char rcsid[] = "domainname.c,v 1.3 1993/09/10 01:24:46 jtc Exp";
+static char rcsid[] = "$Id: domainname.c,v 1.2 1993/10/25 03:12:32 rgrimes Exp $";
 #endif /* not lint */
 
 #include <stdio.h>
