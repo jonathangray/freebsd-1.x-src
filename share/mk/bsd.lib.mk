@@ -1,7 +1,10 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.20  1993/11/09 04:50:28  paul
+# Revision 1.21  1993/11/12 00:01:30  paul
+# Commented out yet more ld -x -r lines
+#
+# Revision 1.20  1993/11/09  04:50:28  paul
 # Temporary fix to make src tree closer to useable.
 #
 # # XXX -- shouldn't need to comment these out  but there's something not quite
@@ -165,14 +168,14 @@ BINMODE?=	555
 .s.o:
 	${CPP} -E ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
 	    ${AS} -o ${.TARGET}
-	@${LD} -x -r ${.TARGET}
-	@mv a.out ${.TARGET}
+#	@${LD} -x -r ${.TARGET}
+#	@mv a.out ${.TARGET}
 
 .s.po:
 	${CPP} -E -DPROF ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
 	    ${AS} -o ${.TARGET}
-	@${LD} -X -r ${.TARGET}
-	@mv a.out ${.TARGET}
+#	@${LD} -X -r ${.TARGET}
+#	@mv a.out ${.TARGET}
 
 .s.so:
 	${CPP} -E -DPIC ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
