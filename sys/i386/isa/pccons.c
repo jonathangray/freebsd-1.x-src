@@ -54,7 +54,7 @@
  *					to eliminate ESC sequence in 
  *					init_main.c
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/isa/pccons.c,v 1.3 1993/07/24 10:46:18 davidg Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/isa/pccons.c,v 1.4 1993/08/28 13:26:28 rgrimes Exp $";
 
 /*
  * code to work keyboard & display for PC-style console
@@ -274,8 +274,7 @@ struct isa_device *dev;
 			break;
 		}
 	}
-
-	return (1);
+	return (IO_KBDSIZE);
 }
 
 pcattach(dev)
