@@ -36,9 +36,12 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)pk_var.h	7.11 (Berkeley) 5/29/91
- *	$Id: pk_var.h,v 1.2 1993/10/16 19:46:58 rgrimes Exp $
+ *	$Id: pk_var.h,v 1.3 1993/11/07 17:47:26 wollman Exp $
  */
 
+
+#ifndef _NETCCITT_PK_VAR_H_
+#define _NETCCITT_PK_VAR_H_ 1
 
 /*
  *
@@ -173,3 +176,4 @@ struct	pklcd *pk_attach();
 extern char	*pk_name[], *pk_state[];
 int	pk_t20, pk_t21, pk_t22, pk_t23;
 #endif
+#endif /* _NETCCITT_PK_VAR_H_ */

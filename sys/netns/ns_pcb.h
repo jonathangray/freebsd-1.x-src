@@ -31,8 +31,11 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)ns_pcb.h	7.4 (Berkeley) 6/28/90
- *	$Id: ns_pcb.h,v 1.2 1993/10/16 19:54:30 rgrimes Exp $
+ *	$Id: ns_pcb.h,v 1.3 1993/11/07 17:50:31 wollman Exp $
  */
+
+#ifndef _NETNS_NS_PCB_H_
+#define _NETNS_NS_PCB_H_ 1
 
 /*
  * Ns protocol interface control block.
@@ -76,6 +79,7 @@ struct nspcb {
 
 
 #ifdef KERNEL
-struct	nspcb nspcb;			/* head of list */
+extern struct	nspcb nspcb;			/* head of list */
 struct	nspcb *ns_pcblookup();
 #endif
+#endif /* _NETNS_NS_PCB_H_ */

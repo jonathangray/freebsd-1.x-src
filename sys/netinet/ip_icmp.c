@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)ip_icmp.c	7.15 (Berkeley) 4/20/91
- *	$Id: ip_icmp.c,v 1.2 1993/10/16 18:26:11 rgrimes Exp $
+ *	$Id: ip_icmp.c,v 1.3 1993/11/07 17:47:56 wollman Exp $
  */
 
 #include "param.h"
@@ -63,6 +63,7 @@ int	icmpprintfs = 0;
 #endif
 
 extern	struct protosw inetsw[];
+struct icmpstat icmpstat;
 
 /*
  * Generate an error packet of type error
