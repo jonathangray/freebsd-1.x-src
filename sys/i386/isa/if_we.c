@@ -66,7 +66,11 @@
  * we_attach enhanced with link level address by Rodney W. Grimes, 1/30/93
  *
  * $Log: if_we.c,v $
- * Revision 1.3  1993/08/22 22:54:56  ats
+ * Revision 1.4  1993/08/24 00:15:31  rgrimes
+ * Fixed the printf's for ethernet address so that ALL ethernet drivers are
+ * consistent in the format of this.
+ *
+ * Revision 1.3  1993/08/22  22:54:56  ats
  * Added a new-line in the output of the ethernet-address that it gets
  * on it's line alone ( not mangled with the FPU detection ).
  * Commented out a debug printf in if_ec.c ( printf("ecinit") ).
@@ -229,8 +233,10 @@ weprobe(is)
 	    sum += inb(is->id_iobase + WD_ROM_OFFSET + i);
 	if (sum != WD_CHECKSUM) {		/* 09 Sep 92*/
 #ifdef WECOMPAT
-	    printf( "we: probe: checksum failed... installing anyway\n");
-	    printf( "we: Danpex EW-2016 or other 8013 clone card?\n");
+	    printf( "we%d: probe: checksum failed... installing anyway\n",
+		is->id_unit);
+	    printf( "we%d: Danpex EW-2016 or other 8013 clone card?\n",
+		is->id_unit);
 #else	/* !WECOMPAT*/
             return (0);
 #endif	/* !WECOMPAT*/
@@ -353,8 +359,9 @@ weattach(is)
 	/*
 	 * Banner...
 	 */
-	printf(" %saddr %s\n",
-		(sc->we_type & WD_ETHERNET) ? "enet" : "slan",
+	printf("we%d: %s address %s\n",
+		is->id_unit,
+		(sc->we_type & WD_ETHERNET) ? "ethernet" : "starlan",
 		ether_sprintf(sc->we_addr));
 }
  
