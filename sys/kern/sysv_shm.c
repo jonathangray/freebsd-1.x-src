@@ -35,9 +35,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * from: Utah $Hdr: uipc_shm.c 1.9 89/08/14$
- *
- *	@(#)sysv_shm.c	7.15 (Berkeley) 5/13/91
+ *	from: Utah $Hdr: uipc_shm.c 1.9 89/08/14$
+ *	from: @(#)sysv_shm.c	7.15 (Berkeley) 5/13/91
+ *	$Id: sysv_shm.c,v 1.4 1993/10/16 15:24:52 rgrimes Exp $
  */
 
 /*

@@ -45,8 +45,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
+ * 	$Id: vfs_bio.old.c,v 1.2 1993/10/16 15:25:18 rgrimes Exp $
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/kern/Attic/vfs_bio.old.c,v 1.1 1993/06/12 14:57:29 rgrimes Exp $";
 
 #include "param.h"
 #include "proc.h"

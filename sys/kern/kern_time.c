@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)kern_time.c	7.15 (Berkeley) 3/17/91
+ *	from: @(#)kern_time.c	7.15 (Berkeley) 3/17/91
+ *	$Id: kern_time.c,v 1.3 1993/10/16 15:24:33 rgrimes Exp $
  */
 
 #include "param.h"

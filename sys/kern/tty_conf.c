@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)tty_conf.c	7.6 (Berkeley) 5/9/91
+ *	from: @(#)tty_conf.c	7.6 (Berkeley) 5/9/91
+ *	$Id: tty_conf.c,v 1.3 1993/10/16 15:24:58 rgrimes Exp $
  */
 
 #include "param.h"

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)uipc_proto.c	7.6 (Berkeley) 5/9/91
+ *	from: @(#)uipc_proto.c	7.6 (Berkeley) 5/9/91
+ *	$Id: uipc_proto.c,v 1.2 1993/10/16 15:25:09 rgrimes Exp $
  */
 
 #include "param.h"

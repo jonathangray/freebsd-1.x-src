@@ -31,14 +31,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)kern_synch.c	7.18 (Berkeley) 6/27/91
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00077
- * --------------------         -----   ----------------------
- *
- * 11 Dec 92	Williams Jolitz		Fixed panic:remrq hangs
+ *	from: @(#)kern_synch.c	7.18 (Berkeley) 6/27/91
+ *	$Id: kern_synch.c,v 1.2 1993/10/16 15:24:32 rgrimes Exp $
  */
 
 #include "param.h"

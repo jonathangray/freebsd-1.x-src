@@ -30,14 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)spec_vnops.c	7.37 (Berkeley) 5/30/91
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         1       00007
- * --------------------         -----   ----------------------
- *
- * 20 Aug 92    David Greenman          Fixed incorrect setting of B_AGE on
+ *	from: @(#)spec_vnops.c	7.37 (Berkeley) 5/30/91
+ *	$Id: spec_vnops.c,v 1.2 1993/10/16 15:24:37 rgrimes Exp $
  */
 
 #include "param.h"

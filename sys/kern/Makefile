@@ -1,4 +1,5 @@
-#	@(#)Makefile	7.13 (Berkeley) 5/9/91
+#	from: @(#)Makefile	7.13 (Berkeley) 5/9/91
+#	$Id: Makefile,v 1.2 1993/10/16 15:23:57 rgrimes Exp $
 
 # Makefile for kernel tags files, init_systent, etc.
 

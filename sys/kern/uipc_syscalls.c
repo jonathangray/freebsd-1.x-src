@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)uipc_syscalls.c	7.24 (Berkeley) 6/3/91
+ *	from: @(#)uipc_syscalls.c	7.24 (Berkeley) 6/3/91
+ *	$Id: uipc_syscalls.c,v 1.4 1993/10/16 15:25:14 rgrimes Exp $
  */
 
 #include "param.h"

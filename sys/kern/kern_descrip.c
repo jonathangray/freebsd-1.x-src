@@ -30,9 +30,9 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)kern_descrip.c	7.28 (Berkeley) 6/25/91
+ *	from: @(#)kern_descrip.c	7.28 (Berkeley) 6/25/91
+ *	$Id: kern_descrip.c,v 1.4 1993/10/16 15:24:11 rgrimes Exp $
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/kern/kern_descrip.c,v 1.3 1993/07/16 20:53:04 davidg Exp $";
 
 #include "param.h"
 #include "systm.h"

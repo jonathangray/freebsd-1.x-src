@@ -45,17 +45,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *
- * PATCHES MAGIC                LEVEL   PATCH THAT GOT US HERE
- * --------------------         -----   ----------------------
- * CURRENT PATCH LEVEL:         2       00163
- * --------------------         -----   ----------------------
- *
- * 14 Mar 93    David Greenman		Upgrade bpf to match tcpdump 2.2.1
- * 27 May 93	Bruce Evans		Who really did the changes that David
- *					supplied in the 14 Mar 93 patch.
+ *	$Id: tty_ring.c,v 1.2 1993/10/16 15:25:01 rgrimes Exp $
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/kern/tty_ring.c,v 1.1 1993/06/12 14:57:30 rgrimes Exp $";
 
 #include "param.h"
 #include "systm.h"

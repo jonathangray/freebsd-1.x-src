@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)kern_sig.c	7.35 (Berkeley) 6/28/91
+ *	from: @(#)kern_sig.c	7.35 (Berkeley) 6/28/91
+ *	$Id: kern_sig.c,v 1.5 1993/10/16 15:24:27 rgrimes Exp $
  */
 
 #define	SIGPROP		/* include signal properties table */

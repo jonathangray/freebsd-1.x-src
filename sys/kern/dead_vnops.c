@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)dead_vnops.c	7.13 (Berkeley) 4/15/91
+ *	from: @(#)dead_vnops.c	7.13 (Berkeley) 4/15/91
+ *	$Id: dead_vnops.c,v 1.2 1993/10/16 15:23:59 rgrimes Exp $
  */
 
 #include "param.h"
