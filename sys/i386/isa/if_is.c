@@ -11,7 +11,8 @@
  *   of this software, nor does the author assume any responsibility
  *   for damages incurred with its use.
  *
-*/
+ *	$Id: if_is.c,v 1.11 1993/10/16 13:45:53 rgrimes Exp $
+ */
 
 /* TODO
 

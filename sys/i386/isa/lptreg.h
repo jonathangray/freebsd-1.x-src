@@ -5,9 +5,8 @@
  * This code is derived from software contributed to Berkeley by
  * William Jolitz.
  *
- * %sccs.include.noredist.c%
- *
- *      @(#)lptreg.h	1.1 (Berkeley) 12/19/90
+ *      form: @(#)lptreg.h	1.1 (Berkeley) 12/19/90
+ *	$Id: lptreg.h,v 1.2 1993/10/16 13:46:12 rgrimes Exp $
  */
 
 /*

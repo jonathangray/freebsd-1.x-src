@@ -33,15 +33,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- */
-/*
+ *	from: @(#)pccons.c	5.11 (Berkeley) 5/21/91
+ *	from: @(#)syscons.c	1.0 930928
+ *	$Id: syscons.c,v 1.13 1993/10/16 13:46:23 rgrimes Exp $
+ *
  * Heavily modified by Søren Schmidt (sos@login.dkuug.dk) to provide:
  *
  * 	virtual consoles, SYSV ioctl's, ANSI emulation 
- *
- *	@(#)syscons.c	1.0 930928
- * Derived from:
- *	@(#)pccons.c	5.11 (Berkeley) 5/21/91
  */
 
 #define STAR_SAVER

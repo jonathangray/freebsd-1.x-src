@@ -34,9 +34,8 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *	$Id: mcd.c,v 1.1 1993/10/12 06:08:29 rgrimes Exp $
+ *	$Id: mcd.c,v 1.2 1993/10/16 13:46:13 rgrimes Exp $
  */
-/*static char rcsid[] = "from: /sys/i386/isa/RCS/mcd.c,v 2.1 1993/09/24 21:23:13 root Exp root";*/
 static char COPYRIGHT[] = "mcd-driver (C)1993 by H.Veit & B.Moore";
 
 #include "mcd.h"
