@@ -60,9 +60,9 @@ echo 'x - extracting README (Text)'
 sed 's/^X//' << 'SHAR_EOF' > 'README' &&
 -------------------------------------------------------------------------------
 Document Revision Control Information:
-X   $Author: rgrimes $
+X   $Author: nate $
 X   $Source: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v $
-X   $Revision: 1.1 $ of $Date: 1993/06/29 01:01:34 $
+X   $Revision: 1.2 $ of $Date: 1993/07/30 17:20:45 $
 -------------------------------------------------------------------------------
 X
 1. Introduction
@@ -498,9 +498,9 @@ sed 's/^X//' << 'SHAR_EOF' > 'libs/elapsed.pl' &&
 ;#    Michael S. Muegel <mmuegel@mot.com>
 ;#
 ;# RCS INFORMATION
-;#    $Author: rgrimes $
+;#    $Author: nate $
 ;#    $Source: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v $
-;#    $Revision: 1.1 $ of $Date: 1993/06/29 01:01:34 $
+;#    $Revision: 1.2 $ of $Date: 1993/07/30 17:20:45 $
 X
 package elapsed;
 X
@@ -634,8 +634,8 @@ sed 's/^X//' << 'SHAR_EOF' > 'libs/mail.pl' &&
 ;#    Michael S. Muegel (mmuegel@mot.com)
 ;#
 ;# RCS INFORMATION
-;#    $Author: rgrimes $
-;#    $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.1 1993/06/29 01:01:34 rgrimes Exp $
+;#    $Author: nate $
+;#    $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.2 1993/07/30 17:20:45 nate Exp $
 X
 package mail;
 X
@@ -792,9 +792,9 @@ sed 's/^X//' << 'SHAR_EOF' > 'libs/mqueue.pl' &&
 ;#    Michael S. Muegel (mmuegel@mot.com)  
 ;#
 ;# RCS INFORMATION
-;#    $Author: rgrimes $
+;#    $Author: nate $
 ;#    $Source: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v $
-;#    $Revision: 1.1 $ of $Date: 1993/06/29 01:01:34 $
+;#    $Revision: 1.2 $ of $Date: 1993/07/30 17:20:45 $
 X
 package mqueue;
 X
@@ -1015,8 +1015,8 @@ sed 's/^X//' << 'SHAR_EOF' > 'libs/newgetopts.pl' &&
 ;# AUTHOR
 ;#    Mike Muegel (mmuegel@mot.com)
 ;#
-;# $Author: rgrimes $
-;# $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.1 1993/06/29 01:01:34 rgrimes Exp $
+;# $Author: nate $
+;# $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.2 1993/07/30 17:20:45 nate Exp $
 X
 ;###############################################################################
 ;# New_Getopts
@@ -1245,8 +1245,8 @@ sed 's/^X//' << 'SHAR_EOF' > 'libs/strings1.pl' &&
 ;#    Michael S. Muegel (mmuegel@mot.com)
 ;#
 ;# RCS INFORMATION
-;#    $Author: rgrimes $
-;#    $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.1 1993/06/29 01:01:34 rgrimes Exp $
+;#    $Author: nate $
+;#    $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.2 1993/07/30 17:20:45 nate Exp $
 X
 package strings1;
 X
@@ -1401,8 +1401,8 @@ sed 's/^X//' << 'SHAR_EOF' > 'libs/timespec.pl' &&
 ;#    Michael S. Muegel (mmuegel@mot.com)
 ;#
 ;# RCS INFORMATION
-;#    $Author: rgrimes $
-;#    $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.1 1993/06/29 01:01:34 rgrimes Exp $
+;#    $Author: nate $
+;#    $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.2 1993/07/30 17:20:45 nate Exp $
 X
 package timespec;
 X
@@ -1473,8 +1473,8 @@ echo 'x - extracting man/cqueue.1 (Text)'
 sed 's/^X//' << 'SHAR_EOF' > 'man/cqueue.1' &&
 .TH CQUEUE 1L
 \"
-\" $Author: rgrimes $
-\" $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.1 1993/06/29 01:01:34 rgrimes Exp $
+\" $Author: nate $
+\" $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.2 1993/07/30 17:20:45 nate Exp $
 \"
 .ds mp \fBcqueue\fR
 .de IB
@@ -1652,8 +1652,8 @@ echo 'x - extracting man/postclip.1 (Text)'
 sed 's/^X//' << 'SHAR_EOF' > 'man/postclip.1' &&
 .TH POSTCLIP 1L
 \"
-\" $Author: rgrimes $
-\" $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.1 1993/06/29 01:01:34 rgrimes Exp $
+\" $Author: nate $
+\" $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.2 1993/07/30 17:20:45 nate Exp $
 \"
 .ds mp \fBpostclip\fR
 .SH NAME
@@ -1738,8 +1738,8 @@ X
 #    Michael S. Muegel <mmuegel@mot.com>
 #
 # RCS INFORMATION
-#    $Author: rgrimes $
-#    $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.1 1993/06/29 01:01:34 rgrimes Exp $
+#    $Author: nate $
+#    $Header: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v 1.2 1993/07/30 17:20:45 nate Exp $
 X
 # So that date.pl does not yell (Domain/OS version does a ``)
 $ENV{'PATH'}    = "";
@@ -1763,7 +1763,7 @@ $DATE_FORMAT    = "%r %D";
 X
 # Constants that probably should not be changed
 $USAGE          = "Usage: $Script_Name [ -abdms ] [ -q queue-dir ] [ -t time ] [ -u user ] [ -w width ]\n";
-$VERSION        = "${Script_Name} by \$Author: rgrimes $; \$Revision: 1.1 $ of \$Date: 1993/06/29 01:01:34 $";
+$VERSION        = "${Script_Name} by \$Author: nate $; \$Revision: 1.2 $ of \$Date: 1993/07/30 17:20:45 $";
 $SWITCHES       = "abdmst:u:q:w:";
 $SPLIT_EXPR	= '\s,\.@!%:';
 $ADDR_PART_EXPR	= '[^!@%]+';
@@ -1994,7 +1994,7 @@ X
 #
 # RCS INFORMATION
 #    $Source: /a/cvs/386BSD/src/usr.sbin/sendmail/contrib/mmuegel,v $
-#    $Revision: 1.1 $ of $Date: 1993/06/29 01:01:34 $
+#    $Revision: 1.2 $ of $Date: 1993/07/30 17:20:45 $
 X
 # We use this to send off the mail
 require "newgetopts.pl";
@@ -2005,7 +2005,7 @@ X
 X
 # Some famous constants
 $USAGE          = "Usage: $Script_Name [ -v ] [ to ... ]\n";
-$VERSION        = "${Script_Name} by \$Author: rgrimes $; \$Revision: 1.1 $ of \$Date: 1993/06/29 01:01:34 $";
+$VERSION        = "${Script_Name} by \$Author: nate $; \$Revision: 1.2 $ of \$Date: 1993/07/30 17:20:45 $";
 $SWITCHES       = "v";
 X
 # Let getopts parse for switches
