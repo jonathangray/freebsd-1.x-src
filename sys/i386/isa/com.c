@@ -42,7 +42,7 @@
  * 09 Aug 92	Christoph Robitschko	Correct minor number on com ports
  * 10 Feb 93	Jordan K. Hubbard	Added select code
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/isa/com.c,v 1.1 1993/06/12 14:58:01 rgrimes Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/isa/com.c,v 1.2 1993/06/30 23:33:41 nate Exp $";
 
 #include "com.h"
 #if NCOM > 0
@@ -401,7 +401,7 @@ commint(unit, com)
 			outb(com+com_mcr,
 				inb(com+com_mcr) & ~(MCR_DTR | MCR_RTS) | MCR_IENABLE);
 	} else if ((stat & MSR_DCTS) && (tp->t_state & TS_ISOPEN) &&
-		   (tp->t_flags & CRTSCTS)) {
+		   (tp->t_cflag & CRTSCTS)) {
 		/* the line is up and we want to do rts/cts flow control */
 		if (stat & MSR_CTS) {
 			tp->t_state &=~ TS_TTSTOP;
