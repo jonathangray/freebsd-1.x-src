@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *	$Id: rtld.c,v 1.6 1993/12/01 15:05:31 ache Exp $
+ *	$Id: rtld.c,v 1.7 1993/12/02 01:03:26 jkh Exp $
  */
 
 #include <machine/vmparam.h>
@@ -1031,6 +1031,7 @@ char	*fmt;
 	va_end(ap);
 }
 
+#if 1
 caddr_t
 sbrk(incr)
 int incr;
@@ -1075,3 +1076,57 @@ xprintf("sbrk: incr = %#x, curbrk = %#x\n", incr, curbrk);
 
 	return oldbrk;
 }
+
+#else
+
+caddr_t
+sbrk(incr)
+int incr;
+{
+	int	fd = -1;
+	caddr_t	oldbrk;
+
+xprintf("sbrk: incr = %#x, curbrk = %#x\n", incr, curbrk);
+#if DEBUG
+xprintf("sbrk: incr = %#x, curbrk = %#x\n", incr, curbrk);
+#endif
+	if (curbrk == 0 && (curbrk = mmap(0, PAGSIZ,
+			PROT_READ|PROT_WRITE,
+			MAP_ANON|MAP_COPY, fd, 0)) == (caddr_t)-1) {
+		xprintf("Cannot map anonymous memory");
+		_exit(1);
+	}
+
+	/* There's valid memory from `curbrk' to next page boundary */
+	if ((long)curbrk + incr <= (((long)curbrk + PAGSIZ) & ~(PAGSIZ - 1))) {
+		oldbrk = curbrk;
+		curbrk += incr;
+		return oldbrk;
+	}
+	/*
+	 * If asking for than currently left in this chunk,
+	 * go somewhere completely different.
+	 */
+
+#ifdef NEED_DEV_ZERO
+	fd = open("/dev/zero", O_RDWR, 0);
+	if (fd == -1)
+		perror("/dev/zero");
+#endif
+
+	if ((curbrk = mmap(0, incr,
+			PROT_READ|PROT_WRITE,
+			MAP_ANON|MAP_COPY, fd, 0)) == (caddr_t)-1) {
+		perror("Cannot map anonymous memory");
+	}
+
+#ifdef NEED_DEV_ZERO
+	close(fd);
+#endif
+
+	oldbrk = curbrk;
+	curbrk += incr;
+
+	return oldbrk;
+}
+#endif

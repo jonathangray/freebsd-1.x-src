@@ -1,5 +1,5 @@
 /*
- * $Id: md.h,v 1.4 1993/11/30 20:47:42 jkh Exp $		- I386 dependent definitions
+ * $Id: md.h,v 1.5 1993/12/02 01:03:08 jkh Exp $		- I386 dependent definitions
  */
 
 
