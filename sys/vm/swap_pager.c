@@ -39,7 +39,7 @@
  * from: Utah $Hdr: swap_pager.c 1.4 91/04/30$
  * from: @(#)swap_pager.c	7.4 (Berkeley) 5/7/91
  *
- * $Id: swap_pager.c,v 1.25 1994/04/05 03:23:47 davidg Exp $
+ * $Id: swap_pager.c,v 1.26 1994/04/26 00:42:37 davidg Exp $
  */
 
 /*
@@ -69,7 +69,7 @@
 #include "vm_map.h"
 
 #ifndef NPENDINGIO
-#define NPENDINGIO	64
+#define NPENDINGIO	16
 #endif
 
 extern int nswbuf;
