@@ -54,7 +54,7 @@
  *					to eliminate ESC sequence in 
  *					init_main.c
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/isa/pccons.c,v 1.2 1993/07/15 17:53:10 davidg Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/isa/pccons.c,v 1.3 1993/07/24 10:46:18 davidg Exp $";
 
 /*
  * code to work keyboard & display for PC-style console
@@ -1415,6 +1415,14 @@ loop:
 #ifdef XSERVER						/* 15 Aug 92*/
 	if (inb(KBSTATP) & KBS_DIB) {
 		dt = inb(KBDATAP);
+#ifdef REVERSE_CAPS_CTRL
+		/* switch the caps lock and control keys */
+		if ((dt & 0x7f) == 29)
+			dt = (dt & 0x80) | 58;
+		else
+			if ((dt & 0x7f) == 58)
+				dt = (dt & 0x80) | 29;
+#endif
 		if (pc_xmode) {
 			capchar[0] = dt;
 			/*
