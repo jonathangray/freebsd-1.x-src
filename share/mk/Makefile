@@ -1,4 +1,5 @@
-#	@(#)Makefile	5.3 (Berkeley) 6/22/90
+#	from: @(#)Makefile	5.3 (Berkeley) 6/22/90
+#	$Id: Makefile,v 1.3 1994/01/31 06:10:27 rgrimes Exp $
 
 FILES=	bsd.README bsd.dep.mk bsd.doc.mk bsd.lib.mk bsd.man.mk bsd.own.mk \
 	bsd.prog.mk bsd.subdir.mk sys.mk
