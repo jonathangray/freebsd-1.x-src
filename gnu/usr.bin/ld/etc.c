@@ -1,5 +1,5 @@
 /*
- * $Id: etc.c,v 1.3 1993/11/30 20:47:23 jkh Exp $
+ * $Id: etc.c,v 1.4 1993/12/02 00:56:33 jkh Exp $
  */
 
 #include <sys/param.h>

@@ -1,5 +1,5 @@
 /*
- * $Id: shlib.c,v 1.3 1993/11/30 20:47:30 jkh Exp $
+ * $Id: shlib.c,v 1.4 1993/12/02 00:56:40 jkh Exp $
  */
 
 #include <sys/param.h>

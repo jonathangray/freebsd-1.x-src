@@ -1,4 +1,4 @@
-/*	$Id: ld.h,v 1.5 1993/11/30 20:47:27 jkh Exp $	*/
+/*	$Id: ld.h,v 1.6 1993/12/02 00:56:37 jkh Exp $	*/
 /*-
  * This code is derived from software copyrighted by the Free Software
  * Foundation.
