@@ -14,11 +14,10 @@
  *
  * Ported to run under 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
  *
- *	$Id: scsi_cd.h,v 1.5 1993/11/07 17:51:28 wollman Exp $
+ *	$Id: scsi_cd.h,v 1.6 1993/11/18 05:02:52 rgrimes Exp $
  */
-
-#ifndef _SCSI_SCSI_CD_H_
-#define _SCSI_SCSI_CD_H_ 1
+#ifndef	_SCSI_SCSI_CD_H
+#define _SCSI_SCSI_CD_H 1
 
 /*
  *	Define two bits always in the same place in byte 2 (flag byte)
@@ -142,6 +141,7 @@ struct scsi_read_toc
 	u_char	data_len[2];
 	u_char	control;
 };
+;
 
 struct scsi_read_cd_capacity
 {
@@ -225,5 +225,5 @@ struct cd_mode_data
 	struct blk_desc blk_desc;
 	union cd_pages page;
 };
+#endif /*_SCSI_SCSI_CD_H*/
 
-#endif /* _SCSI_SCSI_CD_H_ */

@@ -21,12 +21,11 @@
 /*
  * Ported to run under 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
  *
- *	$Id: scsi_tape.h,v 1.7 1993/11/07 17:51:33 wollman Exp $
+ *	$Id: scsi_tape.h,v 1.8 1993/11/18 05:02:57 rgrimes Exp $
  */
+#ifndef	SCSI_SCSI_TAPE_H
+#define SCSI_SCSI_TAPE_H 1
 
-
-#ifndef _SCSI_SCSI_TAPE_H_
-#define _SCSI_SCSI_TAPE_H_ 1
 
 
 /*
@@ -200,7 +199,6 @@ struct	blk_desc_cipher
 #define QIC_525		0x11
 #define QIC_1320	0x12
 #define DDS		0x13
-#define DAT-1		0x13
+#define DAT_1		0x13
 
-
-#endif /* _SCSI_SCSI_TAPE_H_ */
+#endif /*SCSI_SCSI_TAPE_H*/

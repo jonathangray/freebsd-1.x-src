@@ -3,7 +3,7 @@
  */
 
 /*
- * Some lines of this file comes from a file of the name "scsi.h"
+ * Some lines of this file come from a file of the name "scsi.h"
  * distributed by OSF as part of mach2.5,
  *  so the following disclaimer has been kept.
  *
@@ -46,16 +46,15 @@
  *
  * Ported to run under 386BSD by Julian Elischer (julian@tfs.com) Sept 1992
  *
- *	$Id: scsi_disk.h,v 1.5 1993/11/07 17:51:31 wollman Exp $
+ *	$Id: scsi_disk.h,v 1.6 1993/11/18 05:02:55 rgrimes Exp $
  */
-
-#ifndef _SCSI_SCSI_DISK_H_
-#define _SCSI_SCSI_DISK_H_ 1
 
 /*
  * SCSI command format
  */
 
+#ifndef	_SCSI_SCSI_DISK_H
+#define _SCSI_SCSI_DISK_H 1
 
 struct scsi_reassign_blocks
 {
@@ -214,4 +213,4 @@ union	disk_pages /* this is the structure copied from osf */
 	   u_char reserved3;
     	} rigid_geometry;
 } ;
-#endif /* _SCSI_SCSI_DISK_H_ */
+#endif /* _SCSI_SCSI_DISK_H*/
