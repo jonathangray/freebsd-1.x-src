@@ -114,6 +114,10 @@ DEFS_LOCAL= $(DEFS_OPT) #GREEN -DREFCLOCK #TEST -DPPSPPS -DKERNEL_PLL
 # by default when using the "make makeconfig" script and greenhorn
 # configuraiton.
 #
+# Define -DTRAK for a 8810 GPS Receiver with Buffered RS-232-C Interface
+# Module. The driver supports both the CLK and PPS modes. It should work
+# in all systems with a serial port.
+#
 # Define -DPST for a PST/Traconex 1020 WWV/H receiver. The driver
 # supports both the CLK and PPS modes. It should work in all systems
 # with a serial port.
