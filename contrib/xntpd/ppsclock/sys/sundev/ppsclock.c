@@ -1,6 +1,6 @@
 #ifndef lint
 static char rcsid[] =
-    "ppsclock.c,v 3.1 1993/07/06 01:10:17 jbj Exp (LBL)";
+    "@(#) $Header: /a/cvs/386BSD/src/contrib/xntpd/ppsclock/sys/sundev/Attic/ppsclock.c,v 1.1.1.2 1994/02/03 22:05:35 wollman Exp $ (LBL)";
 #endif
 /*
  * This software was developed by the Computer Systems Engineering group
@@ -118,6 +118,15 @@ extern struct zsaline *zsaline;
 #else
 extern struct zsaline zsaline[];
 #endif
+
+#ifdef PPS_SYNC
+/*
+ * The hardpps() routine is called at every pps interrupt in order to
+ * discipline the cpu clock oscillator. It requires corresponding kernel
+ * support.
+ */
+extern hardpps();
+#endif /* PPS_SYNC */
 
 /*
  * open CLOCK STREAMS module
@@ -238,6 +247,15 @@ ppsclock_intr(zs)
 #endif
 				uniqtime(&ppsclockev.tv);
 			++ppsclockev.serial;
+
+#ifdef PPS_SYNC
+			/*
+			 * If the 1-pps cpu oscillator discipline has been
+			 * configured in the kernel, give it something to
+			 * chew on.
+			 */
+			hardpps();
+#endif /* PPS_SYNC */
 		}
 		za->za_rr0 = s0;
 		zsaddr->zscc_control = ZSWR0_RESET_STATUS;
