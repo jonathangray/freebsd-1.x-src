@@ -1,6 +1,6 @@
 #	@(#)Makefile	5.1.1.2 (Berkeley) 5/9/91
 #
-#	$Id: Makefile,v 1.39 1994/02/05 08:33:14 rgrimes Exp $
+#	$Id: Makefile,v 1.40 1994/02/18 02:03:17 rgrimes Exp $
 #
 
 SUBDIR=
@@ -82,7 +82,7 @@ cleandist:
 		mkdir -p $$dest; \
 	else \
 		true; \
-	fi;
+	fi; \
 	cd $$dest; rm -rf ${SUBDIR}
 	find . -name obj | xargs -n30 rm -rf
 .if defined(MAKE_LOCAL) & exists(local) & exists(local/Makefile)
