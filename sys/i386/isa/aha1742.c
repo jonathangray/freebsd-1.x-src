@@ -16,7 +16,14 @@
 /*
  * HISTORY
  * $Log: aha1742.c,v $
- * Revision 1.4  1993/08/06 11:59:02  rgrimes
+ * Revision 1.5  1993/08/08 04:46:37  rgrimes
+ * Added printf for cases AHB_ASN (async even notification) and AHB_HW_ERR so
+ * that we are notified when these events occur.  This may lead us to the
+ * cause of certain AHB timeout/lockup problems.
+ *
+ * From: Roy Neese of Adaptec
+ *
+ * Revision 1.4  1993/08/06  11:59:02  rgrimes
  * Fixed **probing for scsi devices** message to have a controller and unit
  * message on the begining of it:
  * aha0: **probing for scsi devices**
@@ -647,9 +654,13 @@ ahbintr(unit)
 				ahb_data[unit].immed_ecb = 0;
 				break;
 			case	AHB_ASN:	/* for target mode */
+				printf("ahb%d: Unexpected ASN interrupt(%x)\n",
+					unit, mboxval);
 				ecb = 0;
 				break;
 			case	AHB_HW_ERR:
+				printf("ahb%d: Hardware error interrupt(%x)\n",
+					unit, mboxval);
 				ecb = 0;
 				break;
 			case	AHB_ECB_RECOVERED:
