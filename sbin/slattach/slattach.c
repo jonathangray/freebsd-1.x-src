@@ -58,7 +58,7 @@ char copyright[] =
 
 #ifndef lint
 static char sccsid[] = "@(#)slattach.c	4.6 (Berkeley) 6/1/90";
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sbin/slattach/slattach.c,v 1.2 1993/07/06 16:46:02 jkh Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sbin/slattach/slattach.c,v 1.3 1993/08/29 18:11:15 rgrimes Exp $";
 #endif /* not lint */
 
 #include <sys/param.h>
@@ -188,8 +188,7 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	if (fork() > 0)
-		exit(0);
+	daemon(0, 1);
 
 	for (;;)
 		sigpause(0L);
