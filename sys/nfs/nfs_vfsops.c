@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	From:	@(#)nfs_vfsops.c	7.31 (Berkeley) 5/6/91
- *	$Id: nfs_vfsops.c,v 1.3 1993/12/19 00:54:17 wollman Exp $
+ *	$Id: nfs_vfsops.c,v 1.4 1994/01/16 20:10:01 martin Exp $
  */
 
 #include "param.h"
@@ -275,9 +275,7 @@ nfs_mountroot()
 	mp->mnt_vnodecovered = NULLVP;
 	vfs_unlock(mp);
 	rootvp = vp;
-#ifndef __386BSD__
 	inittodr((time_t)0);	/* There is no time in the nfs fsstat so ?? */
-#endif
 	return (0);
 }
 
