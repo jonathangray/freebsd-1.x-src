@@ -17,10 +17,14 @@
  * Modification history
  *
  * $Log: if_ed.c,v $
- * Revision 1.3  1993/06/23 16:22:03  davidg
- * Second beta release of device driver for SMC/WD 80x3 ethernet boards +
- * some additional comments.
+ * Revision 1.4  1993/06/26 02:32:26  davidg
+ * fixed bug in probe that causes it to complain about 'Invalid irq configuration'
+ * if the interface isn't present in the system.
  *
+ * Revision 1.10  93/06/25  19:23:19  davidg
+ * fixed bug that caused erroneous 'Invalid irq configuration' message when
+ * no board is present (during autoconfiguration).
+ * 
  * Revision 1.9  93/06/23  03:48:14  davidg
  * fixed minor typo introduced when cleaning up probe routine
  * 
@@ -454,6 +458,8 @@ type_3Com:
 		if (isa_dev->id_iobase != 0x2e0)
 			return(0);
 		break;
+	default:
+		return(0);
 	}
 
 	/*
@@ -477,6 +483,8 @@ type_3Com:
 		if (kvtop(isa_dev->id_maddr) != ED_3COM_PCFR_C8000)
 			return(0);
 		break;
+	default:
+		return(0);
 	}
 
 	/*
