@@ -34,7 +34,7 @@
 #ifndef lint
 /* from: static char sccsid[] = "@(#)unix.c	5.11 (Berkeley) 7/1/91"; */
 static const char unix_c_rcsid[] =
-	"$Id: unix.c,v 1.3 1993/11/17 20:19:25 wollman Exp $";
+	"$Id: unix.c,v 1.4 1994/01/23 15:06:14 davidg Exp $";
 #endif /* not lint */
 
 /*
@@ -147,7 +147,7 @@ unixdomainpr(so, soaddr)
 	    unp->unp_vnode, unp->unp_conn,
 	    unp->unp_refs, unp->unp_nextref);
 	if (m)
-		printf(" %.*s", m->m_len - sizeof(sa->sun_family),
+		printf(" %.*s", m->m_len - sizeof(sa->sun_family) - 1,
 		    sa->sun_path);
 	putchar('\n');
 }
