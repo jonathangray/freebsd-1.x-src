@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)ufs_lookup.c	7.33 (Berkeley) 5/19/91
- *	$Id: ufs_lookup.c,v 1.5 1993/11/25 01:38:36 wollman Exp $
+ *	$Id: ufs_lookup.c,v 1.6 1994/01/28 18:26:31 chmr Exp $
  */
 
 #include "param.h"
@@ -128,6 +128,8 @@ ufs_lookup(vdp, ndp, p)
 	 */
 	if ((dp->i_mode&IFMT) != IFDIR)
 		return (ENOTDIR);
+	if (dp->i_nlink < 1)
+		return (EINVAL);
 	if (error = ufs_access(vdp, VEXEC, ndp->ni_cred, p))
 		return (error);
 
