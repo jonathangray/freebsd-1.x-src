@@ -1,4 +1,4 @@
-#	$Id: Makefile.inc,v 1.1 1994/01/30 01:03:16 rgrimes Exp $
+#	$Id: Makefile.inc,v 1.2 1994/05/26 08:17:25 csgr Exp $
 
 SHLIB_MAJOR?= 1
-SHLIB_MINOR?= 0
+SHLIB_MINOR?= 1
