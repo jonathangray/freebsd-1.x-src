@@ -37,7 +37,7 @@
  *
  *	from: Utah $Hdr: uipc_shm.c 1.9 89/08/14$
  *	from: @(#)sysv_shm.c	7.15 (Berkeley) 5/13/91
- *	$Id: sysv_shm.c,v 1.10 1994/03/07 11:03:02 davidg Exp $
+ *	$Id: sysv_shm.c,v 1.11 1994/03/08 13:01:44 ats Exp $
  */
 
 /*
@@ -69,7 +69,7 @@
 struct	shmid_ds	*shmsegs;
 struct	shminfo		shminfo;
 
-int	shmat(), shmctl(), shmdt(), shmget(); /* XXX */
+static int	shmat(), shmctl(), shmdt(), shmget(); /* XXX */
 int	(*shmcalls[])() = { shmat, shmctl, shmdt, shmget }; /* XXX */
 int	shmtot = 0;
 
