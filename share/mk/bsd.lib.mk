@@ -1,7 +1,10 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.24  1993/12/12 15:17:34  jkh
+# Revision 1.25  1993/12/12 16:51:22  jkh
+# Add profiled .m target
+#
+# Revision 1.24  1993/12/12  15:17:34  jkh
 # Removed <lib>_pic.a file rules - libs are now built directly from shared
 # objects, thus skipping a step and shaving some time off system compilation.
 #
@@ -204,6 +207,11 @@ BINMODE?=	555
 .S.so:
 	${CPP} -E -DPIC ${CFLAGS:M-[ID]*} ${AINC} ${.IMPSRC} | \
 	   ${AS} -k -o ${.TARGET}
+
+.m.po:
+	${CC} ${CFLAGS} -p -c ${.IMPSRC} -o ${.TARGET}
+#	@${LD} -X -r ${.TARGET}
+#	@mv a.out ${.TARGET}
 
 .m.o:
 	${CC} ${CFLAGS} -c ${.IMPSRC} -o ${.TARGET}
