@@ -1,8 +1,8 @@
-#	@(#)Makefile	5.17 (Berkeley) 5/24/90
-# Fixed to use freefall.cdrom.com as a bugs host - rgrimes 93/08/03
+#	from: @(#)Makefile	5.17 (Berkeley) 5/24/90
+#	$Id: Makefile,v 1.5 1993/10/20 22:32:32 rgrimes Exp $
 
 PROG=	bugfiler
-CFLAGS+=-I${.CURDIR} -DBUGS_HOME=\"owner-FreeBSD-bugs@freefall.cdrom.com\"
+CFLAGS+=-I${.CURDIR} -DBUGS_HOME=\"owner-FreeBSD-bugfiler@freefall.cdrom.com\"
 SRCS=	bugfiler.c error.c gethead.c process.c redist.c reply.c
 BINOWN=	root
 BINMODE=4555

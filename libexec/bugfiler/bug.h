@@ -30,9 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)bug.h	5.10 (Berkeley) 2/25/91
- *
- *  4/01/93 Fixed BUGS_HOME so it can be defined from the Makefile - rgrimes
+ *	from: @(#)bug.h	5.10 (Berkeley) 2/25/91
+ *	$Id: bug.h,v 1.2 1993/10/20 22:32:33 rgrimes Exp $
  */
 
 #ifndef	BUGS_HOME
