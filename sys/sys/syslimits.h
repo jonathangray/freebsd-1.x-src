@@ -31,13 +31,13 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)syslimits.h	7.4 (Berkeley) 2/4/91
- *	$Id: syslimits.h,v 1.3 1993/11/07 17:53:05 wollman Exp $
+ *	$Id: syslimits.h,v 1.4 1994/01/20 22:57:32 davidg Exp $
  */
 
 #ifndef _SYS_SYSLIMITS_H_
 #define _SYS_SYSLIMITS_H_ 1
 
-#define	ARG_MAX		20480	/* max bytes for an exec function */
+#define	ARG_MAX		32768	/* max bytes for an exec function */
 #define	CHILD_MAX	40	/* max simultaneous processes */
 #define	LINK_MAX	32767	/* max file link count */
 #define	MAX_CANON	255	/* max bytes in terminal canonical input line */
