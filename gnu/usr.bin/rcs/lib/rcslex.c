@@ -39,9 +39,13 @@ Report problems and direct all questions to:
 
 
 /* $Log: rcslex.c,v $
-/* Revision 1.1  1993/06/18 04:22:11  jkh
-/* Initial revision
+/* Revision 1.2  1993/06/28 19:13:10  nate
+/* Added Chris Demetriou's FSYNC_ALL option which causes all writes to be
+/* flushed immediately.  (In case of a crash in the middle of CVS/RCS commits
 /*
+ * Revision 1.1.1.1  1993/06/18  04:22:12  jkh
+ * Updated GNU utilities
+ *
  * Revision 5.11  1991/11/03  03:30:44  eggert
  * Fix porting bug to ancient hosts lacking vfprintf.
  *
@@ -135,7 +139,7 @@ Report problems and direct all questions to:
 
 #include "rcsbase.h"
 
-libId(lexId, "$Id: rcslex.c,v 1.1 1993/06/18 04:22:11 jkh Exp $")
+libId(lexId, "$Id: rcslex.c,v 1.2 1993/06/28 19:13:10 nate Exp $")
 
 static struct hshentry *nexthsh;  /*pointer to next hash entry, set by lookup*/
 
@@ -938,7 +942,13 @@ void testIerror(f) FILE *f; { if (ferror(f)) Ierror(); }
 void testOerror(o) FILE *o; { if (ferror(o)) Oerror(); }
 
 void Ifclose(f) RILE *f; { if (f && Iclose(f)!=0) Ierror(); }
+#ifndef FSYNC_ALL
 void Ofclose(f) FILE *f; { if (f && fclose(f)!=0) Oerror(); }
+#else
+void Ofclose(f) FILE *f; { if (f && (fflush(f)!=0 ||
+				     fsync(fileno(f))!=0 ||
+				     fclose(f)!=0)) Oerror(); }
+#endif
 void Izclose(p) RILE **p; { Ifclose(*p); *p = 0; }
 void Ozclose(p) FILE **p; { Ofclose(*p); *p = 0; }
 
