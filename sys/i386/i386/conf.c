@@ -56,7 +56,7 @@
  * 28 Jul 93	Jordan K. Hubbard	Free codrv's slot again
  *
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/i386/conf.c,v 1.2 1993/07/30 00:57:06 jkh Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/i386/conf.c,v 1.3 1993/08/09 06:16:38 rgrimes Exp $";
 
 #include "param.h"
 #include "systm.h"
@@ -213,7 +213,7 @@ extern	struct tty pccons;
 
 int	cttyopen(), cttyread(), cttywrite(), cttyioctl(), cttyselect();
 
-int 	mmrw();
+int 	mmopen(), mmclose(), mmrw();
 #define	mmselect	seltrue
 
 #include "pty.h"
@@ -359,9 +359,9 @@ struct cdevsw	cdevsw[] =
 	{ cttyopen,	nullop,		cttyread,	cttywrite,	/*1*/
 	  cttyioctl,	nullop,		nullop,		NULL,	/* tty */
 	  cttyselect,	enodev,		NULL },
-        { nullop,       nullop,         mmrw,           mmrw,           /*2*/
-          enodev,       nullop,         nullop,         NULL,	/* memory */
-          mmselect,     enodev,         NULL },
+	{ mmopen,	mmclose,	mmrw,		mmrw,		/*2*/
+	  enodev,	nullop,		nullop,		NULL,	/* memory */
+	  mmselect,	enodev,		NULL },
 	{ wdopen,	wdclose,	rawread,	rawwrite,	/*3*/
 	  wdioctl,	enodev,		nullop,		NULL,	/* wd */
 	  seltrue,	enodev,		wdstrategy },
