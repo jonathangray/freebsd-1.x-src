@@ -1,4 +1,5 @@
-#	@(#)Makefile	5.9 (Berkeley) 7/1/91
+#	from: @(#)Makefile	5.9 (Berkeley) 7/1/91
+#	$Id: Makefile,v 1.5 1993/10/14 23:15:22 rgrimes Exp $
 
 SUBDIR=	man1 man3 man4 man5 man7 man8
 
