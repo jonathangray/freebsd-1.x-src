@@ -35,12 +35,12 @@
  * SUCH DAMAGE.
  *
  *	from:@(#)syscons.c	1.3 940129
- *	$Id: syscons.c,v 1.32 1994/02/01 19:04:18 nate Exp $
+ *	$Id: syscons.c,v 1.33 1994/02/02 23:10:55 ache Exp $
  *
  */
 
 #if !defined(FADE_SAVER) && !defined(BLANK_SAVER) && !defined(STAR_SAVER) && !defined(SNAKE_SAVER)
-#define SNAKE_SAVER
+#define BLANK_SAVER
 #endif
 
 #if !defined(__FreeBSD__)
