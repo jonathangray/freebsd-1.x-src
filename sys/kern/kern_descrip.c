@@ -32,7 +32,7 @@
  *
  *	@(#)kern_descrip.c	7.28 (Berkeley) 6/25/91
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/kern/kern_descrip.c,v 1.1 1993/06/12 14:57:33 rgrimes Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/kern/kern_descrip.c,v 1.2 1993/06/29 13:57:17 nate Exp $";
 
 #include "param.h"
 #include "systm.h"
@@ -55,6 +55,7 @@ static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/kern/kern_descrip.c,v 1.1 
  */
 struct file *filehead;	/* head of list of open files */
 int nfiles;		/* actual number of open files */
+extern int maxfdescs;	/* maximum number of file descriptors to a process */
 
 /*
  * System calls on descriptors.
@@ -123,7 +124,8 @@ dup2(p, uap, retval)
 
 	if (old >= fdp->fd_nfiles ||
 	    (fp = fdp->fd_ofiles[old]) == NULL ||
-	    new >= p->p_rlimit[RLIMIT_OFILE].rlim_cur)
+	    new >= p->p_rlimit[RLIMIT_OFILE].rlim_cur ||
+	    new >= maxfdescs)
 		return (EBADF);
 	*retval = new;
 	if (old == new)
@@ -175,7 +177,8 @@ fcntl(p, uap, retval)
 	pop = &fdp->fd_ofileflags[uap->fd];
 	switch(uap->cmd) {
 	case F_DUPFD:
-		if ((unsigned)uap->arg >= p->p_rlimit[RLIMIT_OFILE].rlim_cur)
+		if ((unsigned)uap->arg >= p->p_rlimit[RLIMIT_OFILE].rlim_cur ||
+		    ((unsigned)uap->arg >= maxfdescs))
 			return (EINVAL);
 		if (error = fdalloc(p, uap->arg, &i))
 			return (error);
