@@ -1,6 +1,6 @@
 # Copyright 1990 W. Jolitz
 #	from: @(#)Makefile.i386	7.1 5/10/91
-#	$Id: Makefile.i386,v 1.19 1994/01/14 16:23:16 davidg Exp $
+#	$Id: Makefile.i386,v 1.20 1994/01/27 21:10:14 nate Exp $
 #
 # Makefile for FreeBSD
 #
@@ -137,7 +137,7 @@ assym.s: genassym
 # value of kernel options.
 genassym:	Makefile
 	${CC} ${INCLUDES} -DKERNEL ${IDENT} ${PARAM} \
-		 ${I386}/i386/genassym.c -o genassym
+		 ${I386}/i386/genassym.c -static -o genassym
 
 depend: assym.s param.c
 	sh /usr/bin/mkdep -DLOAD_ADDRESS=0x${LOAD_ADDRESS} ${COPTS} ${CFILES} ioconf.c param.c ${I386}/i386/conf.c
