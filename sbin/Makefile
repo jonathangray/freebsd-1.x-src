@@ -1,5 +1,5 @@
 #	@(#)Makefile	5.4.1.1 (Berkeley) 5/7/91
-#	$Id: Makefile,v 1.8 1993/12/16 22:57:31 rgrimes Exp $
+#	$Id: Makefile,v 1.9 1994/01/18 05:24:16 nate Exp $
 #
 
 SUBDIR=	XNSrouted adjkerntz badsect chkconfig clri comcontrol disklabel dmesg \
@@ -8,12 +8,12 @@ SUBDIR=	XNSrouted adjkerntz badsect chkconfig clri comcontrol disklabel dmesg \
 	quotacheck reboot restore route routed savecore scsi shutdown \
 	slattach st swapon tunefs umount 
 
-.if defined(INIT_BSDI)
-SUBDIR+= init.bsdi
+.if defined(INIT_ORIG)
+SUBDIR+= init
 .elif defined(INIT_CHMR)
 SUBDIR+= init.chmr
 .else
-SUBDIR+= init
+SUBDIR+= init.bsdi
 .endif
 
 
