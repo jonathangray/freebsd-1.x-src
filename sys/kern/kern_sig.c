@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)kern_sig.c	7.35 (Berkeley) 6/28/91
- *	$Id: kern_sig.c,v 1.10 1994/05/04 19:42:20 csgr Exp $
+ *	$Id: kern_sig.c,v 1.11 1994/05/05 18:44:13 csgr Exp $
  */
 
 #define	SIGPROP		/* include signal properties table */
@@ -1048,8 +1048,11 @@ sigexit(p, sig)
 		p->p_sigacts->ps_sig = sig;
 		/*
 		 * Log signals which would cause core dumps
+		 * (Log as LOG_INFO to appease those who don't want 
+		 * these messages.)
+		 * XXX : Todo, as well as euid, write out ruid too
 		 */
-		log(LOG_ERR, "pid %d : %s : uid %d : exited on signal %d\n",
+		log(LOG_INFO, "pid %d : %s : uid %d : exited on signal %d\n",
 			p->p_pid, p->p_comm, p->p_ucred->cr_uid, sig);
 		if (coredump(p) == 0)
 			sig |= WCOREFLAG;
