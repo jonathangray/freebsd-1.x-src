@@ -29,8 +29,13 @@
 /*
  * HISTORY
  * $Log: sys.c,v $
- * Revision 1.1  1993/06/12 14:57:53  rgrimes
- * Initial revision
+ * Revision 1.2  1993/07/13 18:15:31  root
+ * New boot blocks, from Bruce Evans, and NetBSD fixes.  Allows kernel to
+ * be loaded above 1MB.  Same boot code for floppies now.  Speed improvements.
+ * etc etc etc. (I don't have much history on this, but then have been tested)
+ *
+ * Revision 1.1  1993/03/21  18:08:45  cgd
+ * after 0.2.2 "stable" patches applied
  *
  * Revision 2.2  92/04/04  11:36:34  rpd
  * 	Fabricated from 3.0 bootstrap and scratch.
