@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)iso_proto.c	7.8 (Berkeley) 5/6/91
+ *	from: @(#)iso_proto.c	7.8 (Berkeley) 5/6/91
+ *	$Id: iso_proto.c,v 1.2 1993/10/16 21:05:25 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,9 +60,8 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
-/* $Header: /a/cvs/386BSD/src/sys/netiso/iso_proto.c,v 1.1 1993/06/12 14:57:19 rgrimes Exp $ 
- * $Source: /a/cvs/386BSD/src/sys/netiso/iso_proto.c,v $ 
- *
+
+/*
  * iso_proto.c : protocol switch tables in the ISO domain
  *
  * ISO protocol family includes TP, CLTP, CLNP, 8208

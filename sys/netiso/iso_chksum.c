@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)iso_chksum.c	7.5 (Berkeley) 5/6/91
+ *	from: @(#)iso_chksum.c	7.5 (Berkeley) 5/6/91
+ *	$Id: iso_chksum.c,v 1.3 1993/10/16 21:05:18 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,10 +60,8 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
+
 /* 
- * $Header: /a/cvs/386BSD/src/sys/netiso/iso_chksum.c,v 1.2 1993/08/22 03:02:34 rgrimes Exp $
- * $Source: /a/cvs/386BSD/src/sys/netiso/iso_chksum.c,v $
- *
  * ISO CHECKSUM
  *
  * The checksum generation and check routines are here.

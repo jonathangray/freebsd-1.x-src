@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)tp_emit.c	7.9 (Berkeley) 5/9/91
+ *	from: @(#)tp_emit.c	7.9 (Berkeley) 5/9/91
+ *	$Id: tp_emit.c,v 1.3 1993/10/16 21:05:39 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,11 +60,9 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
+
 /* 
  * ARGO TP
- *
- * $Header: /a/cvs/386BSD/src/sys/netiso/tp_emit.c,v 1.2 1993/08/22 03:02:37 rgrimes Exp $
- * $Source: /a/cvs/386BSD/src/sys/netiso/tp_emit.c,v $
  *
  * This file contains tp_emit() and tp_error_emit(), which
  * form TPDUs and hand them to ip.

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)iso_pcb.c	7.10 (Berkeley) 6/27/91
+ *	from: @(#)iso_pcb.c	7.10 (Berkeley) 6/27/91
+ *	$Id: iso_pcb.c,v 1.2 1993/10/16 21:05:22 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,10 +60,8 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
+
 /*
- * $Header: /a/cvs/386BSD/src/sys/netiso/iso_pcb.c,v 1.1 1993/06/12 14:57:19 rgrimes Exp $
- * $Source: /a/cvs/386BSD/src/sys/netiso/iso_pcb.c,v $
- *
  * Iso address family net-layer(s) pcb stuff. NEH 1/29/87
  */
 

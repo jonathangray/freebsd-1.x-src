@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)clnp_frag.c	7.12 (Berkeley) 5/6/91
+ *	from: @(#)clnp_frag.c	7.12 (Berkeley) 5/6/91
+ *	$Id: clnp_frag.c,v 1.3 1993/10/16 21:04:46 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,8 +60,6 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
-/* $Header: /a/cvs/386BSD/src/sys/netiso/clnp_frag.c,v 1.2 1993/08/22 03:02:31 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/clnp_frag.c,v $ */
 
 #include "param.h"
 #include "systm.h"

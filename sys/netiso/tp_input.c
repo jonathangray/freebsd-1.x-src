@@ -31,6 +31,7 @@
  * SUCH DAMAGE.
  *
  *	@(#)tp_input.c	7.19 (Berkeley) 6/27/91
+ *	$Id: tp_input.c,v 1.2 1993/10/16 21:05:44 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,12 +60,9 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
+
 /* 
  * ARGO TP
- *
- * $Header: /a/cvs/386BSD/src/sys/netiso/tp_input.c,v 1.1 1993/06/12 14:57:17 rgrimes Exp $
- * $Source: /a/cvs/386BSD/src/sys/netiso/tp_input.c,v $
- *
  * tp_input() gets an mbuf chain from ip.  Actually, not directly
  * from ip, because ip calls a net-level routine that strips off
  * the net header and then calls tp_input(), passing the proper type

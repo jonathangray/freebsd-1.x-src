@@ -1,5 +1,8 @@
-/* $Header: /a/cvs/386BSD/src/sys/netiso/tp_states.h,v 1.1 1993/06/12 14:57:16 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/tp_states.h,v $ */
+/*
+ *	from: unknown
+ *	$Id: tp_states.h,v 1.2 1993/10/16 21:06:01 rgrimes Exp $
+ */
+
 #define ST_ERROR 0x0
 #define TP_CLOSED 0x1
 #define TP_CRSENT 0x2

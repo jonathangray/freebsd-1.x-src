@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)tp_timer.c	7.5 (Berkeley) 5/6/91
+ *	from: @(#)tp_timer.c	7.5 (Berkeley) 5/6/91
+ *	$Id: tp_timer.c,v 1.3 1993/10/16 21:06:06 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,11 +60,9 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
+
 /* 
  * ARGO TP
- *
- * $Header: /a/cvs/386BSD/src/sys/netiso/tp_timer.c,v 1.2 1993/08/22 03:02:39 rgrimes Exp $
- * $Source: /a/cvs/386BSD/src/sys/netiso/tp_timer.c,v $
  *
  * Contains all the timer code.  
  * There are two sources of calls to these routines:

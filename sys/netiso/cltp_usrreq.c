@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)cltp_usrreq.c	7.6 (Berkeley) 6/27/91
+ *	from: @(#)cltp_usrreq.c	7.6 (Berkeley) 6/27/91
+ *	$Id: cltp_usrreq.c,v 1.3 1993/10/16 21:04:59 rgrimes Exp $
  */
 
 #ifndef CLTPOVAL_SRC /* XXX -- till files gets changed */

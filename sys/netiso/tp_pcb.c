@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)tp_pcb.c	7.11 (Berkeley) 5/6/91
+ *	from: @(#)tp_pcb.c	7.11 (Berkeley) 5/6/91
+ *	$Id: tp_pcb.c,v 1.2 1993/10/16 21:05:55 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,12 +60,9 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
+
 /* 
  * ARGO TP
- *
- * $Header: /a/cvs/386BSD/src/sys/netiso/tp_pcb.c,v 1.1 1993/06/12 14:57:17 rgrimes Exp $
- * $Source: /a/cvs/386BSD/src/sys/netiso/tp_pcb.c,v $
- *
  *
  * This is the initialization and cleanup stuff - 
  * for the tp machine in general as well as  for the individual pcbs.

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)esis.h	7.4 (Berkeley) 5/6/91
+ *	from: @(#)esis.h	7.4 (Berkeley) 5/6/91
+ *	$Id: esis.h,v 1.2 1993/10/16 21:05:08 rgrimes Exp $
  */
 
 /***********************************************************
@@ -58,10 +59,6 @@ SOFTWARE.
 
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
- */
-/*
- *	$Header: /a/cvs/386BSD/src/sys/netiso/esis.h,v 1.1 1993/06/12 14:57:20 rgrimes Exp $
- *	$Source: /a/cvs/386BSD/src/sys/netiso/esis.h,v $
  */
 
 #ifndef BYTE_ORDER

@@ -1,8 +1,8 @@
-/* $Header: /a/cvs/386BSD/src/sys/netiso/tp_driver.c,v 1.2 1993/08/22 03:02:36 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/tp_driver.c,v $ */
-#ifndef lint
-static char *rcsid = "$Header/**/$";
-#endif lint
+/*
+ *	from: unknown
+ *	$Id: tp_driver.c,v 1.3 1993/10/16 21:05:37 rgrimes Exp $
+ */
+
 #define _XEBEC_PG static
 
 #include "tp_states.h"

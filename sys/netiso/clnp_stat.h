@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)clnp_stat.h	7.4 (Berkeley) 5/6/91
+ *	from: @(#)clnp_stat.h	7.4 (Berkeley) 5/6/91
+ *	$Id: clnp_stat.h,v 1.2 1993/10/16 21:04:55 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,8 +60,6 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
-/* $Header: /a/cvs/386BSD/src/sys/netiso/clnp_stat.h,v 1.1 1993/06/12 14:57:20 rgrimes Exp $ */
-/* $Source: /a/cvs/386BSD/src/sys/netiso/clnp_stat.h,v $ */
 
 
 #ifndef __CLNP_STAT__

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)tp_subr.c	7.9 (Berkeley) 6/27/91
+ *	from: @(#)tp_subr.c	7.9 (Berkeley) 6/27/91
+ *	$Id: tp_subr.c,v 1.3 1993/10/16 21:06:03 rgrimes Exp $
  */
 
 /***********************************************************
@@ -59,11 +60,9 @@ SOFTWARE.
 /*
  * ARGO Project, Computer Sciences Dept., University of Wisconsin - Madison
  */
+
 /* 
  * ARGO TP
- *
- * $Header: /a/cvs/386BSD/src/sys/netiso/tp_subr.c,v 1.2 1993/08/22 03:02:38 rgrimes Exp $
- * $Source: /a/cvs/386BSD/src/sys/netiso/tp_subr.c,v $
  *
  * The main work of data transfer is done here.
  * These routines are called from tp.trans.

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)clnl.h	7.3 (Berkeley) 5/6/91
+ *	from: @(#)clnl.h	7.3 (Berkeley) 5/6/91
+ *	$Id: clnl.h,v 1.2 1993/10/16 21:04:41 rgrimes Exp $
  */
 
 /***********************************************************
