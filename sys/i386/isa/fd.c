@@ -46,13 +46,21 @@
  * Largely rewritten to handle multiple controllers and drives
  * By Julian Elischer, Sun Apr  4 16:34:33 WST 1993
  */
-char	rev[] = "$Revision: 1.2 $";
+char	rev[] = "$Revision: 1.3 $";
 /*
- * $Header: /a/cvs/386BSD/src/sys/i386/isa/fd.c,v 1.2 1993/07/15 17:53:04 davidg Exp $
+ * $Header: /a/cvs/386BSD/src/sys/i386/isa/fd.c,v 1.3 1993/08/12 09:21:20 rgrimes Exp $
  */
 /*
  * $Log: fd.c,v $
- * Revision 1.2  1993/07/15 17:53:04  davidg
+ * Revision 1.3  1993/08/12 09:21:20  rgrimes
+ * Fixed poor timeout code in out_fdc.  The timeout counter was not being
+ * reinitialized between while loops.  Added comments about what was going
+ * on in the out_fdc routine.
+ *
+ * out_fdc now returns if the direction bit is not set in time instead of
+ * trying to wait for MRQ to get cleared.
+ *
+ * Revision 1.2  1993/07/15  17:53:04  davidg
  * Modified attach printf's so that the output is compatible with the "new"
  * way of doing things. There still remain several drivers that need to
  * be updated.  Also added a compile-time option to pccons to switch the
@@ -490,11 +498,19 @@ in_fdc(fdcu_t fdcu)
 out_fdc(fdcu_t fdcu,int x)
 {
 	int baseport = fdc_data[fdcu].baseport;
-	int i = 100000;
+	int i;
 
+	/* Check that the direction bit is set */
+	i = 100000;
 	while ((inb(baseport+fdsts) & NE7_DIO) && i-- > 0);
+	if (i <= 0) return (-1);	/* Floppy timed out */
+
+	/* Check that the floppy controller is ready for a command */
+	i = 100000;
 	while ((inb(baseport+fdsts) & NE7_RQM) == 0 && i-- > 0);
-	if (i <= 0) return (-1);
+	if (i <= 0) return (-1);	/* Floppy timed out */
+
+	/* Send the command and return */
 	outb(baseport+fddata,x);
 	TRACE1("[0x%x->fddata]",x);
 	return (0);
