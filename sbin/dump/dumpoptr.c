@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)dumpoptr.c	5.8 (Berkeley) 3/7/91";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sbin/dump/dumpoptr.c,v 1.2 1993/07/22 16:49:17 jkh Exp $";
 #endif /* not lint */
 
 #include <sys/param.h>
@@ -468,10 +469,12 @@ fstabsearch(key)
 	char *rawname();
 
 	for (pf = table; pf != NULL; pf = pf->pf_next) {
+		char *disk;
 		fs = pf->pf_fstab;
 		if (strcmp(fs->fs_file, key) == 0 ||
 		    strcmp(fs->fs_spec, key) == 0 ||
-		    strcmp(rawname(fs->fs_spec), key) == 0)
+		    ((disk = rawname(fs->fs_spec)) &&
+		     strcmp(disk, key) == 0))
 			return (fs);
 		if (key[0] != '/') {
 			if (*fs->fs_spec == '/' &&
