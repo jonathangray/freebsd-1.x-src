@@ -1,6 +1,6 @@
 #	@(#)Makefile	5.1.1.2 (Berkeley) 5/9/91
 #
-#	$Id: Makefile,v 1.18 1993/10/25 20:58:17 rgrimes Exp $
+#	$Id: Makefile,v 1.19 1993/10/25 21:09:32 rgrimes Exp $
 #
 
 SUBDIR=
@@ -57,6 +57,7 @@ world:	directories cleandist mk includes libraries tools mdec
 	@echo
 	make depend all install
 	cd ${.CURDIR}/usr.sbin/sendmail/src;	make install
+	cd ${.CURDIR}/share/man;		make makedb
 
 directories:
 	cd ${.CURDIR}/etc;			make distrib-dirs
