@@ -33,8 +33,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)nfscompress.h	7.2 (Berkeley) 10/2/90
+ *	From:	@(#)nfscompress.h	7.2 (Berkeley) 10/2/90
+ *	$Id: nfscompress.h,v 1.2 1993/09/09 22:06:16 rgrimes Exp $
  */
+
+#ifndef __h_nfscompress
+#define __h_nfscompress 1
 
 /*
  * Definitions for the compression algorithm
@@ -76,3 +80,5 @@
 			(c) = *ip++; \
 			ileft--; \
 		}
+
+#endif /* __h_nfscompress */

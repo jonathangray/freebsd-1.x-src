@@ -33,8 +33,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)nfsiom.h	7.3 (Berkeley) 6/28/90
+ *	From:	@(#)nfsiom.h	7.3 (Berkeley) 6/28/90
+ *	$Id: nfsiom.h,v 1.2 1993/09/09 22:06:19 rgrimes Exp $
  */
+
+#ifndef __h_nfsiom
+#define __h_nfsiom 1
 
 /*
  * Size of the resource map and system page table pte's that are mapped
@@ -43,3 +47,5 @@
 #define	NFS_MAPREG	512	/* Num. of kernel pte's for i/o mapping */
 				/* Must be >= MAXPHYS/NBPG */
 #define	NFS_MSIZ	100	/* Size of alloc. map for pte's */
+
+#endif /* __h_nfsiom */
