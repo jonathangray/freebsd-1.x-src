@@ -34,7 +34,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)isa.c	7.2 (Berkeley) 5/13/91
- *	$Id: isa.c,v 1.6 1993/11/07 21:47:19 wollman Exp $
+ *	$Id: isa.c,v 1.7 1993/11/09 02:12:36 alm Exp $
  */
 
 /*
@@ -147,6 +147,7 @@ haveseen(dvp, tmpdvp)
 				status = 1;
 			}
 		}
+#ifndef COM_MULTIPORT
 		/*
 		 * Check for IRQ conflicts.
 		 */
@@ -157,6 +158,7 @@ haveseen(dvp, tmpdvp)
 				status = 1;
 			}
 		}
+#endif
 		/*
 		 * Check for DRQ conflicts.
 		 */
