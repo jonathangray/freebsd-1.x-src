@@ -24,7 +24,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *	$Id: pcaudio.c,v 1.4 1994/05/27 06:50:46 sos Exp $ 
+ *	$Id: pcaudio.c,v 1.5 1994/05/27 08:51:03 sos Exp $ 
  */
 
 #include "systm.h"
@@ -275,6 +275,10 @@ pcawrite(dev_t dev, struct uio *uio, int flag)
 		return ENXIO;
 
 	while ((count = min(BUF_SIZE, uio->uio_resid)) > 0) {
+		if (pca_status.in_use[0] && pca_status.in_use[1]) {
+			pca_sleep = 1;
+			tsleep((caddr_t)&pca_sleep, PZERO|PCATCH, "pca_wait",0);
+		}
 		which = pca_status.in_use[0] ? 1 : 0;
 		if (count && !pca_status.in_use[which]) {
 			uiomove(pca_status.buf[which], count, uio);
@@ -295,12 +299,6 @@ pcawrite(dev_t dev, struct uio *uio, int flag)
 				if (pca_start()) 
 					return EBUSY;
 		}
-#if 0
-		if (pca_status.in_use[0] && pca_status.in_use[1]) {
-			pca_sleep = 1;
-			tsleep((caddr_t)&pca_sleep, PZERO|PCATCH, "pca_wait",0);
-		}
-#endif
 	} 
 	return 0;
 }
