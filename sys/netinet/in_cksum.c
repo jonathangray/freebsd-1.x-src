@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)in_cksum.c	7.3 (Berkeley) 6/28/90
+ *	from: @(#)in_cksum.c	7.3 (Berkeley) 6/28/90
+ *	$Id: in_cksum.c,v 1.2 1993/10/16 18:26:00 rgrimes Exp $
  */
 
 #include "../h/types.h"

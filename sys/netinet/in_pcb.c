@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)in_pcb.c	7.14 (Berkeley) 4/20/91
+ *	from: @(#)in_pcb.c	7.14 (Berkeley) 4/20/91
+ *	$Id: in_pcb.c,v 1.2 1993/10/16 18:26:01 rgrimes Exp $
  */
 
 #include "param.h"

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)in_var.h	7.6 (Berkeley) 6/28/90
+ *	from: @(#)in_var.h	7.6 (Berkeley) 6/28/90
+ *	$Id: in_var.h,v 1.2 1993/10/16 18:26:07 rgrimes Exp $
  */
 
 /*

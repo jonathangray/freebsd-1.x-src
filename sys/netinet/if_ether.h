@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)if_ether.h	7.5 (Berkeley) 6/28/90
+ *	from: @(#)if_ether.h	7.5 (Berkeley) 6/28/90
+ *	$Id: if_ether.h,v 1.2 1993/10/16 18:25:55 rgrimes Exp $
  */
 
 /*

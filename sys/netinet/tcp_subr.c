@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)tcp_subr.c	7.20 (Berkeley) 12/1/90
+ *	from: @(#)tcp_subr.c	7.20 (Berkeley) 12/1/90
+ *	$Id: tcp_subr.c,v 1.2 1993/10/16 18:26:31 rgrimes Exp $
  */
 
 #include "param.h"
