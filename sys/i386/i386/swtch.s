@@ -33,7 +33,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	$Id: swtch.s,v 1.3 1994/01/17 09:32:27 davidg Exp $
+ *	$Id: swtch.s,v 1.4 1994/01/31 10:26:59 davidg Exp $
  */
 
 #include "npx.h"	/* for NNPX */
@@ -272,6 +272,21 @@ swfnd:
 
 	movl	%ecx,_curproc			/* into next process */
 	movl	%edx,_curpcb
+
+#ifdef	USER_LDT
+	cmpl	$0, PCB_USERLDT(%edx)
+	jnz	1f
+	movl	__default_ldt,%eax
+	cmpl	_currentldt,%eax
+	je	2f
+	lldt	__default_ldt
+	movl	%eax,_currentldt
+	jmp	2f
+1:	pushl	%edx
+	call	_set_user_ldt
+	popl	%edx
+2:
+#endif
 
 	pushl	%edx				/* save p to return */
 /*
