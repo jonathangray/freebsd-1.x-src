@@ -29,7 +29,13 @@
 /*
  * HISTORY
  * $Log: boot.c,v $
- * Revision 1.3  1993/07/16 13:06:08  rgrimes
+ * Revision 1.4  1993/10/08 20:19:23  rgrimes
+ * Remove the ``loader overlaps bss, kernel must bzero'' printf since that
+ * is so often reported as an error condition when it is not.  We print the
+ * size of things so for those who want to know if this happened they can
+ * figure it out from the size information that is printed.
+ *
+ * Revision 1.3  1993/07/16  13:06:08  rgrimes
  * Changed header from 386BSD BOOT to FreeBSD BOOT.
  *
  * Revision 1.2  1993/07/13  18:15:24  root
@@ -137,7 +143,7 @@ int drive;
 		ouraddr,
 		argv[7] = memsize(0),
 		argv[8] = memsize(1),
-		"$Revision: 1.3 $");
+		"$Revision: 1.4 $");
 	printf("use options hd(1,...... to boot sd0 when wd0 is also installed\n");
 	gateA20();
 loadstart:
@@ -211,10 +217,6 @@ loadprog(howto)
 			printf("kernel too big, won't fit in 640K with bss\n");
 			printf("Only hope is to link the kernel for > 1MB\n");
 			return;
-		}
-		if((addr + head.a_text + head.a_data + head.a_bss) > ouraddr)
-		{
-			printf("loader overlaps bss, kernel must bzero\n");
 		}
 	}
 	printf("text=0x%x ", head.a_text);
