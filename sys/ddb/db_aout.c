@@ -22,35 +22,10 @@
  * 
  * any improvements or extensions that they make and grant Carnegie the
  * rights to redistribute these changes.
+ *
+ *	$Id: db_aout.c,v 1.3 1993/10/16 16:47:06 rgrimes Exp $
  */
-/*
- * HISTORY
- * $Log: db_aout.c,v $
- * Revision 1.2  1993/09/12 21:56:50  rgrimes
- * >From: rich@id.slip.bcm.tmc.edu.cdrom.com (Rich Murphey)
- *
- * I'd like to be able to say:
- *
- * options         "SYMTAB_SPACE=78000"    # Kernel debugger symbol table size
- *
- * If this seems a reasonable interim solution for freebsd, here's the
- * patch.. Rich
- *
- * Revision 1.1.1.1  1993/06/12  14:57:38  rgrimes
- * Initial import, 0.1 + pk 0.2.4-B1
- *
- * Revision 1.1  1992/03/25  21:44:55  pace
- * Initial revision
- *
- * Revision 2.3  91/02/05  17:05:55  mrt
- * 	Changed to new Mach copyright
- * 	[91/01/31  16:16:44  mrt]
- * 
- * Revision 2.2  90/08/27  21:48:35  dbg
- * 	Created.
- * 	[90/08/17            dbg]
- * 
- */
+
 /*
  *	Author: David B. Golub, Carnegie Mellon University
  *	Date:	7/90

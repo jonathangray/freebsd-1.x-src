@@ -22,31 +22,10 @@
  * 
  * any improvements or extensions that they make and grant Carnegie the
  * rights to redistribute these changes.
- */
-/*
- * HISTORY
- * $Log: db_input.c,v $
- * Revision 1.1  1993/06/12 14:57:36  rgrimes
- * Initial revision
  *
- * Revision 1.1  1992/03/25  21:45:10  pace
- * Initial revision
- *
- * Revision 2.4  91/02/14  14:41:53  mrt
- * 	Add input line editing.
- * 	[90/11/11            dbg]
- * 
- * Revision 2.3  91/02/05  17:06:32  mrt
- * 	Changed to new Mach copyright
- * 	[91/01/31  16:18:13  mrt]
- * 
- * Revision 2.2  90/08/27  21:51:03  dbg
- * 	Reduce lint.
- * 	[90/08/07            dbg]
- * 	Created.
- * 	[90/07/25            dbg]
- * 
+ *	$Id: db_input.c,v 1.2 1993/10/16 16:47:16 rgrimes Exp $
  */
+
 /*
  *	Author: David B. Golub, Carnegie Mellon University
  *	Date:	7/90
