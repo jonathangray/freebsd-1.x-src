@@ -1,4 +1,6 @@
 #	@(#)Makefile	5.15 (Berkeley) 6/29/90
+#
+#	$Header: /a/cvs/386BSD/src/sbin/fsck/Makefile,v 1.3 1993/07/22 16:51:45 jkh Exp $
 
 PROG=	fsck
 MAN8=	fsck.8

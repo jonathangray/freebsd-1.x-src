@@ -33,6 +33,7 @@
 
 #ifndef lint
 static char sccsid[] = "@(#)pass1.c	5.16 (Berkeley) 3/19/91";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sbin/fsck/pass1.c,v 1.2 1993/07/22 16:51:52 jkh Exp $";
 #endif /* not lint */
 
 #include <sys/param.h>
@@ -101,6 +102,13 @@ pass1()
 				continue;
 			}
 			lastino = inumber;
+			/* is fast symlink? */
+			if (DFASTLINK(*dp)) {
+				lncntp[inumber] = dp->di_nlink;
+				statemap[inumber] = FSTATE;
+				n_files++;
+				continue;
+			}
 			if (/* dp->di_size < 0 || */
 			    dp->di_size + sblock.fs_bsize - 1 < dp->di_size) {
 				if (debug)
