@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)mount.h	7.22 (Berkeley) 6/3/91
- *	$Id: mount.h,v 1.6 1993/11/07 17:52:51 wollman Exp $
+ *	$Id: mount.h,v 1.7 1993/11/12 10:14:37 chmr Exp $
  */
 
 #ifndef _SYS_MOUNT_H_
@@ -220,8 +220,11 @@ struct ufs_args {
 struct mfs_args {
 	char	*name;		/* name to export for statfs */
 	caddr_t	base;		/* base address of file system in memory */
-	u_long size;		/* size of file system */
+	long	size;		/* size of file system */
+	int	flags;		/* MFS specific flags */
 };
+
+#define MFSMNT_SIGPPID	0x01	/* send SIGUSR1 to parent when successful */
 #endif /* MFS */
 
 #ifdef NFS
