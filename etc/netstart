@@ -1,10 +1,12 @@
 #!/bin/sh -
 #
-#	@(#)netstart	5.9 (Berkeley) 3/30/91
+#	$Id: netstart,v 1.7 1993/11/07 01:19:02 wollman Exp $
+#	From: @(#)netstart	5.9 (Berkeley) 3/30/91
 
 routedflags=-q
 timedflags=NO
 rwhod=NO
+sendmail_flags="-bd -q30m"
 #kerberos_server=YES
 #nfs_server=YES
 #name_server=YES
