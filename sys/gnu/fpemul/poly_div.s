@@ -46,6 +46,9 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
+ *
+ *     $Id: poly_div.s,v 1.2 1994/04/29 21:23:27 gclarkii Exp $
+ *
  */
 
 #include "fpu_asm.h"

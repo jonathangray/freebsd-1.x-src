@@ -1,3 +1,9 @@
+/*
+ *
+ *    $Id: math_emu.h,v 1.2 1994/04/29 21:23:24 gclarkii Exp $
+ *
+ */
+
 #ifndef _MATH_EMU_H
 #define _MATH_EMU_H
 
