@@ -1,8 +1,4 @@
-/*
- * ISO 8859-1 font file
- *
- *	$Id: iso8859.font,v 1.2 1993/10/16 13:46:01 rgrimes Exp $
- */
+/* ISO 8859-1 font file */
 
 char font_8x8[256*8] = {
 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
