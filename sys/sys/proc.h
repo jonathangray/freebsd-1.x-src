@@ -31,7 +31,7 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)proc.h	7.28 (Berkeley) 5/30/91
- *	$Id: proc.h,v 1.5 1993/12/19 00:55:20 wollman Exp $
+ *	$Id: proc.h,v 1.6 1994/01/14 16:25:46 davidg Exp $
  */
 
 #ifndef _PROC_H_
@@ -208,6 +208,8 @@ struct	pcred {
 #endif
 /* not currently in use (never set) */
 #define	SPAGE	0x0020000	/* process in page wait state */
+
+#define SPAGEDAEMON 0x0080000	/* process has been scanned by pageout daemon */
 
 #ifdef KERNEL
 /*
