@@ -24,7 +24,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *	$Id: vidcontrol.c,v 1.2 1994/05/23 10:22:35 sos Exp $
+ *	$Id: vidcontrol.c,v 1.3 1994/05/23 11:14:57 sos Exp $
  */
 
 #include <ctype.h>
@@ -126,10 +126,9 @@ load_default_scrnmap()
 	scrmap_t scrnmap;
 
 	for (i=0; i<256; i++)
-		scrnmap[i] = i;
+		*((char*)&scrnmap + i) = i;
 	if (ioctl(0, PIO_SCRNMAP, &scrnmap) < 0)
 		perror("can't load default screenmap");
-	close(fd);
 }
 
 
