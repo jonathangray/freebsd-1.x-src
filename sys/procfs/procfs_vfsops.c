@@ -27,7 +27,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *	$Id: procfs_vfsops.c,v 1.1 1993/12/12 12:26:41 davidg Exp $
+ *	$Id: procfs_vfsops.c,v 1.2 1993/12/31 17:42:56 davidg Exp $
  */
 
 /*
@@ -159,8 +159,8 @@ pfs_root(mp, vpp)
 	pfsp->pfs_flags = 0;
 	pfsp->pfs_vflags = 0;
 	pfsp->pfs_uid = 0;
-	pfsp->pfs_gid = 0;
-	pfsp->pfs_mode = 0755;	/* /proc = drwxr-xr-x */
+	pfsp->pfs_gid = 2;	/* XXX group kmem */
+	pfsp->pfs_mode = 0750;	/* /proc = drwxr-x--- */
 
 	/* Append to pfs node list */
 
@@ -195,8 +195,8 @@ pfs_root(mp, vpp)
 	pfsp->pfs_flags = 0;
 	pfsp->pfs_vflags = 0;
 	pfsp->pfs_uid = 0;
-	pfsp->pfs_gid = 0;
-	pfsp->pfs_mode = 0755;	/* /proc = drwxr-xr-x */
+	pfsp->pfs_gid = 2;	/* XXX group kmem */
+	pfsp->pfs_mode = 0750;	/* /proc = drwxr-x--- */
 
 	*vpp = vp;
 	return 0;
