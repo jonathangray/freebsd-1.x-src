@@ -20,7 +20,7 @@
  */
 
 /*
- * $Id: if_ed.c,v 1.21 1993/10/23 04:52:41 davidg Exp $
+ * $Id: if_ed.c,v 1.22 1993/11/07 17:44:28 wollman Exp $
  */
 
 /*
@@ -240,6 +240,8 @@ ed_probe(isa_dev)
 
 	if (nports = ed_probe_Novell(isa_dev))
 		return (nports);
+
+	return 0;		/* Added by GW: don't fall off the end */
 }
 
 /*

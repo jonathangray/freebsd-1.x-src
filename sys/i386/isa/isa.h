@@ -34,8 +34,11 @@
  * SUCH DAMAGE.
  *
  *	from: @(#)isa.h	5.7 (Berkeley) 5/9/91
- *	$Id: isa.h,v 1.2 1993/10/16 13:45:57 rgrimes Exp $
+ *	$Id: isa.h,v 1.3 1993/11/07 17:44:30 wollman Exp $
  */
+
+#ifndef _I386_ISA_ISA_H_
+#define _I386_ISA_ISA_H_ 1
 
 /*
  * ISA Bus conventions
@@ -178,3 +181,4 @@ int isa_irq_pending __P((struct isa_device *dvp));
 #define	WEITEK_FPU	0xC0000000	/* WTL 2167 */
 #define	CYRIX_EMC	0xC0000000	/* Cyrix EMC */
 #endif	COMPAQ_RAMRELOC
+#endif /* _I386_ISA_ISA_H_ */
