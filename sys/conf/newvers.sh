@@ -32,7 +32,7 @@
 # SUCH DAMAGE.
 #
 #	from: @(#)newvers.sh	7.4 (Berkeley) 12/7/90
-#	$Id: newvers.sh,v 1.7 1994/02/23 10:02:35 rgrimes Exp $
+#	$Id: newvers.sh,v 1.8 1994/03/19 23:40:24 wollman Exp $
 #
 
 if [ ! -r version ]
@@ -44,12 +44,18 @@ fi
 
 touch version
 
-kernvers="FreeBSD 1.1.0(Current)"
+ostype="FreeBSD"
+osrelease="1.1.0(Current)"
+kernvers="${ostype} ${osrelease}"
 v=`cat version` t=`date "+ %m/%d/%y %H:%M"`
 t=`date`
 user=${USER-root}
 host=`hostname`
 dir=`pwd`
 (
-  echo "char version[] = \"${kernvers} ($1) #${v}: ${t}\\n  ${user}@${host}:${dir}\\n\";"
+  echo "const char version[] = \"${kernvers} ($1) #${v}: ${t}\\n  ${user}@${host}:${dir}\\n\";"
+  echo "const char ostype[] = \"${ostype}\";"
+  echo "const char osrelease[] = \"${osrelease}\";"
+  echo "const int osbuild = ${v};"
+  echo "const char osconfig[] = \"$1\";"
 ) > vers.c
