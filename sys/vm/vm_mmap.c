@@ -37,7 +37,7 @@
  *
  *	from: Utah $Hdr: vm_mmap.c 1.3 90/01/21$
  *	from: @(#)vm_mmap.c	7.5 (Berkeley) 6/28/91
- *	$Id: vm_mmap.c,v 1.18 1993/12/24 10:31:55 davidg Exp $
+ *	$Id: vm_mmap.c,v 1.19 1993/12/24 10:37:31 davidg Exp $
  */
 
 /*
@@ -178,6 +178,9 @@ smmap(p, uap, retval)
 	if (addr == 0 && (flags & MAP_FIXED) == 0)
 		addr = round_page(p->p_vmspace->vm_daddr + MAXDSIZ);
 
+	/*
+	 * Check address range for validity
+	 */
 	if (addr + size >= VM_MAXUSER_ADDRESS)
 		return(EINVAL);
 	if (addr > addr + size)
