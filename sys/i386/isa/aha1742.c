@@ -14,7 +14,7 @@
  *
  * commenced: Sun Sep 27 18:14:01 PDT 1992
  *
- *	$Id: aha1742.c,v 1.9 1993/08/28 03:07:40 rgrimes Exp $
+ *	$Id: aha1742.c,v 1.10 1993/10/12 07:15:32 rgrimes Exp $
  */
 
 #include <sys/types.h>
@@ -81,7 +81,6 @@ extern physaddr kvtophys();
 #endif MACH
 
 #ifdef        __386BSD__
-#define PHYSTOKV(x)   (x | 0xFE000000)
 #define KVTOPHYS(x)   vtophys(x)
 #endif        __386BSD__
 

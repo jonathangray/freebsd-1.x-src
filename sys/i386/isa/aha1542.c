@@ -12,7 +12,7 @@
  * on the understanding that TFS is not responsible for the correct
  * functioning of this software in any circumstances.
  *
- *	$Id: aha1542.c,v 1.8 1993/08/28 03:07:38 rgrimes Exp $
+ *	$Id: aha1542.c,v 1.9 1993/10/12 07:15:28 rgrimes Exp $
  */
 
 /*
@@ -315,7 +315,6 @@ struct	aha_config
 #define KVTOPHYS(x)	kvtophys(x)
 #else	MACH
 #ifdef	__386BSD__
-#define PHYSTOKV(x)	(x | 0xFE000000)
 #define KVTOPHYS(x)	vtophys(x)
 #else	__386BSD__
 #endif	__386BSD__
