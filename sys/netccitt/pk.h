@@ -35,7 +35,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)pk.h	7.8 (Berkeley) 4/30/91
+ *	from: @(#)pk.h	7.8 (Berkeley) 4/30/91
+ *	$Id: pk.h,v 1.2 1993/10/16 19:46:46 rgrimes Exp $
  */
 
 /*

@@ -30,7 +30,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)if_x25subr.c	7.14 (Berkeley) 6/26/91
+ *	from: @(#)if_x25subr.c	7.14 (Berkeley) 6/26/91
+ *	$Id: if_x25subr.c,v 1.2 1993/10/16 19:46:44 rgrimes Exp $
  */
 
 #include "param.h"

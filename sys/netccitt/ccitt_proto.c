@@ -35,7 +35,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)ccitt_proto.c	7.5 (Berkeley) 8/30/90
+ *	from: @(#)ccitt_proto.c	7.5 (Berkeley) 8/30/90
+ *	$Id: ccitt_proto.c,v 1.2 1993/10/16 19:46:33 rgrimes Exp $
  */
 #define HDLC
 #include "param.h"

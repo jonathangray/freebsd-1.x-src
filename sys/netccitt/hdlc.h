@@ -35,7 +35,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)hdlc.h	7.4 (Berkeley) 5/6/91
+ *	from: @(#)hdlc.h	7.4 (Berkeley) 5/6/91
+ *	$Id: hdlc.h,v 1.2 1993/10/16 19:46:43 rgrimes Exp $
  */
 
 #ifndef ORDER4

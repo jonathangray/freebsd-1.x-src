@@ -35,7 +35,8 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- *	@(#)hd_timer.c	7.4 (Berkeley) 5/29/91
+ *	from: @(#)hd_timer.c	7.4 (Berkeley) 5/29/91
+ *	$Id: hd_timer.c,v 1.2 1993/10/16 19:46:40 rgrimes Exp $
  */
 
 #include "param.h"
