@@ -1,7 +1,11 @@
 #	@(#)bsd.lib.mk	5.26 (Berkeley) 5/2/91
 #
 # $Log: bsd.lib.mk,v $
-# Revision 1.7  1993/07/23 20:44:38  nate
+# Revision 1.8  1993/08/03 20:57:34  nate
+# Fixed macros so that you can do a
+# make maninstall at all times and have it not blow up
+#
+# Revision 1.7  1993/07/23  20:44:38  nate
 # Fixed a boo-boo and made the NOMAN environment variable work correctly with
 # both programs and libraries.
 #
@@ -169,6 +173,8 @@ tags: ${SRCS}
 
 .if !defined(NOMAN)
 .include <bsd.man.mk>
+.elif !target(maninstall)
+maninstall:
 .endif
 
 .if !target(obj)
