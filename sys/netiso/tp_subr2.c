@@ -62,7 +62,7 @@ SOFTWARE.
 /* 
  * ARGO TP
  *
- * $Header: /a/cvs/386BSD/src/sys/netiso/tp_subr2.c,v 1.1 1993/06/12 14:57:16 rgrimes Exp $
+ * $Header: /a/cvs/386BSD/src/sys/netiso/tp_subr2.c,v 1.2 1993/10/01 04:27:09 rgrimes Exp $
  * $Source: /a/cvs/386BSD/src/sys/netiso/tp_subr2.c,v $
  *
  * Some auxiliary routines:
@@ -636,6 +636,10 @@ done:
 	return error;
 }
 
+#ifndef TPCONS
+static
+pk_flowcontrol() {}
+#endif
 
 /* class zero version */
 void
@@ -698,10 +702,6 @@ register struct tp_pcb *tpcb;
 			pk_flowcontrol(lcp, 0, 0);
 	}
 }
-#ifndef TPCONS
-static
-pk_flowcontrol() {}
-#endif
 
 #ifdef TP_PERF_MEAS
 /*
