@@ -20,7 +20,7 @@
  */
 
 /*
- * $Id: if_ed.c,v 1.32 1994/02/02 14:05:53 davidg Exp $
+ * $Id: if_ed.c,v 1.33 1994/02/03 11:50:58 davidg Exp $
  */
 
 #include "ed.h"
@@ -39,7 +39,6 @@
 #include "net/if.h"
 #include "net/if_dl.h"
 #include "net/if_types.h"
-#include "net/netisr.h"
 
 #ifdef INET
 #include "netinet/in.h"
