@@ -56,7 +56,7 @@
  * 28 Jul 93	Jordan K. Hubbard	Free codrv's slot again
  *
  */
-static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/i386/conf.c,v 1.6 1993/08/28 03:06:59 rgrimes Exp $";
+static char rcsid[] = "$Header: /a/cvs/386BSD/src/sys/i386/i386/conf.c,v 1.7 1993/09/15 23:29:11 rgrimes Exp $";
 
 #include "param.h"
 #include "systm.h"
@@ -161,8 +161,7 @@ int	wtdump(),wtsize();
 
 #include "fd.h"
 #if NFD > 0
-int	Fdopen(),fdclose(),fdstrategy();
-#define	fdioctl		enxio
+int	Fdopen(),fdclose(),fdstrategy(),fdioctl();
 #define	fddump		enxio
 #define	fdsize		NULL
 #else
