@@ -29,7 +29,10 @@
 /*
  * HISTORY
  * $Log: boot.c,v $
- * Revision 1.2  1993/07/13 18:15:24  root
+ * Revision 1.3  1993/07/16 13:06:08  rgrimes
+ * Changed header from 386BSD BOOT to FreeBSD BOOT.
+ *
+ * Revision 1.2  1993/07/13  18:15:24  root
  * New boot blocks, from Bruce Evans, and NetBSD fixes.  Allows kernel to
  * be loaded above 1MB.  Same boot code for floppies now.  Speed improvements.
  * etc etc etc. (I don't have much history on this, but then have been tested)
@@ -130,11 +133,11 @@ int drive;
 	int loadflags, currname = 0;
 	char *t;
 		
-	printf("\n>> 386BSD BOOT @ 0x%x: %d/%d k of memory  [%s]\n",
+	printf("\n>> FreeBSD BOOT @ 0x%x: %d/%d k of memory  [%s]\n",
 		ouraddr,
 		argv[7] = memsize(0),
 		argv[8] = memsize(1),
-		"$Revision: 1.2 $");
+		"$Revision: 1.3 $");
 	printf("use options hd(1,...... to boot sd0 when wd0 is also installed\n");
 	gateA20();
 loadstart:
