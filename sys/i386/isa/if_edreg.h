@@ -1,18 +1,14 @@
 /*
  * National Semiconductor DS8390 NIC register definitions 
  *
+ * $Id: if_edreg.h,v 1.6 1993/09/22 17:47:43 davidg Exp $
+ *
+ * Modification history
+ *
  * $Log: if_edreg.h,v $
- * Revision 1.5  1993/09/09 07:01:23  davidg
- * As of this revision, all known bugs have been fixed. Some of the fixes include:
- *
- * 1) fixed 3c503 lock-up if the thinwire cable was disconnected at boot time
- * 2) 8013EBT boards now work (quite well!) in 16bit/16k mode
- * 3) ED_NO_DOUBLE_BUFFERING flag now works
- * 4) slightly higer performance (about 3%) with 16bit WD/SMC boards
- * 5) support for WD8013WC (10BaseT) boards
- *
- * Additionally, the probe code has been reorganized to be much cleaner. This
- * revision of the driver is 1.25. The release notes have been updated as well.
+ * Revision 1.6  1993/09/22 17:47:43  davidg
+ * rewrote interrupt code to be cleaner, fixed up some other parts
+ * to make it easier to add future board types.
  *
  * Revision 1.5  93/08/25  20:38:34  davidg
  * added define for card type WD8013WC (10BaseT)
