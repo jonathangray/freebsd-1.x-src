@@ -47,7 +47,7 @@
 
 #if defined(LIBC_SCCS) && !defined(lint)
 /*static char *sccsid = "from: @(#)malloc.c     5.11 (Berkeley) 2/23/91";*/
-static char *rcsid = "$Id: malloc.c,v 1.2 1993/12/20 00:28:47 alm Exp $";
+static char *rcsid = "$Id: malloc.c,v 1.3 1993/12/20 19:30:14 proven Exp $";
 #endif /* LIBC_SCCS and not lint */
 
 #include <pthread.h>
